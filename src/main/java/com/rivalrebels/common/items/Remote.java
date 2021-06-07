@@ -5,6 +5,7 @@ import com.rivalrebels.common.blocks.Explosives;
 import com.rivalrebels.common.init.RRSounds;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -24,21 +25,23 @@ public class Remote extends RRItem {
     @Override
     public EnumActionResult onItemUse(EntityPlayer player, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
         ItemStack stack = player.getHeldItem(hand);
-        if(player.capabilities.isCreativeMode || player.inventory.hasItemStack(new ItemStack(RivalRebels.plastic_explosives))) {
-            stack.setTagCompound(new NBTTagCompound());
-        if (stack.getTagCompound() != null) {
-            stack.getTagCompound().setInteger("remotex", pos.getX());
-            stack.getTagCompound().setInteger("remotey", pos.getY() + 1);
-            stack.getTagCompound().setInteger("remotez", pos.getZ());
-        }
-        if(!worldIn.isRemote){
-            player.sendStatusMessage(new TextComponentString("§7[".substring(1) + "§4Orders".substring(1) + "§7]".substring(1) + "§cShift-click (Sneak) to detonate.".substring(1)), false);
-        }
-        worldIn.playSound(null, pos, RRSounds.explosives_place, SoundCategory.AMBIENT, 1f, 1f);
-        if(!player.capabilities.isCreativeMode) {
-            player.inventory.getStackInSlot(player.inventory.findSlotMatchingUnusedItem(new ItemStack(RivalRebels.plastic_explosives))).shrink(1);
-        }
-            worldIn.setBlockState(pos.add(0, 1, 0), RivalRebels.plastic_explosives.getDefaultState());
+        if(worldIn.getBlockState(pos.add(0, 1, 0)) == Blocks.AIR.getDefaultState()) {
+            if (player.capabilities.isCreativeMode || player.inventory.hasItemStack(new ItemStack(RivalRebels.plastic_explosives))) {
+                stack.setTagCompound(new NBTTagCompound());
+                if (stack.getTagCompound() != null) {
+                    stack.getTagCompound().setInteger("remotex", pos.getX());
+                    stack.getTagCompound().setInteger("remotey", pos.getY() + 1);
+                    stack.getTagCompound().setInteger("remotez", pos.getZ());
+                }
+                if (!worldIn.isRemote) {
+                    player.sendStatusMessage(new TextComponentString("§7[".substring(1) + "§4Orders".substring(1) + "§7]".substring(1) + "§cShift-click (Sneak) to detonate.".substring(1)), false);
+                }
+                worldIn.playSound(null, pos, RRSounds.explosives_place, SoundCategory.AMBIENT, 1f, 1f);
+                if (!player.capabilities.isCreativeMode) {
+                    player.inventory.getStackInSlot(player.inventory.findSlotMatchingUnusedItem(new ItemStack(RivalRebels.plastic_explosives))).shrink(1);
+                }
+                worldIn.setBlockState(pos.add(0, 1, 0), RivalRebels.plastic_explosives.getDefaultState());
+            }
         }
         return EnumActionResult.SUCCESS;
     }
