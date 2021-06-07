@@ -1,0 +1,16 @@
+[
+{
+  "modid": "rivalrebels",
+  "name": "Rival Rebels",
+  "description": "Rival Rebels is a PvP war mod with powerful weapons. Rival Rebels was originally created by Rodol Phito and ported to this version by a weeb programmer",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "https://rivalrebels.com",
+  "updateUrl": "",
+  "authorList": ["a weeb programmer", "Rodol Phito"],
+  "credits": "Special thanks to Rodol Phito for creating the original mod, and special thanks to the Rival Rebels Community",
+  "logoFile": "assets/rivalrebels/textures/gui/logo.png",
+  "screenshots": [],
+  "dependencies": []
+}
+]

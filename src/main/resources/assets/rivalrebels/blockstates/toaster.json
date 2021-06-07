@@ -1,0 +1,22 @@
+{
+  "variants": {
+    "normal": {
+      "model": "rivalrebels:toaster"
+    },
+    "facing=north": {
+      "model": "rivalrebels:toaster"
+    },
+    "facing=east": {
+      "model": "rivalrebels:toaster",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "rivalrebels:toaster",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "rivalrebels:toaster",
+      "y": 270
+    }
+  }
+}

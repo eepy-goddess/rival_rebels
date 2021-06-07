@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "up": "rivalrebels:blocks/toaster_slots",
+    "north": "rivalrebels:blocks/toaster_plating",
+    "west": "rivalrebels:blocks/toaster_switch",
+    "south": "rivalrebels:blocks/toaster_plating",
+    "east": "rivalrebels:blocks/toaster_plating",
+    "down": "rivalrebels:blocks/toaster_plating",
+    "particle": "rivalrebels:blocks/toaster_plating"
+  }
+}

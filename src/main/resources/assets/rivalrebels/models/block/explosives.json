@@ -1,0 +1,23 @@
+{
+  "parent": "block/block",
+  "textures": {
+    "particle": "rivalrebels:blocks/explosives_top",
+    "bottom": "rivalrebels:blocks/explosives_top",
+    "top": "rivalrebels:blocks/explosives_top",
+    "sides": "rivalrebels:blocks/explosives_side"
+  },
+  "elements": [
+    {
+      "from": [1, 0, 1],
+      "to": [15, 8, 15],
+      "faces": {
+        "down": {"uv": [1, 1, 15, 15], "texture": "#bottom", "cullface": "down"},
+        "up": {"uv": [1, 1, 15, 15], "texture": "#top"},
+        "north": {"uv": [1, 8, 15, 16], "texture": "#sides", "cullface": "north"},
+        "east": {"uv": [1, 8, 15, 16], "texture": "#sides", "cullface": "east"},
+        "south": {"uv": [1, 8, 15, 16], "texture": "#sides", "cullface": "south"},
+        "west": {"uv": [1, 8, 15, 16], "texture": "#sides", "cullface": "west"}
+      }
+    }
+  ]
+}

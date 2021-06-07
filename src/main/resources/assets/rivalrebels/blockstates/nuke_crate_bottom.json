@@ -1,0 +1,30 @@
+{
+  "variants": {
+    "normal": {
+      "model": "rivalrebels:nuke_crate_bottom"
+    },
+    "meta=0": {
+      "model": "rivalrebels:nuke_crate_bottom",
+      "x": 180
+    },
+    "meta=1": {
+      "model": "rivalrebels:nuke_crate_bottom"
+    },
+    "meta=2": {
+      "model": "rivalrebels:nuke_crate_bottom",
+      "x": -90
+    },
+    "meta=3": {
+      "model": "rivalrebels:nuke_crate_bottom",
+      "x": 90
+    },
+    "meta=4": {
+      "model": "rivalrebels:nuke_crate_bottom",
+      "z": 90
+    },
+    "meta=5": {
+      "model": "rivalrebels:nuke_crate_bottom",
+      "x": -90
+    }
+  }
+}

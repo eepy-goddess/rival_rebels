@@ -1,0 +1,38 @@
+{
+  "gulp": {
+    "category": "ambient",
+    "sounds": [{"name": "rivalrebels:ingest/b1"}, "rivalrebels:ingest/b1", "rivalrebels:ingest/b2"]
+  },
+  "toyguy_song": {
+    "category": "ambient",
+    "sounds": [{"name": "rivalrebels:ingest/toyguy_song"}]
+  },
+  "plasma_explosion": {
+    "category": "ambient",
+    "sounds": [{"name": "rivalrebels:plasma/plasma_explosion"}]
+  },
+  "plasma_prime": {
+    "category": "ambient",
+    "sounds": [{"name": "rivalrebels:plasma/prime"}]
+  },
+  "plasma_fire": {
+    "category": "ambient",
+    "sounds": [{"name": "rivalrebels:plasma/fire"}]
+  },
+  "generic_explosion": {
+    "category": "ambient",
+    "sounds": [{"name": "rivalrebels:explosion/generic_explosion"}]
+  },
+  "explosives_place": {
+    "category": "ambient",
+    "sounds": [{"name": "rivalrebels:explosion/explosives_place"}]
+  },
+  "weird_noise": {
+    "category": "ambient",
+    "sounds": [{"name": "rivalrebels:explosion/weird_noise"}]
+  },
+  "quicksand": {
+    "category": "ambient",
+    "sounds": [{"name": "rivalrebels:quicksand/quicksand1"}, "rivalrebels:quicksand/quicksand1", "rivalrebels:quicksand/quicksand2"]
+  }
+}

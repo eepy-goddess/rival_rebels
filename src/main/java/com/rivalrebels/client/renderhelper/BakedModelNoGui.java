@@ -1,0 +1,72 @@
+package com.rivalrebels.client.renderhelper;
+
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.block.model.BakedQuad;
+import net.minecraft.client.renderer.block.model.IBakedModel;
+import net.minecraft.client.renderer.block.model.ItemCameraTransforms;
+import net.minecraft.client.renderer.block.model.ItemCameraTransforms.TransformType;
+import net.minecraft.client.renderer.block.model.ItemOverrideList;
+import net.minecraft.client.renderer.texture.TextureAtlasSprite;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.client.MinecraftForgeClient;
+import net.minecraftforge.client.model.IModel;
+import net.minecraftforge.fml.client.registry.ClientRegistry;
+import org.apache.commons.lang3.tuple.Pair;
+import net.minecraft.util.EnumFacing;
+import net.minecraft.world.World;
+
+import javax.vecmath.Matrix4f;
+import java.util.Collections;
+import java.util.List;
+
+public class BakedModelNoGui implements IBakedModel {
+    private ItemRenderBase renderer;
+
+    public BakedModelNoGui(ItemRenderBase renderer) {
+        this.renderer = renderer;
+    }
+
+    @Override
+    public List<BakedQuad> getQuads(IBlockState state, EnumFacing side, long rand) {
+        return renderer.type == TransformType.GUI ? Collections.emptyList() : renderer.model.getQuads(state, side, rand);
+    }
+
+    @Override
+    public boolean isAmbientOcclusion() {
+        return renderer.type != ItemCameraTransforms.TransformType.GUI ? false : renderer.model.isAmbientOcclusion();
+    }
+
+    @Override
+    public boolean isGui3d() {
+        return false;
+    }
+
+    @Override
+    public boolean isBuiltInRenderer() {
+        return true;
+    }
+
+    @Override
+    public TextureAtlasSprite getParticleTexture() {
+        return renderer.model.getParticleTexture();
+    }
+
+    @Override
+    public ItemOverrideList getOverrides() {
+        return renderer.type != TransformType.GUI ? new ItemOverrideList(Collections.emptyList()){
+            @Override
+            public IBakedModel handleItemState(IBakedModel originalModel, ItemStack stack, World world, EntityLivingBase entity) {
+                renderer.entity = entity;
+                renderer.world = world;
+                return super.handleItemState(originalModel, stack, world, entity);
+            }
+        } : renderer.model.getOverrides();
+    }
+    @Override
+    public Pair<? extends IBakedModel, Matrix4f> handlePerspective(ItemCameraTransforms.TransformType cameraTransformType) {
+        renderer.type = cameraTransformType;
+        return Pair.of(this, renderer.model.handlePerspective(cameraTransformType).getRight());
+    }
+}

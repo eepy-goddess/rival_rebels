@@ -1,0 +1,16 @@
+item.rod.name=Rod
+item.nuke_rod.name=Nuclear Rod
+item.hydrogen_rod.name=Hydrogen Rod
+item.pliers.name=Pliers
+RivalRebels.Orders=§7[§4Orders§7]§c
+tile.nuke_crate_bottom.name=Nuke Crate Bottom
+tile.nuke_crate_top.name=Nuke Crate Top
+tile.loader.name=Loader
+RivalRebels.message.use=Use
+tile.nuke.name=Nuke
+tile.steel.name=Steel
+tile.toaster.name=Toaster
+item.plasma_cannon.name=Plasma Cannon
+itemGroup.rival_rebels=Rival Rebels
+itemGroup.rival_rebels2=Rival Rebels Armor and Flags
+item.lol.name=LOL

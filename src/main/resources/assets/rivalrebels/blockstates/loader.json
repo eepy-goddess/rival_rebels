@@ -1,0 +1,22 @@
+{
+  "variants": {
+    "normal": {
+      "model": "rivalrebels:loader"
+    },
+    "meta=0": {
+      "model": "rivalrebels:loader",
+      "y": 90
+    },
+    "meta=1": {
+      "model": "rivalrebels:loader",
+      "y": -90
+    },
+    "meta=2": {
+      "model": "rivalrebels:loader",
+      "y": 180
+    },
+    "meta=3": {
+      "model": "rivalrebels:loader"
+    }
+  }
+}

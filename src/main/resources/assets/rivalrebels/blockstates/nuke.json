@@ -1,0 +1,30 @@
+{
+  "variants": {
+    "normal": {
+      "model": "rivalrebels:nuke"
+    },
+    "meta=0": {
+      "model": "rivalrebels:nuke"
+    },
+    "meta=1": {
+      "model": "rivalrebels:nuke",
+      "y": 90
+    },
+    "meta=2": {
+      "model": "rivalrebels:nuke",
+      "y": 180
+    },
+    "meta=3": {
+      "model": "rivalrebels:nuke",
+      "y": 270
+    },
+    "meta=4": {
+      "model": "rivalrebels:nuke",
+      "y": 270
+    },
+    "meta=5": {
+      "model": "rivalrebels:nuke",
+      "y": 270
+    }
+  }
+}
