@@ -34,5 +34,9 @@
   "quicksand": {
     "category": "ambient",
     "sounds": [{"name": "rivalrebels:quicksand/quicksand1"}, "rivalrebels:quicksand/quicksand1", "rivalrebels:quicksand/quicksand2"]
+  },
+  "glass_break": {
+    "category": "ambient",
+    "sounds": [{"name": "rivalrebels:glass_break/a1"}, "rivalrebels:glass_break/a1", "rivalrebels:glass_break/a2", "rivalrebels:glass_break/a3"]
   }
 }
