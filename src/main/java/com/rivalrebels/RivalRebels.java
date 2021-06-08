@@ -62,6 +62,7 @@ public class RivalRebels {
     public static Item detonator;
     public static Item fuel;
     public static Item rocket;
+    public static Item knife;
     /*___________Blocks start_______________*/
     public static Block steel;
     public static Block nuke;
@@ -129,6 +130,7 @@ public class RivalRebels {
         iMine = new RRItemBlock(mine, "mine").setModelName(modid + ":mine").setCreativeTab(nuclear_rr);
         mario = new Mario("mario", Material.GROUND).setSoundType(SoundType.GROUND).setCreativeTab(nuclear_rr).setHardness(0.3f);
         quicksand = new Quicksand("quicksand", Material.SAND).setSoundType(SoundType.SAND).setCreativeTab(nuclear_rr).setHardness(0.2f);
+        knife = new RRItem("knife").setModelName(modid + ":knife").setCreativeTab(nuclear_rr).setFull3D();
         EntityRegistry.registerModEntity(new ResourceLocation(modid, "plasmoid"), EntityPlasmoid.class, "plasmoid", 0, instance, 100000, 100, true);
         EntityRegistry.registerModEntity(new ResourceLocation(modid, "debris"), EntityDebris.class, "debris", 1, instance, 100000, 1000, true);
         proxy.registerRenderStuff(event);

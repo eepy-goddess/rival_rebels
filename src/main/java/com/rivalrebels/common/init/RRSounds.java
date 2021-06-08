@@ -15,6 +15,7 @@ public class RRSounds {
     public static SoundEvent explosives_place;
     public static SoundEvent weird_noise;
     public static SoundEvent quicksand;
+    public static SoundEvent glass_break;
     public static void init(){
         gulp = new SoundEvent(new ResourceLocation(RivalRebels.modid, "gulp")).setRegistryName("gulp");
         toyguy = new SoundEvent(new ResourceLocation(RivalRebels.modid, "toyguy_song")).setRegistryName("toyguy_song");
@@ -25,6 +26,7 @@ public class RRSounds {
         explosives_place = new SoundEvent(new ResourceLocation(RivalRebels.modid, "explosives_place")).setRegistryName("explosives_place");
         weird_noise = new SoundEvent(new ResourceLocation(RivalRebels.modid, "weird_noise")).setRegistryName("weird_noise");
         quicksand = new SoundEvent(new ResourceLocation(RivalRebels.modid, "quicksand")).setRegistryName("quicksand");
+        glass_break = new SoundEvent(new ResourceLocation(RivalRebels.modid, "glass_break")).setRegistryName("glass_break");
 
     }
 }
