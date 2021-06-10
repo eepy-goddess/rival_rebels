@@ -38,5 +38,9 @@
   "glass_break": {
     "category": "ambient",
     "sounds": [{"name": "rivalrebels:glass_break/a1"}, "rivalrebels:glass_break/a1", "rivalrebels:glass_break/a2", "rivalrebels:glass_break/a3"]
+  },
+  "knife_throw": {
+    "category": "ambient",
+    "sounds": [{"name": "rivalrebels:knife/d1"}, "rivalrebels:knife/d1", "rivalrebels:knife/d2", "rivalrebels:knife/d3"]
   }
 }

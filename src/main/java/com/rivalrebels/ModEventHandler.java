@@ -193,6 +193,6 @@ public class ModEventHandler {
     @SubscribeEvent
     public static void soundStuff(RegistryEvent.Register<SoundEvent> event){
         event.getRegistry().registerAll(RRSounds.gulp, RRSounds.generic_explosion, RRSounds.plasma_explosion, RRSounds.plasma_fire, RRSounds.plasma_prime,
-                RRSounds.toyguy, RRSounds.explosives_place, RRSounds.quicksand, RRSounds.glass_break);
+                RRSounds.toyguy, RRSounds.explosives_place, RRSounds.quicksand, RRSounds.glass_break, RRSounds.knife_throw);
     }
 }

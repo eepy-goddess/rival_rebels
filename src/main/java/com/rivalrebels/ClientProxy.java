@@ -5,6 +5,7 @@ import com.rivalrebels.client.oldstuff.IModelCustom;
 import com.rivalrebels.client.oldstuff.IModelCustomLoader;
 import com.rivalrebels.client.render.*;
 import com.rivalrebels.client.renderhelper.ItemRenderBase;
+import com.rivalrebels.common.entity.EntityCuchillo;
 import com.rivalrebels.common.entity.EntityDebris;
 import com.rivalrebels.common.entity.EntityPlasmoid;
 import com.rivalrebels.common.tileentity.*;
@@ -52,6 +53,7 @@ public class ClientProxy extends CommonProxy{
         ClientRegistry.bindTileEntitySpecialRenderer(MineTileEntity.class, new MineRenderer());
         GameRegistry.registerTileEntity(TileMario.class, new ResourceLocation(RivalRebels.modid, "mario"));
         ClientRegistry.bindTileEntitySpecialRenderer(TileMario.class, new RenderMario());
+        RenderingRegistry.registerEntityRenderingHandler(EntityCuchillo.class, RenderCuchillo::new);
     }
     public void registerModel(Item item, int meta, String variant){
         ModelLoader.setCustomModelResourceLocation(item, meta, new ModelResourceLocation(item.getRegistryName(), variant));

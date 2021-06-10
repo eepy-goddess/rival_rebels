@@ -6,8 +6,10 @@ import com.rivalrebels.common.init.RivalRebelsDamageSource;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.projectile.EntityArrow;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemStack;
@@ -87,12 +89,12 @@ public class EntityCuchillo extends Entity {
             if (mop != null) vec3 = new Vec3d(mop.hitVec.x, mop.hitVec.y, mop.hitVec.z);
             else vec3 = new Vec3d(posX + motionX, posY + motionY, posZ + motionZ);
 
-            List list = world.getEntitiesWithinAABBExcludingEntity(this, getEntityBoundingBox().contract(motionX, motionY, motionZ).expand(1.0D, 1.0D, 1.0D));
+            List<Entity> list = world.getEntitiesWithinAABBExcludingEntity(this, getEntityBoundingBox().contract(motionX, motionY, motionZ).expand(1.0D, 1.0D, 1.0D));
             double d0 = Double.MAX_VALUE;
             for (int i = 0; i < list.size(); ++i)
             {
                 Entity entity = (Entity) list.get(i);
-                if (entity.canBeCollidedWith() && (ticksExisted >= 10 || entity != shootingEntity))
+                if (entity.canBeCollidedWith() && (ticksExisted >= 5 || entity != shootingEntity))
                 {
                     RayTraceResult mop1 = entity.getEntityBoundingBox().expand(0.5f, 0.5f, 0.5f).calculateIntercept(vec31, vec3);
                     if (mop1 != null)
@@ -119,10 +121,10 @@ public class EntityCuchillo extends Entity {
                     else
                     {
                         Block block = world.getBlockState(new BlockPos(mop.hitVec.x, mop.hitVec.y, mop.hitVec.z)).getBlock();
-                        Material hit = block.getMaterial(block.getDefaultState());
+                        Material hit = block.getDefaultState().getMaterial();
                         if (block == Blocks.GLASS || block == Blocks.GLASS_PANE || block == Blocks.STAINED_GLASS || block == Blocks.STAINED_GLASS_PANE)
                         {
-                            world.setBlockState(new BlockPos(mop.hitVec.x, mop.hitVec.y, mop.hitVec.z), Blocks.AIR.getDefaultState());
+                            world.setBlockToAir(new BlockPos(mop.hitVec.x, mop.hitVec.y, mop.hitVec.z));
                             world.playSound(null, posX, posY, posZ, RRSounds.glass_break, SoundCategory.AMBIENT,5F, 0.3F);
                             return;
                         }
@@ -201,4 +203,14 @@ public class EntityCuchillo extends Entity {
         }
     }
 
+    @Override
+    protected boolean canTriggerWalking() {
+        return false;
+    }
+
+    @Override
+    public boolean isInRangeToRenderDist(double par1)
+    {
+        return true;
+    }
 }
