@@ -5,6 +5,7 @@ import com.rivalrebels.client.render.*;
 import com.rivalrebels.client.renderhelper.BakedModelNoGui;
 import com.rivalrebels.client.renderhelper.ItemRenderBase;
 import com.rivalrebels.common.blocks.RRBlock;
+import com.rivalrebels.common.blocks.Reactive;
 import com.rivalrebels.common.init.RRSounds;
 import com.rivalrebels.common.items.IHasModel;
 import com.rivalrebels.common.items.RRItem;
@@ -179,6 +180,10 @@ public class ModEventHandler {
     @SubscribeEvent
     public static void colorBlock(ColorHandlerEvent.Block event){
         event.getBlockColors().registerBlockColorHandler((state, world, pos, tint) -> world != null && pos != null ? BiomeColorHelper.getGrassColorAtPos(world, pos) : ColorizerGrass.getGrassColor(0.5D, 1.0D), RivalRebels.mine);
+        event.getBlockColors().registerBlockColorHandler((state, world, pos, tint) ->{
+            assert world != null;
+            assert pos != null;
+            return (15 - world.getBlockState(pos).getValue(Reactive.meta)) * 1118481;}, RivalRebels.reactive);
     }
     @SubscribeEvent
     public static void tooltipDraw(ItemTooltipEvent event){

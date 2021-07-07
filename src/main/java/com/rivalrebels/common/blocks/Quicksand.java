@@ -1,9 +1,12 @@
 package com.rivalrebels.common.blocks;
 
 import com.rivalrebels.common.init.RRSounds;
+import com.rivalrebels.common.tileentity.TileQuickSand;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.EnumBlockRenderType;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
@@ -31,4 +34,20 @@ public class Quicksand extends RRBlock{
         entityIn.motionY = entityIn.motionY * 0.005;
         if (worldIn.rand.nextFloat() > 0.95) worldIn.playSound(null, pos, RRSounds.quicksand, SoundCategory.AMBIENT, 1f, 1f);
     }
+    @Override
+    public boolean hasTileEntity(IBlockState state){
+        return true;
+    }
+
+    @Nullable
+    @Override
+    public TileEntity createTileEntity(World world, IBlockState state) {
+        return new TileQuickSand();
+    }
+
+    @Override
+    public EnumBlockRenderType getRenderType(IBlockState state) {
+        return EnumBlockRenderType.INVISIBLE;
+    }
+    
 }

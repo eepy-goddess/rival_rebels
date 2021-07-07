@@ -2,11 +2,14 @@ package com.rivalrebels.common.explosion;
 
 import com.rivalrebels.RivalRebels;
 import com.rivalrebels.common.entity.EntityDebris;
+import com.rivalrebels.common.init.RRSounds;
+import com.rivalrebels.common.init.RivalRebelsDamageSource;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumParticleTypes;
+import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
@@ -91,10 +94,10 @@ public class RivalRebelsExplosion {
                     if (block != null && block != Blocks.AIR && block != Blocks.BEDROCK)
                     {
                         int dist = X * X + Y * Y + Z * Z;
-                        /*if (dist <= delete && block == RivalRebels.camo1 && block == RivalRebels.camo2 && block == RivalRebels.camo3)
+                        if (dist <= delete && block == RivalRebels.green_camo && block == RivalRebels.brown_camo && block == RivalRebels.grey_camo)
                         {
-                            world.setBlock(xx, yy, zz, Blocks.air);
-                        }*/
+                            world.setBlockToAir(new BlockPos(xx, yy, zz));
+                        }
                         if (dist < radius)
                         {
                             int varrand = 1 + dist - halfradius;
@@ -132,13 +135,13 @@ public class RivalRebelsExplosion {
         double zmo = z - zz;
         e.addVelocity(xmo * 0.2f, ymo * 0.2f, zmo * 0.2f);
         world.spawnEntity(e);
-        /*if (block == RivalRebels.remotecharge)
+        if (block == RivalRebels.plastic_explosives)
         {
-            world.setBlockState(new BlockPos(xx, yy, zz), Blocks.air);
-            //RivalRebelsSoundPlayer.playSound(world, 22, 0, xx, yy, zz, 0.5f, 0.3f);
-            new RivalRebelsExplosion(world, x + 0.5f, y + 0.5f, z + 0.5f, RivalRebels.chargeExplodeSize, false, false, RivalRebelsDamageSource.charge);
+            world.setBlockToAir(new BlockPos(xx, yy, zz));
+            world.playSound(null, xx, yy, zz, RRSounds.generic_explosion, SoundCategory.AMBIENT, 0.5f, 0.3f);
+            new RivalRebelsExplosion(world, x + 0.5f, y + 0.5f, z + 0.5f, 5, false, false, RivalRebelsDamageSource.charge);
             return;
-        }*/
+        }
         if (/*block == RivalRebels.toxicgas ||*/ block == Blocks.CHEST || block == Blocks.VINE || block == Blocks.TALLGRASS /*|| block == RivalRebels.flare || block == RivalRebels.light || block == RivalRebels.light2 || block == RivalRebels.reactive || block == RivalRebels.timedbomb*/)
         {
             world.setBlockState(new BlockPos(xx, yy, zz), Blocks.AIR.getDefaultState());

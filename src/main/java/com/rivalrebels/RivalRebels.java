@@ -8,9 +8,7 @@ import com.rivalrebels.common.creativetabs.NuclearRR;
 import com.rivalrebels.common.entity.EntityCuchillo;
 import com.rivalrebels.common.entity.EntityDebris;
 import com.rivalrebels.common.entity.EntityPlasmoid;
-import com.rivalrebels.common.init.RRSounds;
-import com.rivalrebels.common.init.RivalRebelsGuiHandler;
-import com.rivalrebels.common.init.RivalRebelsRecipes;
+import com.rivalrebels.common.init.*;
 import com.rivalrebels.common.items.*;
 import com.rivalrebels.common.packet.PacketDispatcher;
 import net.minecraft.block.Block;
@@ -18,15 +16,11 @@ import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemBucketMilk;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
-import net.minecraftforge.fml.common.event.FMLInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
+import net.minecraftforge.fml.common.event.*;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
 
@@ -82,6 +76,7 @@ public class RivalRebels {
     public static Item iMine;
     public static Block mario;
     public static Block quicksand;
+    public static Block reactive;
     /*______________________config start___________________________*/
     public Configuration config;
     public static float nukeScale = 1.0F;
@@ -132,6 +127,7 @@ public class RivalRebels {
         mario = new Mario("mario", Material.GROUND).setSoundType(SoundType.GROUND).setCreativeTab(nuclear_rr).setHardness(0.3f);
         quicksand = new Quicksand("quicksand", Material.SAND).setSoundType(SoundType.SAND).setCreativeTab(nuclear_rr).setHardness(0.2f);
         knife = new Cuchillo("knife").setCreativeTab(nuclear_rr).setFull3D();
+        reactive = new Reactive("reactive", Material.IRON).setSoundType(SoundType.METAL).setCreativeTab(nuclear_rr).setHardness(9.0f);
         EntityRegistry.registerModEntity(new ResourceLocation(modid, "plasmoid"), EntityPlasmoid.class, "plasmoid", 0, instance, 100000, 100, true);
         EntityRegistry.registerModEntity(new ResourceLocation(modid, "debris"), EntityDebris.class, "debris", 1, instance, 100000, 1000, true);
         EntityRegistry.registerModEntity(new ResourceLocation(modid, "cuchillo"), EntityCuchillo.class, "cuchillo", 2, instance, 100000, 1000, true);

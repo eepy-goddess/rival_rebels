@@ -1,0 +1,52 @@
+{
+  "variants": {
+    "stage=0": {
+      "model": "rivalrebels:reactive"
+    },
+    "stage=1": {
+      "model": "rivalrebels:reactive"
+    },
+    "stage=2": {
+      "model": "rivalrebels:reactive"
+    },
+    "stage=3": {
+      "model": "rivalrebels:reactive"
+    },
+    "stage=4": {
+      "model": "rivalrebels:reactive"
+    },
+    "stage=5": {
+      "model": "rivalrebels:reactive"
+    },
+    "stage=6": {
+      "model": "rivalrebels:reactive"
+    },
+    "stage=7": {
+      "model": "rivalrebels:reactive"
+    },
+    "stage=8": {
+      "model": "rivalrebels:reactive"
+    },
+    "stage=9": {
+      "model": "rivalrebels:reactive"
+    },
+    "stage=10": {
+      "model": "rivalrebels:reactive"
+    },
+    "stage=11": {
+      "model": "rivalrebels:reactive"
+    },
+    "stage=12": {
+      "model": "rivalrebels:reactive"
+    },
+    "stage=13": {
+      "model": "rivalrebels:reactive"
+    },
+    "stage=14": {
+      "model": "rivalrebels:reactive"
+    },
+    "stage=15": {
+      "model": "rivalrebels:reactive"
+    }
+  }
+}

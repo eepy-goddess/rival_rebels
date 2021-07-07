@@ -54,6 +54,8 @@ public class ClientProxy extends CommonProxy{
         GameRegistry.registerTileEntity(TileMario.class, new ResourceLocation(RivalRebels.modid, "mario"));
         ClientRegistry.bindTileEntitySpecialRenderer(TileMario.class, new RenderMario());
         RenderingRegistry.registerEntityRenderingHandler(EntityCuchillo.class, RenderCuchillo::new);
+        GameRegistry.registerTileEntity(TileQuickSand.class, new ResourceLocation(RivalRebels.modid, "quicksand"));
+        ClientRegistry.bindTileEntitySpecialRenderer(TileQuickSand.class, new RenderQuicksand());
     }
     public void registerModel(Item item, int meta, String variant){
         ModelLoader.setCustomModelResourceLocation(item, meta, new ModelResourceLocation(item.getRegistryName(), variant));
