@@ -1,6 +1,5 @@
 package com.rivalrebels;
 
-import com.rivalrebels.client.model.RodModel;
 import com.rivalrebels.client.render.*;
 import com.rivalrebels.client.renderhelper.BakedModelNoGui;
 import com.rivalrebels.client.renderhelper.ItemRenderBase;
@@ -10,44 +9,26 @@ import com.rivalrebels.common.init.RRSounds;
 import com.rivalrebels.common.items.IHasModel;
 import com.rivalrebels.common.items.RRItem;
 import com.rivalrebels.common.items.RRItemBlock;
-import net.minecraft.advancements.critereon.ItemPredicate;
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockGrass;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.block.model.IBakedModel;
-import net.minecraft.client.renderer.block.model.ItemOverride;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
-import net.minecraft.client.renderer.block.statemap.BlockStateMapper;
-import net.minecraft.client.renderer.block.statemap.IStateMapper;
-import net.minecraft.client.renderer.color.BlockColors;
-import net.minecraft.client.renderer.color.IBlockColor;
-import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.tileentity.TileEntityItemStackRenderer;
-import net.minecraft.client.renderer.tileentity.TileEntityRendererDispatcher;
-import net.minecraft.client.resources.Language;
-import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
-import net.minecraft.item.IItemPropertyGetter;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.SoundEvent;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.registry.IRegistry;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.ColorizerGrass;
-import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.biome.BiomeColorHelper;
 import net.minecraftforge.client.event.ColorHandlerEvent;
 import net.minecraftforge.client.event.ModelBakeEvent;
 import net.minecraftforge.client.event.ModelRegistryEvent;
-import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-
-import javax.annotation.Nullable;
 
 @Mod.EventBusSubscriber(modid = RivalRebels.modid)
 public class ModEventHandler {
@@ -155,6 +136,11 @@ public class ModEventHandler {
             ((RenderFuel)fuel_renderer).renderByItem(new ItemStack(RivalRebels.fuel));
             swapModelsNoGui(RivalRebels.fuel, event.getModelRegistry());
         }
+        TileEntityItemStackRenderer flamethrower_renderer = RivalRebels.flamethrower.getTileEntityItemStackRenderer();
+        if(flamethrower_renderer instanceof RenderFlamethrower){
+            ((RenderFlamethrower)flamethrower_renderer).renderByItem(new ItemStack(RivalRebels.flamethrower));
+            swapModelsNoGui(RivalRebels.flamethrower, event.getModelRegistry());
+        }
     }
     public static void swapModelsNoGui(Item item, IRegistry<ModelResourceLocation, IBakedModel> reg) {
         ModelResourceLocation loc;
@@ -183,7 +169,7 @@ public class ModEventHandler {
         event.getBlockColors().registerBlockColorHandler((state, world, pos, tint) ->{
             assert world != null;
             assert pos != null;
-            return (15 - world.getBlockState(pos).getValue(Reactive.meta)) * 1118481;}, RivalRebels.reactive);
+            return (15 - state.getValue(Reactive.meta)) * 1118481;}, RivalRebels.reactive);
     }
     @SubscribeEvent
     public static void tooltipDraw(ItemTooltipEvent event){

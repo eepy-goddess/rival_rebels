@@ -32,27 +32,22 @@ public class Reactive extends RRBlock {
     }
 
     @Override
-    public int getMetaFromState(IBlockState state) {
-        return state.getValue(meta);
-    }
-
-    @Override
-    public IBlockState getStateFromMeta(int meta) {
-        return this.getDefaultState().withProperty(Reactive.meta, meta);
-    }
-
-    @Override
     protected BlockStateContainer createBlockState() {
         return new BlockStateContainer(this, new IProperty[]{meta});
     }
 
     @Override
-    public BlockRenderLayer getBlockLayer() {
-        return BlockRenderLayer.CUTOUT_MIPPED;
+    public int getMetaFromState(IBlockState state) {
+        return state.getValue(meta);
     }
 
     @Override
-    public void addInformation(ItemStack stack, @Nullable World player, List<String> tooltip, ITooltipFlag advanced) {
-        tooltip.add(TextFormatting.GOLD + "WARNING: Do not sprint on unless you want your game to crash!");
+    public IBlockState getStateFromMeta(int metad) {
+        return this.getDefaultState().withProperty(meta, metad);
+    }
+
+    @Override
+    public BlockRenderLayer getBlockLayer() {
+        return BlockRenderLayer.CUTOUT_MIPPED;
     }
 }
