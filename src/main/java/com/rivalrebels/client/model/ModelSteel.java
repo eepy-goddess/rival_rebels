@@ -1,6 +1,7 @@
 package com.rivalrebels.client.model;
 
 import com.rivalrebels.client.oldstuff.Tessellator;
+import com.rivalrebels.client.renderhelper.RenderHelper;
 import com.rivalrebels.client.renderhelper.Vertice;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
@@ -10,15 +11,15 @@ public class ModelSteel {
     Tessellator	tessellator	= Tessellator.instance;
     float		s			= 0.5F;
 
-    Vertice		v1			= new Vertice(s, s, s);
-    Vertice		v2			= new Vertice(s, s, -s);
-    Vertice		v3			= new Vertice(-s, s, -s);
-    Vertice		v4			= new Vertice(-s, s, s);
+    Vertice		v1			= new Vertice(s, s, s).normalize();
+    Vertice		v2			= new Vertice(s, s, -s).normalize();
+    Vertice		v3			= new Vertice(-s, s, -s).normalize();
+    Vertice		v4			= new Vertice(-s, s, s).normalize();
 
-    Vertice		v5			= new Vertice(s, -s, s);
-    Vertice		v6			= new Vertice(s, -s, -s);
-    Vertice		v7			= new Vertice(-s, -s, -s);
-    Vertice		v8			= new Vertice(-s, -s, s);
+    Vertice		v5			= new Vertice(s, -s, s).normalize();
+    Vertice		v6			= new Vertice(s, -s, -s).normalize();
+    Vertice		v7			= new Vertice(-s, -s, -s).normalize();
+    Vertice		v8			= new Vertice(-s, -s, s).normalize();
 
     public void renderModel()
     {

@@ -23,12 +23,11 @@ public class RenderBattery extends ItemRenderBase {
 
     @Override
     public void renderByItem(ItemStack item) {
-        if(type != ItemCameraTransforms.TransformType.GUI){
+        if(type != ItemCameraTransforms.TransformType.GUI && type != ItemCameraTransforms.TransformType.FIRST_PERSON_RIGHT_HAND){
             Minecraft.getMinecraft().renderEngine.bindTexture(texture);
-            GL11.glPushMatrix();
             GlStateManager.enableLighting();
             GL11.glPushMatrix();
-            GL11.glTranslatef(0.8f, 0.3f, 0.5f);
+            GL11.glTranslatef(0.5f, 0.5f, 0.5f);
             GL11.glRotatef(35, 0.0F, 0.0F, 1.0F);
             GL11.glRotatef(90, 0.0F, 1.0F, 0.0F);
             GL11.glScalef(0.3f, 0.3f, 0.3f);
@@ -36,8 +35,17 @@ public class RenderBattery extends ItemRenderBase {
             battery.renderAll();
 
             GL11.glPopMatrix();
+        } else if(type == ItemCameraTransforms.TransformType.FIRST_PERSON_RIGHT_HAND) {
+            Minecraft.getMinecraft().renderEngine.bindTexture(texture);
+            GL11.glPushMatrix();
+            GL11.glTranslatef(0.5f, 0.5f, 0.5f);
+            GL11.glRotatef(-90, 0.0F, 0.0F, 1.0F);
+            GL11.glRotatef(180, 0.0F, 1.0F, 0.0F);
+            GL11.glScalef(0.3f, 0.3f, 0.3f);
+            battery.renderAll();
             GL11.glPopMatrix();
-        } else {
+        }
+        else{
             GL11.glPushMatrix();
             GL11.glTranslated(0.5, 0.5, 0.5);
             Minecraft.getMinecraft().getRenderItem().renderItem(item, model);

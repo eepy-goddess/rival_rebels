@@ -1,0 +1,6 @@
+{
+  "parent": "block/torch",
+  "textures": {
+    "torch": "rivalrebels:blocks/flare"
+  }
+}

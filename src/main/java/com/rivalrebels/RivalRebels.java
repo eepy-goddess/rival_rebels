@@ -5,9 +5,7 @@ import com.rivalrebels.common.blocks.*;
 import com.rivalrebels.common.command.RRConfig;
 import com.rivalrebels.common.creativetabs.HydroRR;
 import com.rivalrebels.common.creativetabs.NuclearRR;
-import com.rivalrebels.common.entity.EntityCuchillo;
-import com.rivalrebels.common.entity.EntityDebris;
-import com.rivalrebels.common.entity.EntityPlasmoid;
+import com.rivalrebels.common.entity.*;
 import com.rivalrebels.common.init.*;
 import com.rivalrebels.common.items.*;
 import com.rivalrebels.common.packet.PacketDispatcher;
@@ -18,7 +16,9 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.config.Configuration;
+import net.minecraftforge.fml.common.DummyModContainer;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.ModMetadata;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.*;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
@@ -26,6 +26,7 @@ import net.minecraftforge.fml.common.registry.EntityRegistry;
 
 import java.nio.file.AccessMode;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 
@@ -35,6 +36,7 @@ public class RivalRebels {
     public static final String modid = "rivalrebels";
     public static final String name = "Rival Rebels";
     public static final String version = "1.12.2A";
+    public static final String packagename = "com.rivalrebels.";
     @Mod.Instance(modid)
     public static RivalRebels instance;
     /*/////////////////////////////////////////////////*/
@@ -58,6 +60,7 @@ public class RivalRebels {
     public static Item fuel;
     public static Item rocket;
     public static Item knife;
+    public static Item flamethrower;
     /*___________Blocks start_______________*/
     public static Block steel;
     public static Block nuke;
@@ -77,11 +80,15 @@ public class RivalRebels {
     public static Block mario;
     public static Block quicksand;
     public static Block reactive;
+    public static Block flare;
     /*______________________config start___________________________*/
     public Configuration config;
     public static float nukeScale = 1.0F;
     public static boolean render_old_nuke;
     public static int plasmoidDecay;
+    public static boolean altRkey;
+    public static boolean infiniteAmmo;
+    public static boolean flareExplode;
     //this is a list that contains all items implemented with the IHasModel interface
     public static List<Item> model_items = new ArrayList<>();
     public static List<Item> other_items = new ArrayList<>();
@@ -93,6 +100,9 @@ public class RivalRebels {
         nukeScale = (float) config.get("explosionsize", "nukeScale", 1.0F).getDouble(1.0F);
         render_old_nuke = config.get("misc", "enable_old_nuke", false).getBoolean(false);
         plasmoidDecay = config.get("decay", "plasmoid_decay", 70).getInt();
+        altRkey = config.get("misc", "useFkeyInsteadOfRkey", false).getBoolean(false);
+        infiniteAmmo = config.get("misc", "infinite_ammo", false).getBoolean(false);
+        flareExplode = config.get("misc", "flare_explode", true).getBoolean(true);
         config.save();
         instance = this;
         rod = new RRItem("rod").setModelName(modid + ":rod").setCreativeTab(nuclear_rr);
@@ -128,9 +138,14 @@ public class RivalRebels {
         quicksand = new Quicksand("quicksand", Material.SAND).setSoundType(SoundType.SAND).setCreativeTab(nuclear_rr).setHardness(0.2f);
         knife = new Cuchillo("knife").setCreativeTab(nuclear_rr).setFull3D();
         reactive = new Reactive("reactive", Material.IRON).setSoundType(SoundType.METAL).setCreativeTab(nuclear_rr).setHardness(9.0f);
+        flamethrower = new FlameThrower("flamethrower").setModelName(modid + ":flamethrower").setCreativeTab(nuclear_rr).setMaxStackSize(1);
+        flare = new Flare("flare", Material.WOOD).setCreativeTab(nuclear_rr).setLightLevel(0.5f);
         EntityRegistry.registerModEntity(new ResourceLocation(modid, "plasmoid"), EntityPlasmoid.class, "plasmoid", 0, instance, 100000, 100, true);
         EntityRegistry.registerModEntity(new ResourceLocation(modid, "debris"), EntityDebris.class, "debris", 1, instance, 100000, 1000, true);
         EntityRegistry.registerModEntity(new ResourceLocation(modid, "cuchillo"), EntityCuchillo.class, "cuchillo", 2, instance, 100000, 1000, true);
+        EntityRegistry.registerModEntity(new ResourceLocation(modid, "flame_ball"), EntityFlameBall.class, "flameball", 3, instance, 1000000, 1000, true);
+        EntityRegistry.registerModEntity(new ResourceLocation(modid, "flame_ball_reblu"), EntityFlameBall1.class, "flameball_reblu", 4, instance, 1000000, 1000, true);
+        EntityRegistry.registerModEntity(new ResourceLocation(modid, "flame_ball_blue"), EntityFlameBall2.class, "flameball_blue", 5, instance, 1000000, 1000, true);
         proxy.registerRenderStuff(event);
         RRSounds.init();
         PacketDispatcher.registerPackets();

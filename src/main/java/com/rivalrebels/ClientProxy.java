@@ -1,14 +1,14 @@
 package com.rivalrebels;
 
+import com.rivalrebels.client.guiLoader.GuiFlamethrower;
 import com.rivalrebels.client.oldstuff.AdvancedModelLoader;
 import com.rivalrebels.client.oldstuff.IModelCustom;
 import com.rivalrebels.client.oldstuff.IModelCustomLoader;
 import com.rivalrebels.client.render.*;
 import com.rivalrebels.client.renderhelper.ItemRenderBase;
-import com.rivalrebels.common.entity.EntityCuchillo;
-import com.rivalrebels.common.entity.EntityDebris;
-import com.rivalrebels.common.entity.EntityPlasmoid;
+import com.rivalrebels.common.entity.*;
 import com.rivalrebels.common.tileentity.*;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.client.renderer.tileentity.TileEntityRendererDispatcher;
 import net.minecraft.item.Item;
@@ -37,6 +37,7 @@ public class ClientProxy extends CommonProxy{
         RivalRebels.plasma_cannon.setTileEntityItemStackRenderer(new RenderPlasmaCannon());
         RivalRebels.rocket.setTileEntityItemStackRenderer(new RenderRocketItem());
         RivalRebels.fuel.setTileEntityItemStackRenderer(new RenderFuel());
+        RivalRebels.flamethrower.setTileEntityItemStackRenderer(new RenderFlamethrower());
         GameRegistry.registerTileEntity(TileNuke.class, new ResourceLocation(RivalRebels.modid, "tile_nuke"));
         ClientRegistry.bindTileEntitySpecialRenderer(TileNuke.class, new RenderNuke());
         GameRegistry.registerTileEntity(TileLoader.class, new ResourceLocation(RivalRebels.modid, "tile_loader"));
@@ -56,6 +57,9 @@ public class ClientProxy extends CommonProxy{
         RenderingRegistry.registerEntityRenderingHandler(EntityCuchillo.class, RenderCuchillo::new);
         GameRegistry.registerTileEntity(TileQuickSand.class, new ResourceLocation(RivalRebels.modid, "quicksand"));
         ClientRegistry.bindTileEntitySpecialRenderer(TileQuickSand.class, new RenderQuicksand());
+        RenderingRegistry.registerEntityRenderingHandler(EntityFlameBall.class, RenderFlameball::new);
+        RenderingRegistry.registerEntityRenderingHandler(EntityFlameBall1.class, RenderFlameBall1::new);
+        RenderingRegistry.registerEntityRenderingHandler(EntityFlameBall2.class, RenderFlameBall2::new);
     }
     public void registerModel(Item item, int meta, String variant){
         ModelLoader.setCustomModelResourceLocation(item, meta, new ModelResourceLocation(item.getRegistryName(), variant));
@@ -64,5 +68,15 @@ public class ClientProxy extends CommonProxy{
     @Override
     public void registerCustomModelName(Item item, String name, int meta, String variant) {
         ModelLoader.setCustomModelResourceLocation(item, meta, new ModelResourceLocation(name, variant));
+    }
+
+    @Override
+    public void closeGui() {
+        Minecraft.getMinecraft().displayGuiScreen(null);
+    }
+
+    @Override
+    public void flamethrowerGui(int i) {
+        Minecraft.getMinecraft().displayGuiScreen(new GuiFlamethrower(i));
     }
 }

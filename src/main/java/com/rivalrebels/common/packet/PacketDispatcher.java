@@ -12,5 +12,6 @@ public class PacketDispatcher {
         int packetCount = 0;
         wrapper.registerMessage(TextPacket.Handler.class, TextPacket.class, packetCount++, Side.CLIENT);
         wrapper.registerMessage(EntityDebrisPacket.Handler.class, EntityDebrisPacket.class, packetCount++, Side.CLIENT);
+        wrapper.registerMessage(ItemUpdate.Handler.class, ItemUpdate.class, packetCount++, Side.SERVER);
     }
 }

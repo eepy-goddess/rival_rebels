@@ -78,6 +78,7 @@ public class Steel extends RRBlock {
         return true;
     }
 
+
     @Override
     public boolean causesSuffocation(IBlockState state) {
         return false;
