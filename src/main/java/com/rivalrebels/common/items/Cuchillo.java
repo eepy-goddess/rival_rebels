@@ -1,6 +1,5 @@
 package com.rivalrebels.common.items;
 
-import com.hbm.items.tool.ItemToolAbility;
 import com.rivalrebels.RivalRebels;
 import com.rivalrebels.common.entity.EntityCuchillo;
 import com.rivalrebels.common.init.RRSounds;

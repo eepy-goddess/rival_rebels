@@ -1,6 +1,5 @@
 package com.rivalrebels;
 
-import com.hbm.items.machine.ItemCassette;
 import com.rivalrebels.common.blocks.*;
 import com.rivalrebels.common.command.RRConfig;
 import com.rivalrebels.common.creativetabs.HydroRR;
@@ -55,6 +54,7 @@ public class RivalRebels {
     public static Item pliers;
     public static Item fuse;
     public static Item antennae;
+    public static Item gas_grenade;
     public static Item nuclear_lemonade;
     public static Item detonator;
     public static Item fuel;
@@ -74,6 +74,7 @@ public class RivalRebels {
     public static Block green_camo;
     public static Block brown_camo;
     public static Block grey_camo;
+    public static Block jumper;
     public static Block smart_camo;
     public static Block mine;
     public static Item iMine;
@@ -140,6 +141,8 @@ public class RivalRebels {
         reactive = new Reactive("reactive", Material.IRON).setSoundType(SoundType.METAL).setCreativeTab(nuclear_rr).setHardness(9.0f);
         flamethrower = new FlameThrower("flamethrower").setModelName(modid + ":flamethrower").setCreativeTab(nuclear_rr).setMaxStackSize(1);
         flare = new Flare("flare", Material.WOOD).setCreativeTab(nuclear_rr).setLightLevel(0.5f);
+        jumper = new Jumper("jumper", Material.ROCK).setSoundType(SoundType.METAL).setHardness(0.8F).setCreativeTab(nuclear_rr);
+        gas_grenade = new RRItem("gas_grenade").setModelName(modid + ":gas_grenade").setCreativeTab(nuclear_rr);
         EntityRegistry.registerModEntity(new ResourceLocation(modid, "plasmoid"), EntityPlasmoid.class, "plasmoid", 0, instance, 100000, 100, true);
         EntityRegistry.registerModEntity(new ResourceLocation(modid, "debris"), EntityDebris.class, "debris", 1, instance, 100000, 1000, true);
         EntityRegistry.registerModEntity(new ResourceLocation(modid, "cuchillo"), EntityCuchillo.class, "cuchillo", 2, instance, 100000, 1000, true);

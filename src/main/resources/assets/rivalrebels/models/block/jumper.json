@@ -1,0 +1,11 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "up": "rivalrebels:blocks/jumper_front",
+    "down": "rivalrebels:blocks/crate",
+    "north": "rivalrebels:blocks/jumper_side",
+    "south": "rivalrebels:blocks/jumper_side",
+    "east": "rivalrebels:blocks/jumper_side",
+    "west": "rivalrebels:blocks/jumper_side"
+  }
+}

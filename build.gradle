@@ -116,13 +116,4 @@ publishing {
         }
     }
 }
-task devJar(type: Jar, dependsOn: jar){
-    classifier = 'dev'
-    from jar.source
-    manifest = jar.manifest
-    exclude jar.excludes + '/manifest.mf'
-}
-artifacts{
-    archives devJar
-}
 sourceSets { main { output.resourcesDir = output.getClassesDir().getPath()} }
