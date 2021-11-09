@@ -52,6 +52,7 @@ public class EntityCuchillo extends Entity {
         motionX = (-MathHelper.sin(rotationYaw / 180.0F * (float) Math.PI) * MathHelper.cos(rotationPitch / 180.0F * (float) Math.PI)) * par3;
         motionZ = (MathHelper.cos(rotationYaw / 180.0F * (float) Math.PI) * MathHelper.cos(rotationPitch / 180.0F * (float) Math.PI)) * par3;
         motionY = (-MathHelper.sin(rotationPitch / 180.0F * (float) Math.PI)) * par3;
+        setArrowHeading(motionX, motionY, motionZ, par3 * 1.5F, 1.0F);
     }
     public EntityCuchillo(World par1World, double x, double y,double z, double mx, double my, double mz)
     {
@@ -75,7 +76,25 @@ public class EntityCuchillo extends Entity {
     protected void entityInit()
     {
     }
-
+    public void setArrowHeading(double par1, double par3, double par5, float par7, float par8)
+    {
+        float var9 = MathHelper.sqrt(par1 * par1 + par3 * par3 + par5 * par5);
+        par1 /= var9;
+        par3 /= var9;
+        par5 /= var9;
+        par1 += rand.nextGaussian() * 0.007499999832361937D * par8;
+        par3 += rand.nextGaussian() * 0.007499999832361937D * par8;
+        par5 += rand.nextGaussian() * 0.007499999832361937D * par8;
+        par1 *= par7;
+        par3 *= par7;
+        par5 *= par7;
+        motionX = par1;
+        motionY = par3;
+        motionZ = par5;
+        float var10 = MathHelper.sqrt(par1 * par1 + par5 * par5);
+        prevRotationYaw = rotationYaw = (float) (Math.atan2(par1, par5) * 180.0D / Math.PI);
+        prevRotationPitch = rotationPitch = (float) (Math.atan2(par3, var10) * 180.0D / Math.PI);
+    }
     @Override
     public void onUpdate()
     {

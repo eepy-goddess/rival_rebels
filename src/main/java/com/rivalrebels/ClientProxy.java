@@ -60,6 +60,7 @@ public class ClientProxy extends CommonProxy{
         RenderingRegistry.registerEntityRenderingHandler(EntityFlameBall.class, RenderFlameball::new);
         RenderingRegistry.registerEntityRenderingHandler(EntityFlameBall1.class, RenderFlameBall1::new);
         RenderingRegistry.registerEntityRenderingHandler(EntityFlameBall2.class, RenderFlameBall2::new);
+        RenderingRegistry.registerEntityRenderingHandler(EntityGasGrenade.class, RenderGasGrenade::new);
     }
     public void registerModel(Item item, int meta, String variant){
         ModelLoader.setCustomModelResourceLocation(item, meta, new ModelResourceLocation(item.getRegistryName(), variant));

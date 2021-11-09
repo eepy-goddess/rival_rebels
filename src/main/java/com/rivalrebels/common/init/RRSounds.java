@@ -17,6 +17,7 @@ public class RRSounds {
     public static SoundEvent quicksand;
     public static SoundEvent glass_break;
     public static SoundEvent knife_throw;
+    public static SoundEvent gas_fizz;
     public static void init(){
         gulp = new SoundEvent(new ResourceLocation(RivalRebels.modid, "gulp")).setRegistryName("gulp");
         toyguy = new SoundEvent(new ResourceLocation(RivalRebels.modid, "toyguy_song")).setRegistryName("toyguy_song");
@@ -29,5 +30,6 @@ public class RRSounds {
         quicksand = new SoundEvent(new ResourceLocation(RivalRebels.modid, "quicksand")).setRegistryName("quicksand");
         glass_break = new SoundEvent(new ResourceLocation(RivalRebels.modid, "glass_break")).setRegistryName("glass_break");
         knife_throw = new SoundEvent(new ResourceLocation(RivalRebels.modid, "knife_throw")).setRegistryName("knife_throw");
+        gas_fizz = new SoundEvent(new ResourceLocation(RivalRebels.modid, "gas_fizz")).setRegistryName("gas_fizz");
     }
 }

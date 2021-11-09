@@ -82,6 +82,7 @@ public class RivalRebels {
     public static Block quicksand;
     public static Block reactive;
     public static Block flare;
+    public static Block toxic_gas;
     /*______________________config start___________________________*/
     public Configuration config;
     public static float nukeScale = 1.0F;
@@ -142,13 +143,15 @@ public class RivalRebels {
         flamethrower = new FlameThrower("flamethrower").setModelName(modid + ":flamethrower").setCreativeTab(nuclear_rr).setMaxStackSize(1);
         flare = new Flare("flare", Material.WOOD).setCreativeTab(nuclear_rr).setLightLevel(0.5f);
         jumper = new Jumper("jumper", Material.ROCK).setSoundType(SoundType.METAL).setHardness(0.8F).setCreativeTab(nuclear_rr);
-        gas_grenade = new RRItem("gas_grenade").setModelName(modid + ":gas_grenade").setCreativeTab(nuclear_rr);
+        gas_grenade = new GasGrenade("gas_grenade").setModelName(modid + ":gas_grenade").setCreativeTab(nuclear_rr);
+        toxic_gas = new ToxicGas("toxic_gas", Material.CACTUS).setUnlocalizedName("toxic_gas").setBlockUnbreakable();
         EntityRegistry.registerModEntity(new ResourceLocation(modid, "plasmoid"), EntityPlasmoid.class, "plasmoid", 0, instance, 100000, 100, true);
         EntityRegistry.registerModEntity(new ResourceLocation(modid, "debris"), EntityDebris.class, "debris", 1, instance, 100000, 1000, true);
         EntityRegistry.registerModEntity(new ResourceLocation(modid, "cuchillo"), EntityCuchillo.class, "cuchillo", 2, instance, 100000, 1000, true);
         EntityRegistry.registerModEntity(new ResourceLocation(modid, "flame_ball"), EntityFlameBall.class, "flameball", 3, instance, 1000000, 1000, true);
         EntityRegistry.registerModEntity(new ResourceLocation(modid, "flame_ball_reblu"), EntityFlameBall1.class, "flameball_reblu", 4, instance, 1000000, 1000, true);
         EntityRegistry.registerModEntity(new ResourceLocation(modid, "flame_ball_blue"), EntityFlameBall2.class, "flameball_blue", 5, instance, 1000000, 1000, true);
+        EntityRegistry.registerModEntity(new ResourceLocation(modid, "gas_grenade"), EntityGasGrenade.class, "gas_granade", 6, instance, 1000000, 1000, true);
         proxy.registerRenderStuff(event);
         RRSounds.init();
         PacketDispatcher.registerPackets();

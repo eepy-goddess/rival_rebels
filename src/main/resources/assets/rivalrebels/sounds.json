@@ -42,5 +42,9 @@
   "knife_throw": {
     "category": "ambient",
     "sounds": [{"name": "rivalrebels:knife/d1"}, "rivalrebels:knife/d1", "rivalrebels:knife/d2", "rivalrebels:knife/d3"]
+  },
+  "gas_fizz": {
+    "category": "ambient",
+    "sounds": [{"name": "rivalrebels:explosion/gas_fizz"}]
   }
 }
