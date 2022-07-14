@@ -6,6 +6,6 @@ to make a game that was based off the mod. I was a big fan of Rival Rebels, so I
 to port the mod to 1.12.2. The 1.12.2 port also comes with a feature that the original mod didn't have which was the ability for items in the rival rebels mod
 to interact with stuff from HBM's nuclear tech mod. I used the HBM API to be able to make items interact with the HBM nuclear tech mod.
 
-__NOTICE: This project is discontinued because 1.12.2 is too old, so it's really hard to find support, and the mod won't gain many users if it's on 1.12.2.__  
+__NOTICE: I know i said that this was discontinued before, but now, screw it, I wanna finish it__  
  
  **BUT** .... *I am rewriting the port on 1.18. You can find it [here](https://github.com/a-weeb-programmer/rival_rebels/tree/1.18)*
