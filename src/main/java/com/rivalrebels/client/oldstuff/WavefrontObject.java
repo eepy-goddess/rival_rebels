@@ -36,10 +36,10 @@ public class WavefrontObject implements IModelCustom
     private static Matcher face_V_VT_VN_Matcher, face_V_VT_Matcher, face_V_VN_Matcher, face_V_Matcher;
     private static Matcher groupObjectMatcher;
 
-    public ArrayList<Vertex> vertices = new ArrayList<Vertex>();
-    public ArrayList<Vertex> vertexNormals = new ArrayList<Vertex>();
-    public ArrayList<TextureCoordinate> textureCoordinates = new ArrayList<TextureCoordinate>();
-    public ArrayList<GroupObject> groupObjects = new ArrayList<GroupObject>();
+    public ArrayList<Vertex> vertices = new ArrayList<>();
+    public ArrayList<Vertex> vertexNormals = new ArrayList<>();
+    public ArrayList<TextureCoordinate> textureCoordinates = new ArrayList<>();
+    public ArrayList<GroupObject> groupObjects = new ArrayList<>();
     private GroupObject currentGroupObject;
     private String fileName;
 
@@ -82,7 +82,6 @@ public class WavefrontObject implements IModelCustom
 
                 if (currentLine.startsWith("#") || currentLine.length() == 0)
                 {
-                    continue;
                 }
                 else if (currentLine.startsWith("v "))
                 {

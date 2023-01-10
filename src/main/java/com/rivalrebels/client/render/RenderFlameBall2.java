@@ -1,6 +1,6 @@
 package com.rivalrebels.client.render;
 
-import com.rivalrebels.RivalRebels;
+import com.rivalrebels.ModInfo;
 import com.rivalrebels.client.oldstuff.Tessellator;
 import com.rivalrebels.common.entity.EntityFlameBall2;
 import net.minecraft.client.Minecraft;
@@ -14,7 +14,7 @@ import org.lwjgl.opengl.GL14;
 import javax.annotation.Nullable;
 
 public class RenderFlameBall2 extends Render<EntityFlameBall2> {
-    public static ResourceLocation texture = new ResourceLocation(RivalRebels.modid, "textures/entity/flame_blue.png");
+    public static ResourceLocation texture = new ResourceLocation(ModInfo.modid, "textures/entity/flame_blue.png");
     public RenderFlameBall2(RenderManager renderManager) {
         super(renderManager);
     }

@@ -1,9 +1,10 @@
 package com.rivalrebels.common.packet;
 
 import com.rivalrebels.common.init.FileRW;
+
 import io.netty.buffer.ByteBuf;
+
 import net.minecraft.client.Minecraft;
-import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.util.text.translation.I18n;
@@ -48,14 +49,15 @@ public class TextPacket implements IMessage {
             if (m.text.startsWith("-t"))
             {
                 String[] str = m.text.substring(2, m.text.length()).split("\n");
-                for (int i = 0; i < str.length; i++) Minecraft.getMinecraft().player.sendStatusMessage(new TextComponentString(str[i]), false);
+                for (String s : str)
+                    Minecraft.getMinecraft().player.sendStatusMessage(new TextComponentString(s), false);
             }
             else
             {
                 String[] s = m.text.split(" ");
                 StringBuilder strb = new StringBuilder();
-                for (int i = 0; i < s.length; i++) {
-                    strb.append(I18n.translateToLocal(s[i]));
+                for (String value : s) {
+                    strb.append(I18n.translateToLocal(value));
                     strb.append(" ");
                 }
                 if(m.isFormatted){

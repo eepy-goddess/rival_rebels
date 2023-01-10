@@ -5,10 +5,10 @@ import net.minecraftforge.fml.relauncher.IFMLLoadingPlugin;
 import javax.annotation.Nullable;
 import java.util.Map;
 
-@IFMLLoadingPlugin.Name(value = RivalRebels.name)
+@IFMLLoadingPlugin.Name(value = ModInfo.name)
 @IFMLLoadingPlugin.MCVersion(value = "1.12.2")
 @IFMLLoadingPlugin.SortingIndex(value = 1001)
-@IFMLLoadingPlugin.TransformerExclusions(value = {RivalRebels.packagename})
+@IFMLLoadingPlugin.TransformerExclusions(value = {ModInfo.packagename})
 public class RivalRebelsCore implements IFMLLoadingPlugin {
     @Override
     public String[] getASMTransformerClass() {

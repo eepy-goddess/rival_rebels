@@ -1,6 +1,6 @@
 package com.rivalrebels.common.creativetabs;
 
-import com.rivalrebels.RivalRebels;
+import com.rivalrebels.common.init.RRItems;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 
@@ -10,6 +10,6 @@ public class NuclearRR extends CreativeTabs {
     }
     @Override
     public ItemStack getTabIconItem() {
-        return new ItemStack(RivalRebels.nuclear_rod);
+        return new ItemStack(RRItems.nuclear_rod);
     }
 }

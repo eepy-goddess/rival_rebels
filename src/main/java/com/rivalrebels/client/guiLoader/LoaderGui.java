@@ -1,11 +1,10 @@
 package com.rivalrebels.client.guiLoader;
 
-import com.rivalrebels.RivalRebels;
+import com.rivalrebels.ModInfo;
 import com.rivalrebels.common.container.LoaderContainer;
 import com.rivalrebels.common.tileentity.TileLoader;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.inventory.GuiContainer;
-import net.minecraft.inventory.Container;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.util.ResourceLocation;
 import org.lwjgl.input.Mouse;
@@ -19,7 +18,7 @@ import java.net.URISyntaxException;
 public class LoaderGui extends GuiContainer {
     public TileLoader te;
     private int inventoryRows = 0;
-    public static ResourceLocation texture = new ResourceLocation(RivalRebels.modid, "textures/gui/loader.png");
+    public static ResourceLocation texture = new ResourceLocation(ModInfo.modid, "textures/gui/loader.png");
     public LoaderGui(IInventory player, TileLoader tileentity) {
         super(new LoaderContainer(player, tileentity));
         this.te = tileentity;
@@ -60,11 +59,7 @@ public class LoaderGui extends GuiContainer {
                 {
                     Desktop.getDesktop().browse(new URI("http://rivalrebels.com"));
                 }
-                catch (IOException e)
-                {
-                    e.printStackTrace();
-                }
-                catch (URISyntaxException e)
+                catch (IOException | URISyntaxException e)
                 {
                     e.printStackTrace();
                 }

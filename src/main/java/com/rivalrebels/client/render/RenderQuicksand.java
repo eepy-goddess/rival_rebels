@@ -1,6 +1,5 @@
 package com.rivalrebels.client.render;
 
-import com.rivalrebels.common.tileentity.TileMario;
 import com.rivalrebels.common.tileentity.TileQuickSand;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;

@@ -1,24 +1,8 @@
 package com.rivalrebels.client.model;
 
 
-import com.google.common.collect.ImmutableList;
-import com.google.common.collect.ImmutableMap;
 import com.rivalrebels.client.renderhelper.*;
-import net.minecraft.block.state.IBlockState;
-import net.minecraft.client.renderer.block.model.BakedQuad;
-import net.minecraft.client.renderer.block.model.IBakedModel;
-import net.minecraft.client.renderer.block.model.ItemCameraTransforms;
-import net.minecraft.client.renderer.block.model.ItemOverrideList;
-import net.minecraft.client.renderer.texture.TextureAtlasSprite;
-import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
-import net.minecraft.client.renderer.vertex.VertexFormat;
-import net.minecraft.client.renderer.vertex.VertexFormatElement;
-import net.minecraft.util.EnumFacing;
-import net.minecraftforge.client.model.BakedItemModel;
-import net.minecraftforge.client.model.obj.OBJModel;
-import net.minecraftforge.common.model.TRSRTransformation;
-import net.minecraft.client.renderer.GlStateManager;import javax.annotation.Nullable;
-import java.util.List;
+import net.minecraft.client.renderer.GlStateManager;
 
 public class RodModel{
     public boolean	rendersecondcap	= true;

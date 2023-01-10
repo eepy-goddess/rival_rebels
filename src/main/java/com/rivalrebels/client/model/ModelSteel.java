@@ -1,9 +1,7 @@
 package com.rivalrebels.client.model;
 
 import com.rivalrebels.client.oldstuff.Tessellator;
-import com.rivalrebels.client.renderhelper.RenderHelper;
 import com.rivalrebels.client.renderhelper.Vertice;
-import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import org.lwjgl.opengl.GL11;
 

@@ -1,6 +1,6 @@
 package com.rivalrebels.client.render;
 
-import com.rivalrebels.RivalRebels;
+import com.rivalrebels.ModInfo;
 import com.rivalrebels.client.model.RodModel;
 import com.rivalrebels.client.oldstuff.AdvancedModelLoader;
 import com.rivalrebels.client.oldstuff.IModelCustom;
@@ -15,12 +15,12 @@ public class RenderPlasmaCannon extends ItemRenderBase {
     RodModel md2;
     RodModel md3;
     public IModelCustom modelCannon;
-    public static ResourceLocation texture = new ResourceLocation(RivalRebels.modid, "textures/models/plasma_cannon.png");
+    public static ResourceLocation texture = new ResourceLocation(ModInfo.modid, "textures/models/plasma_cannon.png");
     public RenderPlasmaCannon(){
         md2 = new RodModel();
         md2.rendersecondcap = false;
         md3 = new RodModel();
-        modelCannon = AdvancedModelLoader.loadModel(new ResourceLocation(RivalRebels.modid, "models/item/obj/plasma_cannon.obj"));
+        modelCannon = AdvancedModelLoader.loadModel(new ResourceLocation(ModInfo.modid, "models/item/obj/plasma_cannon.obj"));
     }
     @Override
     public void renderByItem(ItemStack itemStackIn) {
@@ -79,7 +79,7 @@ public class RenderPlasmaCannon extends ItemRenderBase {
         } else{
             GL11.glPushMatrix();
             GL11.glTranslatef(0.5F, 0.5F, 0.5F);
-            Minecraft.getMinecraft().getRenderItem().renderItem(itemStackIn, this.model);
+            Minecraft.getMinecraft().getRenderItem().renderItem(itemStackIn, this.baked_model);
             GL11.glPopMatrix();
         }
     }

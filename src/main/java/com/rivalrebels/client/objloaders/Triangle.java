@@ -16,7 +16,6 @@ import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import org.lwjgl.opengl.GL11;
 
 import static org.lwjgl.opengl.GL11.GL_LINE_LOOP;
-import static org.lwjgl.opengl.GL11.GL_TRIANGLES;
 import static org.lwjgl.opengl.GL11.glLineWidth;
 
 public class Triangle
@@ -33,9 +32,8 @@ public class Triangle
 	public void render()
 	{
 		net.minecraft.client.renderer.Tessellator.getInstance().getBuffer().begin(GL11.GL_TRIANGLES, DefaultVertexFormats.POSITION_TEX);
-		for (int i = 0; i < pa.length; i++)
-		{
-			pa[i].render();
+		for (Vertice vertice : pa) {
+			vertice.render();
 		}
 		tes.draw();
 	}
@@ -44,26 +42,23 @@ public class Triangle
 	{
 		glLineWidth(2);
 		net.minecraft.client.renderer.Tessellator.getInstance().getBuffer().begin(GL_LINE_LOOP, DefaultVertexFormats.POSITION_TEX);
-		for (int i = 0; i < pa.length; i++)
-		{
-			pa[i].renderWireframe();
+		for (Vertice vertice : pa) {
+			vertice.renderWireframe();
 		}
 		tes.draw();
 	}
 	
 	public void normalize()
 	{
-		for (int i = 0; i < pa.length; i++)
-		{
-			pa[i].normalize();
+		for (Vertice vertice : pa) {
+			vertice.normalize();
 		}
 	}
 	
 	public void scale(Vec3 v)
 	{
-		for (int i = 0; i < pa.length; i++)
-		{
-			pa[i].scale(v);
+		for (Vertice vertice : pa) {
+			vertice.scale(v);
 		}
 	}
 	

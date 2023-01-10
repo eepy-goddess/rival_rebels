@@ -5,13 +5,16 @@ import net.minecraft.client.renderer.block.model.ItemCameraTransforms;
 import net.minecraft.client.renderer.tileentity.TileEntityItemStackRenderer;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.world.World;
-import net.minecraftforge.client.model.ModelLoaderRegistry;
+
+import javax.annotation.Nullable;
 
 public class ItemRenderBase extends TileEntityItemStackRenderer {
-    public IBakedModel model;
+    public IBakedModel baked_model;
     public ItemCameraTransforms.TransformType type;
-    //the variables below can be null
+    // the variables below can be null
+    @Nullable
     public EntityLivingBase entity;
+    @Nullable
     public World world;
 
 }

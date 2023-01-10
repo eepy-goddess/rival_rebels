@@ -1,7 +1,9 @@
 package com.rivalrebels.common.packet;
 
 import com.rivalrebels.common.items.FlameThrower;
+
 import io.netty.buffer.ByteBuf;
+
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;

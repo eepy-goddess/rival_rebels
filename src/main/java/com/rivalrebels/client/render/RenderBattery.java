@@ -1,24 +1,21 @@
 package com.rivalrebels.client.render;
 
-import com.rivalrebels.RivalRebels;
-import com.rivalrebels.client.objloaders.ModelFromObj;
+import com.rivalrebels.ModInfo;
 import com.rivalrebels.client.oldstuff.AdvancedModelLoader;
 import com.rivalrebels.client.oldstuff.IModelCustom;
 import com.rivalrebels.client.renderhelper.ItemRenderBase;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.block.model.ItemCameraTransforms;
-import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 
 public class RenderBattery extends ItemRenderBase {
-    //i couldn't use the ModelFromObj since it blacks out the texture for some reason, but this is just as effective
     public static IModelCustom battery;
-    public static ResourceLocation texture = new ResourceLocation(RivalRebels.modid, "textures/models/battery.png");
+    public static ResourceLocation texture = new ResourceLocation(ModInfo.modid, "textures/models/battery.png");
     public RenderBattery() {
-        battery = AdvancedModelLoader.loadModel(new ResourceLocation(RivalRebels.modid, "models/obj/battery.obj"));
+        battery = AdvancedModelLoader.loadModel(new ResourceLocation(ModInfo.modid, "models/obj/battery.obj"));
     }
 
     @Override
@@ -48,7 +45,7 @@ public class RenderBattery extends ItemRenderBase {
         else{
             GL11.glPushMatrix();
             GL11.glTranslated(0.5, 0.5, 0.5);
-            Minecraft.getMinecraft().getRenderItem().renderItem(item, model);
+            Minecraft.getMinecraft().getRenderItem().renderItem(item, baked_model);
             GL11.glPopMatrix();
         }
     }

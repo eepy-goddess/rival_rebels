@@ -1,15 +1,13 @@
 package com.rivalrebels.common.entity;
 
-import com.rivalrebels.RivalRebels;
+import com.rivalrebels.common.init.RRItems;
 import com.rivalrebels.common.init.RRSounds;
 import com.rivalrebels.common.init.RivalRebelsDamageSource;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.projectile.EntityArrow;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemStack;
@@ -21,8 +19,6 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 
 
 import java.util.List;
@@ -111,17 +107,13 @@ public class EntityCuchillo extends Entity {
 
             List<Entity> list = world.getEntitiesWithinAABBExcludingEntity(this, getEntityBoundingBox().contract(motionX, motionY, motionZ).expand(1.0D, 1.0D, 1.0D));
             double d0 = Double.MAX_VALUE;
-            for (int i = 0; i < list.size(); ++i)
-            {
-                Entity entity = (Entity) list.get(i);
-                if (entity.canBeCollidedWith() && (ticksExisted >= 5 || entity != shootingEntity))
-                {
+            for (Entity value : list) {
+                Entity entity = (Entity) value;
+                if (entity.canBeCollidedWith() && (ticksExisted >= 5 || entity != shootingEntity)) {
                     RayTraceResult mop1 = entity.getEntityBoundingBox().expand(0.5f, 0.5f, 0.5f).calculateIntercept(vec31, vec3);
-                    if (mop1 != null)
-                    {
+                    if (mop1 != null) {
                         double d1 = vec31.squareDistanceTo(mop1.hitVec);
-                        if (d1 < d0)
-                        {
+                        if (d1 < d0) {
                             mop = new RayTraceResult(entity, mop1.hitVec);
                             d0 = d1;
                         }
@@ -146,11 +138,10 @@ public class EntityCuchillo extends Entity {
                         {
                             world.setBlockToAir(new BlockPos(mop.hitVec.x, mop.hitVec.y, mop.hitVec.z));
                             world.playSound(null, posX, posY, posZ, RRSounds.glass_break, SoundCategory.AMBIENT,5F, 0.3F);
-                            return;
                         }
                         else if (hit == Material.ROCK)
                         {
-                            world.spawnEntity(new EntityItem(world, posX, posY, posZ, new ItemStack(RivalRebels.knife, 1)));
+                            world.spawnEntity(new EntityItem(world, posX, posY, posZ, new ItemStack(RRItems.knife, 1)));
                             setDead();
                         }
                         else
@@ -196,7 +187,7 @@ public class EntityCuchillo extends Entity {
             ticksInGround++;
             if (ticksInGround == 60)
             {
-                world.spawnEntity(new EntityItem(world, posX, posY, posZ, new ItemStack(RivalRebels.knife, 1)));
+                world.spawnEntity(new EntityItem(world, posX, posY, posZ, new ItemStack(RRItems.knife, 1)));
                 setDead();
             }
         }
@@ -217,7 +208,7 @@ public class EntityCuchillo extends Entity {
     {
         if (!world.isRemote && inGround)
         {
-            if (!par1EntityPlayer.capabilities.isCreativeMode) par1EntityPlayer.inventory.addItemStackToInventory(new ItemStack(RivalRebels.knife, 1));
+            if (!par1EntityPlayer.capabilities.isCreativeMode) par1EntityPlayer.inventory.addItemStackToInventory(new ItemStack(RRItems.knife, 1));
             world.playSound(null, posX, posY, posZ, SoundEvents.BLOCK_LAVA_POP, SoundCategory.AMBIENT, 0.2F, ((rand.nextFloat() - rand.nextFloat()) * 0.7F + 1.0F) * 2.0F);
             setDead();
         }

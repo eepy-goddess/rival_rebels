@@ -1,21 +1,17 @@
 package com.rivalrebels.client.render;
 
-import com.rivalrebels.RivalRebels;
+import com.rivalrebels.ModInfo;
 import com.rivalrebels.client.model.RodModel;
 import com.rivalrebels.client.renderhelper.ItemRenderBase;
-import net.minecraft.block.BlockChest;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.GlStateManager;
-import net.minecraft.client.renderer.block.model.IBakedModel;
 import net.minecraft.client.renderer.block.model.ItemCameraTransforms;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraft.client.renderer.GlStateManager;
 import org.lwjgl.opengl.GL11;
 
 public class RenderRod extends ItemRenderBase {
-    protected static ResourceLocation texture = new ResourceLocation(RivalRebels.modid, "textures/models/rod_empty.png");
+    protected static ResourceLocation texture = new ResourceLocation(ModInfo.modid, "textures/models/rod_empty.png");
     public RodModel md;
 
     public RenderRod()
@@ -41,7 +37,7 @@ public class RenderRod extends ItemRenderBase {
         } else {
             GL11.glPushMatrix();
             GL11.glTranslated(0.5, 0.5, 0.5);
-            Minecraft.getMinecraft().getRenderItem().renderItem(item, model);
+            Minecraft.getMinecraft().getRenderItem().renderItem(item, baked_model);
             GL11.glPopMatrix();
         }
     }

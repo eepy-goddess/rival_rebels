@@ -1,6 +1,6 @@
 package com.rivalrebels.common.tileentity;
 
-import com.rivalrebels.RivalRebels;
+import com.rivalrebels.common.init.RRBlocks;
 import net.minecraft.init.Blocks;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.block.state.IBlockState;
@@ -26,12 +26,10 @@ public class TileMario extends TileEntity {
         for (int i = 0; i < 6; i++)
         {
             array_item = n[i];
-            if (array_item == null || !array_item.isOpaqueCube() || array_item == RivalRebels.mine.getDefaultState() || array_item == RivalRebels.mario.getDefaultState() /*|| array_item == RivalRebels.mario || array_item == RivalRebels.amario || array_item == RivalRebels.quicksand || array_item == RivalRebels.aquicksand*/) continue;
-            for (int j = 0; j < n.length; j++)
-            {
-                if (array_item == n[j]) popularity1++;
-                if (popularity1 >= popularity2)
-                {
+            if (array_item == null || !array_item.isOpaqueCube() || array_item == RRBlocks.mine.getDefaultState() || array_item == RRBlocks.mario.getDefaultState() /*|| array_item == RivalRebels.mario || array_item == RivalRebels.amario || array_item == RivalRebels.quicksand || array_item == RivalRebels.aquicksand*/) continue;
+            for (IBlockState iBlockState : n) {
+                if (array_item == iBlockState) popularity1++;
+                if (popularity1 >= popularity2) {
                     mode = array_item;
                     popularity2 = popularity1;
                 }

@@ -1,7 +1,9 @@
 package com.rivalrebels.common.packet;
 
 import com.rivalrebels.common.entity.EntityDebris;
+
 import io.netty.buffer.ByteBuf;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
@@ -9,8 +11,6 @@ import net.minecraft.entity.Entity;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
-
-import java.util.Iterator;
 
 public class EntityDebrisPacket implements IMessage {
     IBlockState block;

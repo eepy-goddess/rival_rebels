@@ -1,8 +1,6 @@
 package com.rivalrebels.client.oldstuff;
 
 import javax.vecmath.Matrix3f;
-import javax.vecmath.Tuple3f;
-import javax.vecmath.Vector3f;
 
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
@@ -241,7 +239,7 @@ public class Vec3
     }
 
     /**
-     * Rotates the vector around the x axis by the specified angle.
+     * Rotates the vector around the x-axis by the specified angle.
      */
     public void rotateAroundX(float p_72440_1_)
     {
@@ -254,7 +252,7 @@ public class Vec3
     }
 
     /**
-     * Rotates the vector around the y axis by the specified angle.
+     * Rotates the vector around the y-axis by the specified angle.
      */
     public void rotateAroundY(float p_72442_1_)
     {

@@ -6,6 +6,9 @@ bin
 .classpath
 .project
 
+# yes, i use nixOS now
+shell.nix
+
 # idea
 out
 *.ipr

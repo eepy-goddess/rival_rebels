@@ -6,9 +6,6 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockFalling;
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.BlockModelRenderer;
-import net.minecraft.client.renderer.entity.RenderFallingBlock;
 import net.minecraft.crash.CrashReportCategory;
 import net.minecraft.entity.Entity;
 import net.minecraft.init.Blocks;
@@ -23,8 +20,6 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.relauncher.Side;
-
-import java.util.Iterator;
 
 public class EntityDebris extends Entity {
     public IBlockState			block;
@@ -116,13 +111,9 @@ public class EntityDebris extends Entity {
             {
                 NBTTagCompound nbttagcompound = new NBTTagCompound();
                 tileentity.writeToNBT(nbttagcompound);
-                Iterator iter = tileEntityData.getKeySet().iterator();
-                while (iter.hasNext())
-                {
-                    String s = (String) iter.next();
+                for (String s : tileEntityData.getKeySet()) {
                     NBTBase nbtbase = tileEntityData.getTag(s);
-                    if (!s.equals("x") && !s.equals("y") && !s.equals("z"))
-                    {
+                    if (!s.equals("x") && !s.equals("y") && !s.equals("z")) {
                         nbttagcompound.setTag(s, nbtbase.copy());
                     }
                 }
@@ -156,7 +147,7 @@ public class EntityDebris extends Entity {
     public void addEntityCrashInfo(CrashReportCategory crash)
     {
         super.addEntityCrashInfo(crash);
-        crash.addCrashSection("Immitating block ID", Integer.valueOf(Block.getIdFromBlock(block.getBlock())));
+        crash.addCrashSection("Immitating block ID", Block.getIdFromBlock(block.getBlock()));
     }
 
     @Override

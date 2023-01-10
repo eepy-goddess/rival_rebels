@@ -1,19 +1,21 @@
 package com.rivalrebels.client.render;
 
-import com.rivalrebels.RivalRebels;
+import com.rivalrebels.ModInfo;
 import com.rivalrebels.client.model.NukeCrateModel;
 import com.rivalrebels.common.blocks.NukeCrate;
+import com.rivalrebels.common.init.RRBlocks;
 import com.rivalrebels.common.tileentity.TileNukeCrate;
+
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.math.BlockPos;
+
 import org.lwjgl.opengl.GL11;
 
 public class NukeCrateRenderer extends TileEntitySpecialRenderer<TileNukeCrate> {
-    public static ResourceLocation texture_top = new ResourceLocation(RivalRebels.modid, "textures/blocks/nuke_crate_top.png");
-    public static ResourceLocation texture_bottom = new ResourceLocation(RivalRebels.modid, "textures/blocks/nuke_crate_bottom.png");
-    public static ResourceLocation texture_crate = new ResourceLocation(RivalRebels.modid, "textures/blocks/crate.png");
+    public static ResourceLocation texture_top = new ResourceLocation(ModInfo.modid, "textures/blocks/nuke_crate_top.png");
+    public static ResourceLocation texture_bottom = new ResourceLocation(ModInfo.modid, "textures/blocks/nuke_crate_bottom.png");
+    public static ResourceLocation texture_crate = new ResourceLocation(ModInfo.modid, "textures/blocks/crate.png");
     public NukeCrateModel model;
     public NukeCrateRenderer(){
         model = new NukeCrateModel();
@@ -48,8 +50,8 @@ public class NukeCrateRenderer extends TileEntitySpecialRenderer<TileNukeCrate> 
         {
             GL11.glRotatef(-90, 0, 0, 1);
         }
-        if (tile.getWorld().getBlockState(tile.getPos()) == RivalRebels.nukeCrateBottom.getDefaultState().withProperty(NukeCrate.meta, tile.getBlockMetadata())) Minecraft.getMinecraft().renderEngine.bindTexture(texture_bottom);
-        if (tile.getWorld().getBlockState(tile.getPos()) == RivalRebels.nukeCrateTop.getDefaultState().withProperty(NukeCrate.meta, tile.getBlockMetadata())) Minecraft.getMinecraft().renderEngine.bindTexture(texture_top);
+        if (tile.getWorld().getBlockState(tile.getPos()) == RRBlocks.nuke_crate_bottom.getDefaultState().withProperty(NukeCrate.meta, tile.getBlockMetadata())) Minecraft.getMinecraft().renderEngine.bindTexture(texture_bottom);
+        if (tile.getWorld().getBlockState(tile.getPos()) == RRBlocks.nuke_crate_top.getDefaultState().withProperty(NukeCrate.meta, tile.getBlockMetadata())) Minecraft.getMinecraft().renderEngine.bindTexture(texture_top);
         model.renderModelA();
         GL11.glPushMatrix();
         Minecraft.getMinecraft().renderEngine.bindTexture(texture_crate);

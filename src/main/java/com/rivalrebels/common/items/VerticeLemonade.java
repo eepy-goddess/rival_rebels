@@ -1,12 +1,11 @@
 package com.rivalrebels.common.items;
 
 import com.rivalrebels.common.init.RRSounds;
-import net.minecraft.entity.EntityLivingBase;
+
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.EnumAction;
-import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.ActionResult;
@@ -34,7 +33,7 @@ public class VerticeLemonade extends RRItem{
             world.playSound(null, player.posX, player.posY, player.posZ, SoundEvents.ENTITY_MAGMACUBE_JUMP, SoundCategory.AMBIENT, 1.0F, 1.0F);
             world.playSound(null, player.posX, player.posY, player.posZ, SoundEvents.ENTITY_GHAST_HURT, SoundCategory.MASTER, 1.0F, 1.0F);
 
-            ((EntityLivingBase) player).addPotionEffect(new PotionEffect(MobEffects.BLINDNESS, 10, 20));
+            player.addPotionEffect(new PotionEffect(MobEffects.BLINDNESS, 10, 20));
             player.getFoodStats().addStats(10, 200);
             player.heal(10);
             stack.shrink(1);

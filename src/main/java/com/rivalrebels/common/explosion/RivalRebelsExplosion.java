@@ -1,7 +1,7 @@
 package com.rivalrebels.common.explosion;
 
-import com.rivalrebels.RivalRebels;
 import com.rivalrebels.common.entity.EntityDebris;
+import com.rivalrebels.common.init.RRBlocks;
 import com.rivalrebels.common.init.RRSounds;
 import com.rivalrebels.common.init.RivalRebelsDamageSource;
 import net.minecraft.block.Block;
@@ -94,7 +94,7 @@ public class RivalRebelsExplosion {
                     if (block != null && block != Blocks.AIR && block != Blocks.BEDROCK)
                     {
                         int dist = X * X + Y * Y + Z * Z;
-                        if (dist <= delete && block == RivalRebels.green_camo && block == RivalRebels.brown_camo && block == RivalRebels.grey_camo)
+                        if (dist <= delete && block == RRBlocks.green_camo && block == RRBlocks.brown_camo && block == RRBlocks.grey_camo)
                         {
                             world.setBlockToAir(new BlockPos(xx, yy, zz));
                         }
@@ -135,7 +135,7 @@ public class RivalRebelsExplosion {
         double zmo = z - zz;
         e.addVelocity(xmo * 0.2f, ymo * 0.2f, zmo * 0.2f);
         world.spawnEntity(e);
-        if (block == RivalRebels.plastic_explosives)
+        if (block == RRBlocks.plastic_explosives)
         {
             world.setBlockToAir(new BlockPos(xx, yy, zz));
             world.playSound(null, xx, yy, zz, RRSounds.generic_explosion, SoundCategory.AMBIENT, 0.5f, 0.3f);
@@ -167,27 +167,23 @@ public class RivalRebelsExplosion {
         int var28 = MathHelper.floor(y + radius + 1.0D);
         int var7 = MathHelper.floor(z - radius - 1.0D);
         int var29 = MathHelper.floor(z + radius + 1.0D);
-        List var9 = world.getEntitiesWithinAABBExcludingEntity(null, new AxisAlignedBB(var3, var5, var7, var4, var28, var29));
+        List<Entity> var9 = world.getEntitiesWithinAABBExcludingEntity(null, new AxisAlignedBB(var3, var5, var7, var4, var28, var29));
         Vec3d var30 = new Vec3d(x, y, z);
 
         radius *= 4;
 
-        for (int var11 = 0; var11 < var9.size(); ++var11)
-        {
-            Entity var31 = (Entity) var9.get(var11);
-            if (!(var31 instanceof EntityDebris)/*&&!(var31 instanceof EntityFlameBall)&&!(var31 instanceof EntityRhodes)*/)
-            {
+        for (Entity o : var9) {
+            Entity var31 = o;
+            if (!(var31 instanceof EntityDebris)/*&&!(var31 instanceof EntityFlameBall)&&!(var31 instanceof EntityRhodes)*/) {
                 double var13 = var31.getDistance(x, y, z) / radius;
 
-                if (var13 <= 1.0D)
-                {
+                if (var13 <= 1.0D) {
                     double var15 = var31.posX - x;
                     double var17 = var31.posY + var31.getEyeHeight() - y;
                     double var19 = var31.posZ - z;
                     double var33 = MathHelper.sqrt(var15 * var15 + var17 * var17 + var19 * var19);
 
-                    if (var33 != 0.0D)
-                    {
+                    if (var33 != 0.0D) {
                         var15 /= var33;
                         var17 /= var33;
                         var19 /= var33;

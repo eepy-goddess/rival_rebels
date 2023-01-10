@@ -1,5 +1,6 @@
 package com.rivalrebels.client.render;
 
+import com.rivalrebels.ModInfo;
 import com.rivalrebels.client.oldstuff.AdvancedModelLoader;
 import com.rivalrebels.client.oldstuff.IModelCustom;
 import com.rivalrebels.client.renderhelper.ItemRenderBase;
@@ -7,19 +8,21 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.block.model.ItemCameraTransforms;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
-import com.rivalrebels.RivalRebels;
 import org.lwjgl.opengl.GL11;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
 public class RenderFuel extends ItemRenderBase {
-    public static ResourceLocation texture = new ResourceLocation(RivalRebels.modid, "textures/models/flamethrower.png");
-    public static ResourceLocation modelloc = new ResourceLocation(RivalRebels.modid, "models/obj/fuel.obj");
-    public IModelCustom modell;
+    public static ResourceLocation texture = new ResourceLocation(ModInfo.modid, "textures/models/flamethrower.png");
+    public static ResourceLocation model_loc = new ResourceLocation(ModInfo.modid, "models/obj/fuel.obj");
+    public IModelCustom model;
+
     public RenderFuel(){
-        modell = AdvancedModelLoader.loadModel(modelloc);
+        model = AdvancedModelLoader.loadModel(model_loc);
     }
 
     @Override
-    public void renderByItem(ItemStack itemStackIn) {
+    public void renderByItem(@ParametersAreNonnullByDefault ItemStack itemStackIn) {
         if(type != ItemCameraTransforms.TransformType.GUI){
             Minecraft.getMinecraft().renderEngine.bindTexture(texture);
             GL11.glEnable(GL11.GL_LIGHTING);
@@ -31,13 +34,13 @@ public class RenderFuel extends ItemRenderBase {
             GL11.glScalef(0.15f, 0.15f, 0.15f);
             // GL11.glTranslatef(0.3f, 0.05f, -0.1f);
 
-            modell.renderAll();
+            model.renderAll();
 
             GL11.glPopMatrix();
         } else{
             GL11.glPushMatrix();
             GL11.glTranslatef(0.5f, 0.5f, 0.5f);
-            Minecraft.getMinecraft().getRenderItem().renderItem(itemStackIn, model);
+            Minecraft.getMinecraft().getRenderItem().renderItem(itemStackIn, baked_model);
             GL11.glPopMatrix();
         }
     }

@@ -1,6 +1,6 @@
 package com.rivalrebels.client.render;
 
-import com.rivalrebels.RivalRebels;
+import com.rivalrebels.ModInfo;
 import com.rivalrebels.client.oldstuff.Tessellator;
 import com.rivalrebels.common.entity.EntityGasGrenade;
 import net.minecraft.client.Minecraft;
@@ -12,7 +12,7 @@ import org.lwjgl.opengl.GL11;
 import javax.annotation.Nullable;
 
 public class RenderGasGrenade extends Render<EntityGasGrenade> {
-    public static ResourceLocation texture = new ResourceLocation(RivalRebels.modid, "textures/models/gas_grenade.png");
+    public static ResourceLocation texture = new ResourceLocation(ModInfo.modid, "textures/models/gas_grenade.png");
     public RenderGasGrenade(RenderManager renderManager) {
         super(renderManager);
     }

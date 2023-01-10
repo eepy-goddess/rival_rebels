@@ -1,27 +1,14 @@
 package com.rivalrebels.common.blocks;
 
-import com.rivalrebels.common.tileentity.TileEntitySteel;
-import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.client.renderer.BlockModelRenderer;
-import net.minecraft.client.renderer.EnumFaceDirection;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.BlockRenderLayer;
-import net.minecraft.util.EnumBlockRenderType;
-import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-import net.minecraftforge.client.MinecraftForgeClient;
-import net.minecraftforge.client.model.ModelLoaderRegistry;
-import net.minecraftforge.fml.client.registry.RenderingRegistry;
-
-import javax.annotation.Nullable;
-import java.util.List;
 
 public class Steel extends RRBlock {
     public Steel(Material mat){

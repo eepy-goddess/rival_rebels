@@ -199,12 +199,12 @@ public class Tessellator
 
         for (i = 0; i < this.rawBufferIndex; i += b0)
         {
-            priorityqueue.add(Integer.valueOf(i));
+            priorityqueue.add(i);
         }
 
         for (i = 0; !priorityqueue.isEmpty(); i += b0)
         {
-            int j = ((Integer)priorityqueue.remove()).intValue();
+            int j = (Integer) priorityqueue.remove();
 
             for (int k = 0; k < b0; ++k)
             {

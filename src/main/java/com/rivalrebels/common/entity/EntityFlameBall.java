@@ -146,9 +146,9 @@ public class EntityFlameBall extends Entity {
         if (mop != null) end = new Vec3d(mop.hitVec.x, mop.hitVec.y, mop.hitVec.z);
 
         Entity e = null;
-        List var5 = world.getEntitiesWithinAABBExcludingEntity(this, getEntityBoundingBox().contract(motionX, motionY, motionZ).expand(1.0D, 1.0D, 1.0D));
+        List<Entity> var5 = world.getEntitiesWithinAABBExcludingEntity(this, getEntityBoundingBox().contract(motionX, motionY, motionZ).expand(1.0D, 1.0D, 1.0D));
         double var6 = 0.0D;
-        Iterator var8 = var5.iterator();
+        Iterator<Entity> var8 = var5.iterator();
 
         if (!world.isRemote)
         {
@@ -192,7 +192,7 @@ public class EntityFlameBall extends Entity {
                 if (mop.entityHit != null && mop.entityHit instanceof EntityPlayer)
                 {
                     EntityPlayer player = (EntityPlayer) mop.entityHit;
-                    ItemStack armorSlots[] = player.inventory.armorInventory.toArray(new ItemStack[0]);
+                    ItemStack[] armorSlots = player.inventory.armorInventory.toArray(new ItemStack[0]);
                     int i = world.rand.nextInt(4);
                     if (armorSlots[i] != null && !world.isRemote)
                     {

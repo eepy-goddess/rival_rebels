@@ -1,6 +1,6 @@
 package com.rivalrebels.common.entity;
 
-import com.rivalrebels.RivalRebels;
+import com.rivalrebels.common.init.RRBlocks;
 import com.rivalrebels.common.init.RivalRebelsDamageSource;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
@@ -135,9 +135,9 @@ public class EntityFlameBall1 extends Entity {
         if (mop != null) end = new Vec3d(mop.hitVec.x, mop.hitVec.y, mop.hitVec.z);
 
         Entity e = null;
-        List var5 = world.getEntitiesWithinAABBExcludingEntity(this, getEntityBoundingBox().contract(motionX, motionY, motionZ).expand(1.0D, 1.0D, 1.0D));
+        List<Entity> var5 = world.getEntitiesWithinAABBExcludingEntity(this, getEntityBoundingBox().contract(motionX, motionY, motionZ).expand(1.0D, 1.0D, 1.0D));
         double var6 = 0.0D;
-        Iterator var8 = var5.iterator();
+        Iterator<Entity> var8 = var5.iterator();
 
         if (!world.isRemote)
         {
@@ -178,10 +178,10 @@ public class EntityFlameBall1 extends Entity {
             {
                 mop.entityHit.setFire(3);
                 mop.entityHit.attackEntityFrom(RivalRebelsDamageSource.cooked, 12);
-                if (mop.entityHit != null && mop.entityHit instanceof EntityPlayer)
+                if (mop.entityHit instanceof EntityPlayer)
                 {
                     EntityPlayer player = (EntityPlayer) mop.entityHit;
-                    ItemStack armorSlots[] = player.inventory.armorInventory.toArray(new ItemStack[0]);
+                    ItemStack[] armorSlots = player.inventory.armorInventory.toArray(new ItemStack[0]);
                     int i = world.rand.nextInt(4);
                     if (armorSlots[i] != null && !world.isRemote)
                     {
@@ -195,7 +195,7 @@ public class EntityFlameBall1 extends Entity {
                 if (mop.entityHit instanceof EntityPlayer)
                 {
                     EntityPlayer entityPlayerHit = (EntityPlayer) mop.entityHit;
-                    ItemStack armorSlots[] = entityPlayerHit.inventory.armorInventory.toArray(new ItemStack[0]);
+                    ItemStack[] armorSlots = entityPlayerHit.inventory.armorInventory.toArray(new ItemStack[0]);
                     int i = world.rand.nextInt(4);
                     if (armorSlots[i] != null)
                     {
@@ -289,7 +289,7 @@ public class EntityFlameBall1 extends Entity {
                         if (id == Blocks.AIR || id == Blocks.SNOW || id == Blocks.ICE) world.setBlockState(new BlockPos((int) posX + x, (int) posY + y, (int) posZ + z), Blocks.FIRE.getDefaultState());
                         else if (id == Blocks.LEAVES || id == Blocks.LEAVES2) world.setBlockState(new BlockPos((int) posX + x, (int) posY + y, (int) posZ + z), Blocks.FIRE.getDefaultState());
                         else if (id == Blocks.GRASS && world.rand.nextInt(5) == 0) world.setBlockState(new BlockPos((int) posX + x, (int) posY + y, (int) posZ + z), Blocks.DIRT.getDefaultState());
-                        else if (id == RivalRebels.flare) RivalRebels.flare.onBlockDestroyedByPlayer(world, new BlockPos((int) posX + x, (int) posY + y, (int) posZ + z), RivalRebels.flare.getDefaultState());
+                        else if (id == RRBlocks.flare) RRBlocks.flare.onBlockDestroyedByPlayer(world, new BlockPos((int) posX + x, (int) posY + y, (int) posZ + z), RRBlocks.flare.getDefaultState());
                     }
                 }
             }

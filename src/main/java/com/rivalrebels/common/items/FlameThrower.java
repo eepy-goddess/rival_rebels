@@ -4,13 +4,14 @@ import com.rivalrebels.RivalRebels;
 import com.rivalrebels.common.entity.EntityFlameBall;
 import com.rivalrebels.common.entity.EntityFlameBall1;
 import com.rivalrebels.common.entity.EntityFlameBall2;
-import net.minecraft.block.BlockTorch;
+
+import com.rivalrebels.common.init.RRConfigOptions;
+import com.rivalrebels.common.init.RRItems;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumAction;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ActionResult;
@@ -21,9 +22,10 @@ import net.minecraft.util.text.translation.I18n;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.relauncher.Side;
+
 import org.lwjgl.input.Keyboard;
 
-public class FlameThrower extends RRItem{
+public class FlameThrower extends RRItem {
     public FlameThrower(String name) {
         super(name);
     }
@@ -33,22 +35,22 @@ public class FlameThrower extends RRItem{
         return EnumAction.BOW;
     }
     @Override
-    public int getMaxItemUseDuration(ItemStack stack){
+    public int getMaxItemUseDuration(ItemStack stack) {
         return 64;
     }
     @Override
-    public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand){
+    public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand) {
         ItemStack stack = player.getHeldItem(hand);
-        if (player.capabilities.isCreativeMode || player.inventory.hasItemStack(new ItemStack(RivalRebels.fuel)) || RivalRebels.infiniteAmmo)
+        if (player.capabilities.isCreativeMode || player.inventory.hasItemStack(new ItemStack(RRItems.fuel)) || RRConfigOptions.infinite_ammo)
         {
             player.setActiveHand(hand);
-            if (!player.capabilities.isCreativeMode && !RivalRebels.infiniteAmmo)
+            if (!player.capabilities.isCreativeMode && !RRConfigOptions.infinite_ammo)
             {
-                player.inventory.getStackInSlot(player.inventory.findSlotMatchingUnusedItem(new ItemStack(RivalRebels.fuel))).shrink(1);
-                if (getMode(stack) != 2) player.inventory.getStackInSlot(player.inventory.findSlotMatchingUnusedItem(new ItemStack(RivalRebels.fuel))).shrink(1);
-                if (getMode(stack) != 2) player.inventory.getStackInSlot(player.inventory.findSlotMatchingUnusedItem(new ItemStack(RivalRebels.fuel))).shrink(1);
-                if (getMode(stack) == 0) player.inventory.getStackInSlot(player.inventory.findSlotMatchingUnusedItem(new ItemStack(RivalRebels.fuel))).shrink(1);
-                if (getMode(stack) == 0) player.inventory.getStackInSlot(player.inventory.findSlotMatchingUnusedItem(new ItemStack(RivalRebels.fuel))).shrink(1);
+                player.inventory.getStackInSlot(player.inventory.findSlotMatchingUnusedItem(new ItemStack(RRItems.fuel))).shrink(1);
+                if (getMode(stack) != 2) player.inventory.getStackInSlot(player.inventory.findSlotMatchingUnusedItem(new ItemStack(RRItems.fuel))).shrink(1);
+                if (getMode(stack) != 2) player.inventory.getStackInSlot(player.inventory.findSlotMatchingUnusedItem(new ItemStack(RRItems.fuel))).shrink(1);
+                if (getMode(stack) == 0) player.inventory.getStackInSlot(player.inventory.findSlotMatchingUnusedItem(new ItemStack(RRItems.fuel))).shrink(1);
+                if (getMode(stack) == 0) player.inventory.getStackInSlot(player.inventory.findSlotMatchingUnusedItem(new ItemStack(RRItems.fuel))).shrink(1);
             }
             /*if (stack.isItemEnchanted() && !world.isRemote)
             {
@@ -68,8 +70,7 @@ public class FlameThrower extends RRItem{
     boolean message = true;
     int shrink;
     @Override
-    public void onUsingTick(ItemStack item, EntityLivingBase entity, int par4)
-    {
+    public void onUsingTick(ItemStack item, EntityLivingBase entity, int par4) {
         shrink = par4;
         World world = entity.world;
         if (!world.isRemote)
@@ -136,7 +137,7 @@ public class FlameThrower extends RRItem{
     public void openGui(ItemStack item, Entity entity)
     {
         if (FMLCommonHandler.instance().getEffectiveSide() == Side.CLIENT)
-            if ((RivalRebels.altRkey? Keyboard.isKeyDown(Keyboard.KEY_F):Keyboard.isKeyDown(Keyboard.KEY_R)) && item == ((EntityPlayer) entity).inventory.getCurrentItem() && Minecraft.getMinecraft().currentScreen == null)
+            if ((RRConfigOptions.alt_R_key? Keyboard.isKeyDown(Keyboard.KEY_F):Keyboard.isKeyDown(Keyboard.KEY_R)) && item == ((EntityPlayer) entity).inventory.getCurrentItem() && Minecraft.getMinecraft().currentScreen == null)
             {
                 RivalRebels.proxy.flamethrowerGui(getMode(item));
             }

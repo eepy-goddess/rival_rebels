@@ -1,14 +1,14 @@
 package com.rivalrebels.common.items;
 
+import com.rivalrebels.ModInfo;
 import com.rivalrebels.RivalRebels;
 import com.rivalrebels.common.entity.EntityPlasmoid;
 import com.rivalrebels.common.init.RRSounds;
-import net.minecraft.block.Block;
+
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumAction;
-import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemTool;
 import net.minecraft.util.ActionResult;
@@ -19,9 +19,9 @@ import net.minecraft.world.World;
 
 import java.util.HashSet;
 
-public class PlasmaCannonItem extends ItemTool implements IHasModel{
-     public PlasmaCannonItem(String name){
-         super(ToolMaterial.DIAMOND, new HashSet());
+public class PlasmaCannonItem extends ItemTool implements IHasModel {
+     public PlasmaCannonItem(String name) {
+         super(ToolMaterial.DIAMOND, new HashSet<>());
          setUnlocalizedName(name);
          setRegistryName(name);
          maxStackSize = 1;
@@ -66,7 +66,7 @@ public class PlasmaCannonItem extends ItemTool implements IHasModel{
 
     @Override
     public String getModelName() {
-        return RivalRebels.modid + ":plasma_cannon";
+        return ModInfo.modid + ":plasma_cannon";
     }
 
 }

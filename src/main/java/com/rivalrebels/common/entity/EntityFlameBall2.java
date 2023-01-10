@@ -1,6 +1,6 @@
 package com.rivalrebels.common.entity;
 
-import com.rivalrebels.RivalRebels;
+import com.rivalrebels.common.init.RRBlocks;
 import com.rivalrebels.common.init.RivalRebelsDamageSource;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
@@ -140,7 +140,7 @@ public class EntityFlameBall2 extends Entity {
         if (mop != null) end = new Vec3d(mop.hitVec.x, mop.hitVec.y, mop.hitVec.z);
 
         Entity e = null;
-        List var5 = world.getEntitiesWithinAABBExcludingEntity(this, getEntityBoundingBox().contract(motionX, motionY, motionZ).expand(1.0D, 1.0D, 1.0D));
+        List<Entity> var5 = world.getEntitiesWithinAABBExcludingEntity(this, getEntityBoundingBox().contract(motionX, motionY, motionZ).expand(1.0D, 1.0D, 1.0D));
         double var6 = 0.0D;
         Iterator var8 = var5.iterator();
 
@@ -210,7 +210,7 @@ public class EntityFlameBall2 extends Entity {
                 if (mop.entityHit != null && mop.entityHit instanceof EntityPlayer)
                 {
                     EntityPlayer player = (EntityPlayer) mop.entityHit;
-                    ItemStack armorSlots[] = player.inventory.armorInventory.toArray(new ItemStack[0]);
+                    ItemStack[] armorSlots = player.inventory.armorInventory.toArray(new ItemStack[0]);
                     int i = world.rand.nextInt(4);
                     if (armorSlots[i] != null && !world.isRemote)
                     {
@@ -306,10 +306,10 @@ public class EntityFlameBall2 extends Entity {
             else if (id == Blocks.LEAVES || id == Blocks.LEAVES2) world.setBlockState(new BlockPos((int) posX, (int) posY, (int) posZ), Blocks.FIRE.getDefaultState());
             else if (id == Blocks.GRASS) world.setBlockState(new BlockPos((int) posX, (int) posY, (int) posZ), Blocks.DIRT.getDefaultState());
             else if (id == Blocks.DIRT) world.setBlockState(new BlockPos((int) posX, (int) posY, (int) posZ), Blocks.FIRE.getDefaultState());
-            else if (id == RivalRebels.flare) RivalRebels.flare.onBlockDestroyedByPlayer(world, new BlockPos((int) posX, (int) posY, (int) posZ), RivalRebels.flare.getDefaultState());
+            else if (id == RRBlocks.flare) RRBlocks.flare.onBlockDestroyedByPlayer(world, new BlockPos((int) posX, (int) posY, (int) posZ), RRBlocks.flare.getDefaultState());
             //else if (id == RivalRebels.timedbomb) RivalRebels.timedbomb.onBlockDestroyedByPlayer(worldObj, (int) posX, (int) posY, (int) posZ, 0);
-            else if (id == RivalRebels.plastic_explosives) RivalRebels.plastic_explosives.onBlockDestroyedByPlayer(world, new BlockPos((int) posX, (int) posY, (int) posZ), RivalRebels.plastic_explosives.getDefaultState());
-            else if (id == RivalRebels.mine) RivalRebels.plastic_explosives.onBlockDestroyedByPlayer(world, new BlockPos((int) posX, (int) posY, (int) posZ), RivalRebels.plastic_explosives.getDefaultState());
+            else if (id == RRBlocks.plastic_explosives) RRBlocks.plastic_explosives.onBlockDestroyedByPlayer(world, new BlockPos((int) posX, (int) posY, (int) posZ), RRBlocks.plastic_explosives.getDefaultState());
+            else if (id == RRBlocks.mine) RRBlocks.plastic_explosives.onBlockDestroyedByPlayer(world, new BlockPos((int) posX, (int) posY, (int) posZ), RRBlocks.plastic_explosives.getDefaultState());
             else if (id == Blocks.TNT)
             {
                 world.setBlockToAir(new BlockPos((int) posX, (int) posY, (int) posZ));

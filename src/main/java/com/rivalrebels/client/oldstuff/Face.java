@@ -31,10 +31,9 @@ public class Face
 
         if ((textureCoordinates != null) && (textureCoordinates.length > 0))
         {
-            for (int i = 0; i < textureCoordinates.length; ++i)
-            {
-                averageU += textureCoordinates[i].u;
-                averageV += textureCoordinates[i].v;
+            for (TextureCoordinate textureCoordinate : textureCoordinates) {
+                averageU += textureCoordinate.u;
+                averageV += textureCoordinate.v;
             }
 
             averageU = averageU / textureCoordinates.length;

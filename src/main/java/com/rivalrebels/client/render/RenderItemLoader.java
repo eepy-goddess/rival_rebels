@@ -1,6 +1,6 @@
 package com.rivalrebels.client.render;
 
-import com.rivalrebels.RivalRebels;
+import com.rivalrebels.ModInfo;
 import com.rivalrebels.client.model.LoaderModel;
 import com.rivalrebels.client.renderhelper.ItemRenderBase;
 import net.minecraft.client.Minecraft;
@@ -12,7 +12,7 @@ import org.lwjgl.opengl.GL11;
 
 public class RenderItemLoader extends ItemRenderBase {
     public LoaderModel ml;
-    public static ResourceLocation texture = new ResourceLocation(RivalRebels.modid, "textures/models/loader.png");
+    public static ResourceLocation texture = new ResourceLocation(ModInfo.modid, "textures/models/loader.png");
     public RenderItemLoader(){
         ml = new LoaderModel();
     }
@@ -30,7 +30,7 @@ public class RenderItemLoader extends ItemRenderBase {
         } else {
             GL11.glPushMatrix();
             GL11.glTranslated(0.5, 0.5, 0.5);
-            Minecraft.getMinecraft().getRenderItem().renderItem(item, model);
+            Minecraft.getMinecraft().getRenderItem().renderItem(item, baked_model);
             GL11.glPopMatrix();
         }
     }

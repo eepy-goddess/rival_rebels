@@ -1,5 +1,6 @@
 package com.rivalrebels.client.render;
 
+import com.rivalrebels.ModInfo;
 import com.rivalrebels.client.model.RodModel;
 import com.rivalrebels.client.renderhelper.ItemRenderBase;
 import net.minecraft.client.Minecraft;
@@ -7,11 +8,10 @@ import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.block.model.ItemCameraTransforms;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
-import com.rivalrebels.RivalRebels;
 import org.lwjgl.opengl.GL11;
 
 public class RenderRedstoneRod extends ItemRenderBase {
-    public static ResourceLocation texture = new ResourceLocation(RivalRebels.modid, "textures/models/redstone_rod.png");
+    public static ResourceLocation texture = new ResourceLocation(ModInfo.modid, "textures/models/redstone_rod.png");
     public RodModel md;
     public RenderRedstoneRod(){
         md = new RodModel();
@@ -32,7 +32,7 @@ public class RenderRedstoneRod extends ItemRenderBase {
         } else {
             GL11.glPushMatrix();
             GL11.glTranslated(0.5, 0.5, 0.5);
-            Minecraft.getMinecraft().getRenderItem().renderItem(item, model);
+            Minecraft.getMinecraft().getRenderItem().renderItem(item, baked_model);
             GL11.glPopMatrix();
         }
     }

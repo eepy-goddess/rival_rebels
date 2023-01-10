@@ -1,8 +1,8 @@
 package com.rivalrebels.client.model;
 
-import com.rivalrebels.RivalRebels;
 import com.rivalrebels.client.oldstuff.Tessellator;
 import com.rivalrebels.client.renderhelper.Vertice;
+import com.rivalrebels.common.init.RRConfigOptions;
 import org.lwjgl.opengl.GL11;
 
 public class OldNukeModel {
@@ -43,9 +43,9 @@ public class OldNukeModel {
     public void renderModel(boolean hasFuse)
     {
         GL11.glPushMatrix();
-        GL11.glScalef(RivalRebels.nukeScale,RivalRebels.nukeScale,RivalRebels.nukeScale);
+        GL11.glScalef(RRConfigOptions.nuke_scale, RRConfigOptions.nuke_scale, RRConfigOptions.nuke_scale);
         Tessellator tessellator = Tessellator.instance;
-        int itemIcon = 39;
+        float itemIcon = 39F;
         float var3 = (itemIcon % 16 * 16 + 0) / 256.0F;
         float var4 = (itemIcon % 16 * 16 + 16) / 256.0F;
         float var5 = (itemIcon / 16 * 16 + 0) / 256.0F;

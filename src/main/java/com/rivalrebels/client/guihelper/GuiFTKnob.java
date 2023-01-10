@@ -1,6 +1,6 @@
 package com.rivalrebels.client.guihelper;
 
-import com.rivalrebels.RivalRebels;
+import com.rivalrebels.ModInfo;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.util.ResourceLocation;
@@ -13,7 +13,7 @@ import org.lwjgl.opengl.GL11;
 public class GuiFTKnob extends GuiButton {
     protected int		mode;
     protected boolean	pressed;
-    public static ResourceLocation button = new ResourceLocation(RivalRebels.modid, "textures/gui/knob_button.png");
+    public static ResourceLocation button = new ResourceLocation(ModInfo.modid, "textures/gui/knob_button.png");
 
     public GuiFTKnob(int id, int x, int y, int minDegree, int maxDegree, int startDegree, boolean respectLimits, String par6Str)
     {
@@ -57,7 +57,7 @@ public class GuiFTKnob extends GuiButton {
         {
             pressed = false;
             int move = Mouse.getDWheel();
-            mode += move > 0 ? -1 : move < 0 ? 1 : 0;
+            mode += Integer.compare(0, move);
             while (mode < 0)
                 mode += 3;
             mode %= 3;

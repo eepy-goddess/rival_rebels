@@ -1,6 +1,6 @@
 package com.rivalrebels.client.render;
 
-import com.rivalrebels.RivalRebels;
+import com.rivalrebels.ModInfo;
 import com.rivalrebels.client.model.LoaderModel;
 import com.rivalrebels.client.oldstuff.AdvancedModelLoader;
 import com.rivalrebels.client.oldstuff.IModelCustom;
@@ -14,10 +14,10 @@ import org.lwjgl.opengl.GL11;
 public class LoaderRenderer extends TileEntitySpecialRenderer<TileLoader> {
     public LoaderModel loaderModel;
     public IModelCustom tube;
-    public static ResourceLocation tube_model_path = new ResourceLocation(RivalRebels.modid, "models/obj/loader_tube.obj");
-    public static ResourceLocation loader_texture = new ResourceLocation(RivalRebels.modid, "textures/models/loader.png");
-    public static ResourceLocation loader_tube_texture = new ResourceLocation(RivalRebels.modid, "textures/models/loader_tube.png");
-    public LoaderRenderer(){
+    public static ResourceLocation tube_model_path = new ResourceLocation(ModInfo.modid, "models/obj/loader_tube.obj");
+    public static ResourceLocation loader_texture = new ResourceLocation(ModInfo.modid, "textures/models/loader.png");
+    public static ResourceLocation loader_tube_texture = new ResourceLocation(ModInfo.modid, "textures/models/loader_tube.png");
+    public LoaderRenderer() {
         loaderModel = new LoaderModel();
         tube = AdvancedModelLoader.loadModel(tube_model_path);
     }

@@ -1,10 +1,6 @@
 package com.rivalrebels.common.blocks;
 
-import com.rivalrebels.common.entity.EntityDebris;
 import com.rivalrebels.common.init.RivalRebelsDamageSource;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockHorizontal;
-import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyDirection;
@@ -13,7 +9,6 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumFacing;
@@ -24,8 +19,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextComponentString;
 import com.rivalrebels.common.explosion.RivalRebelsExplosion;
 import net.minecraft.world.World;
-
-import java.util.Random;
 
 public class Toaster extends RRBlock {
     //I know that the toaster never rotated in the original version, but something about it not rotating bugs me

@@ -1,11 +1,10 @@
 package com.rivalrebels.client.render;
 
-import com.rivalrebels.RivalRebels;
+import com.rivalrebels.ModInfo;
 import com.rivalrebels.client.oldstuff.Tessellator;
 import com.rivalrebels.common.entity.EntityCuchillo;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.entity.Render;
-import net.minecraft.client.renderer.entity.RenderArrow;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
@@ -14,7 +13,7 @@ import org.lwjgl.opengl.GL12;
 import javax.annotation.Nullable;
 
 public class RenderCuchillo extends Render<EntityCuchillo> {
-    public static ResourceLocation texture = new ResourceLocation(RivalRebels.modid, "textures/models/knife.png");
+    public static ResourceLocation texture = new ResourceLocation(ModInfo.modid, "textures/models/knife.png");
     public RenderCuchillo(RenderManager renderManager) {
         super(renderManager);
     }

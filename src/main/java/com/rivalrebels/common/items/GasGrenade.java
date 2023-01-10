@@ -1,14 +1,13 @@
 package com.rivalrebels.common.items;
 
-import com.rivalrebels.RivalRebels;
 import com.rivalrebels.common.entity.EntityGasGrenade;
+import com.rivalrebels.common.init.RRItems;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.EnumAction;
 import net.minecraft.item.ItemStack;
-import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumActionResult;
@@ -38,7 +37,7 @@ public class GasGrenade extends RRItem {
     @Override
     public void onPlayerStoppedUsing(ItemStack itemstack, World world, EntityLivingBase player, int i)
     {
-        if (((EntityPlayer)player).capabilities.isCreativeMode || ((EntityPlayer)player).inventory.hasItemStack(new ItemStack(RivalRebels.gas_grenade)) /*|| RivalRebels.infiniteGrenades*/)
+        if (((EntityPlayer)player).capabilities.isCreativeMode || ((EntityPlayer)player).inventory.hasItemStack(new ItemStack(RRItems.gas_grenade)) /*|| RivalRebels.infiniteGrenades*/)
         {
             float f = (getMaxItemUseDuration(itemstack) - i) / 20.0F;
             f = (f * f + f * 2) * 0.3333f;

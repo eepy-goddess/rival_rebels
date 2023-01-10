@@ -1,17 +1,17 @@
 package com.rivalrebels.common.blocks;
 
-import com.rivalrebels.RivalRebels;
+import com.rivalrebels.common.init.RRBlocks;
+import com.rivalrebels.common.init.RRItems;
 import com.rivalrebels.common.packet.PacketDispatcher;
 import com.rivalrebels.common.packet.TextPacket;
 import com.rivalrebels.common.tileentity.TileNukeCrate;
+
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockFurnace;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyInteger;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.entity.monster.EntityCreeper;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.Blocks;
@@ -29,62 +29,64 @@ import javax.annotation.Nullable;
 
 public class NukeCrate extends RRBlock {
     public static PropertyInteger meta = PropertyInteger.create("meta", 0, 5);
+
     public NukeCrate(String name, Material mat){
         super(name, mat);
     }
+
     public int determineOrientation(World world, int x, int y, int z, EntityPlayer entity)
     {
         int orientation = 0;
-        if (this == RivalRebels.nukeCrateTop)
+        if (this == RRBlocks.nuke_crate_top)
         {
-            if (world.getBlockState(new BlockPos(x, y + 1, z)).getBlock() == RivalRebels.nukeCrateBottom)
+            if (world.getBlockState(new BlockPos(x, y + 1, z)).getBlock() == RRBlocks.nuke_crate_bottom)
             {
                 orientation = 0;
             }
-            else if (world.getBlockState(new BlockPos(x, y - 1, z)).getBlock() == RivalRebels.nukeCrateBottom)
+            else if (world.getBlockState(new BlockPos(x, y - 1, z)).getBlock() == RRBlocks.nuke_crate_bottom)
             {
                 orientation = 1;
             }
-            else if (world.getBlockState(new BlockPos(x, y, z + 1)).getBlock() == RivalRebels.nukeCrateBottom)
+            else if (world.getBlockState(new BlockPos(x, y, z + 1)).getBlock() == RRBlocks.nuke_crate_bottom)
             {
                 orientation = 2;
             }
-            else if (world.getBlockState(new BlockPos(x, y, z - 1)).getBlock() == RivalRebels.nukeCrateBottom)
+            else if (world.getBlockState(new BlockPos(x, y, z - 1)).getBlock() == RRBlocks.nuke_crate_bottom)
             {
                 orientation = 3;
             }
-            else if (world.getBlockState(new BlockPos(x + 1, y, z)).getBlock() == RivalRebels.nukeCrateBottom)
+            else if (world.getBlockState(new BlockPos(x + 1, y, z)).getBlock() == RRBlocks.nuke_crate_bottom)
             {
                 orientation = 4;
             }
-            else if (world.getBlockState(new BlockPos(x - 1, y, z)).getBlock() == RivalRebels.nukeCrateBottom)
+            else if (world.getBlockState(new BlockPos(x - 1, y, z)).getBlock() == RRBlocks.nuke_crate_bottom)
             {
                 orientation = 5;
             }
         }
-        if (this == RivalRebels.nukeCrateBottom)
+        if (this == RRBlocks.nuke_crate_bottom)
         {
-            if (world.getBlockState(new BlockPos(x, y + 1, z)).getBlock() == RivalRebels.nukeCrateTop)
+            if (world.getBlockState(new BlockPos(x, y + 1, z)).getBlock() == RRBlocks.nuke_crate_top)
             {
                 orientation = 1;
             }
-            else if (world.getBlockState(new BlockPos(x, y - 1, z)).getBlock() == RivalRebels.nukeCrateTop)
+            else if (world.getBlockState(new BlockPos(x, y - 1, z)).getBlock() == RRBlocks.nuke_crate_top)
             {
                 orientation = 0;
             }
-            else if (world.getBlockState(new BlockPos(x, y, z + 1)).getBlock() == RivalRebels.nukeCrateTop)
+            else if (world.getBlockState(new BlockPos(x, y, z + 1)).getBlock() == RRBlocks.nuke_crate_top)
             {
                 orientation = 3;
             }
-            else if (world.getBlockState(new BlockPos(x, y, z - 1)).getBlock() == RivalRebels.nukeCrateTop)
+            else if (world.getBlockState(new BlockPos(x, y, z - 1)).getBlock() == RRBlocks.nuke_crate_top)
             {
                 orientation = 2;
             }
-            else if (world.getBlockState(new BlockPos(x + 1, y, z)).getBlock() == RivalRebels.nukeCrateTop)
+            else if (world.getBlockState(new BlockPos(x + 1, y, z)).getBlock() == RRBlocks.nuke_crate_top)
             {
                 orientation = 5;
             }
-            else if (world.getBlockState(new BlockPos(x - 1, y, z)).getBlock() == RivalRebels.nukeCrateTop)
+            else if (world.getBlockState(new BlockPos(x - 1, y, z)).getBlock() == RRBlocks.nuke_crate_top)
             {
                 orientation = 4;
             }
@@ -98,84 +100,87 @@ public class NukeCrate extends RRBlock {
         int x = pos.getX();
         int y = pos.getY();
         int z = pos.getZ();
-        if (world.getBlockState(new BlockPos(x, y + 1, z)).getBlock() == RivalRebels.nukeCrateBottom)
+        if (world.getBlockState(new BlockPos(x, y + 1, z)).getBlock() == RRBlocks.nuke_crate_top)
         {
             neighborChanged(state, world, new BlockPos(x, y + 1, z), this, pos);
         }
-        else if (world.getBlockState(new BlockPos(x, y - 1, z)).getBlock() == RivalRebels.nukeCrateBottom)
+        else if (world.getBlockState(new BlockPos(x, y - 1, z)).getBlock() == RRBlocks.nuke_crate_top)
         {
             neighborChanged(state, world, new BlockPos(x, y - 1, z), this, pos);
 
         }
-        else if (world.getBlockState(new BlockPos(x, y, z + 1)).getBlock() == RivalRebels.nukeCrateBottom)
+        else if (world.getBlockState(new BlockPos(x, y, z + 1)).getBlock() == RRBlocks.nuke_crate_top)
         {
             neighborChanged(state, world, new BlockPos(x, y, z + 1), this, pos);
 
         }
-        else if (world.getBlockState(new BlockPos(x, y, z - 1)).getBlock() == RivalRebels.nukeCrateBottom)
+        else if (world.getBlockState(new BlockPos(x, y, z - 1)).getBlock() == RRBlocks.nuke_crate_top)
         {
             neighborChanged(state, world, new BlockPos(x, y, z - 1), this, pos);
 
         }
-        else if (world.getBlockState(new BlockPos(x + 1, y, z)).getBlock() == RivalRebels.nukeCrateBottom)
+        else if (world.getBlockState(new BlockPos(x + 1, y, z)).getBlock() == RRBlocks.nuke_crate_top)
         {
             neighborChanged(state, world, new BlockPos(x + 1, y, z), this, pos);
 
         }
-        else if (world.getBlockState(new BlockPos(x - 1, y, z)).getBlock() == RivalRebels.nukeCrateBottom)
+        else if (world.getBlockState(new BlockPos(x - 1, y, z)).getBlock() == RRBlocks.nuke_crate_top)
         {
             neighborChanged(state, world, new BlockPos(x - 1, y, z), this, pos);
 
         }
     }
 
-
+    @Override
     public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block blockIn, BlockPos fromPos) {
-        if(worldIn.getBlockState(pos).getBlock() == RivalRebels.nukeCrateBottom) {
-            worldIn.setBlockState(pos, RivalRebels.nukeCrateBottom.getDefaultState().withProperty(meta, determineOrientation(worldIn, pos.getX(), pos.getY(), pos.getZ(), null)), 2);
-        } else if(worldIn.getBlockState(pos).getBlock() == RivalRebels.nukeCrateTop) {
-            worldIn.setBlockState(pos, RivalRebels.nukeCrateTop.getDefaultState().withProperty(meta, determineOrientation(worldIn, pos.getX(), pos.getY(), pos.getZ(), null)), 2);
+        if(worldIn.getBlockState(pos).getBlock() == RRBlocks.nuke_crate_top) {
+            worldIn.setBlockState(pos, RRBlocks.nuke_crate_top.getDefaultState().withProperty(meta, determineOrientation(worldIn, pos.getX(), pos.getY(), pos.getZ(), null)), 2);
+        } else if(worldIn.getBlockState(pos).getBlock() == RRBlocks.nuke_crate_top) {
+            worldIn.setBlockState(pos, RRBlocks.nuke_crate_bottom.getDefaultState().withProperty(meta, determineOrientation(worldIn, pos.getX(), pos.getY(), pos.getZ(), null)), 2);
         }
     }
 
     @Override
     public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
         ItemStack stack = playerIn.getHeldItem(hand);
-        if(this == RivalRebels.nukeCrateTop) {
-            if (stack.getItem() == RivalRebels.pliers) {
+
+        if (this == RRBlocks.nuke_crate_top) {
+            if (stack.getItem().equals(RRItems.pliers)) {
                 int orientation = 0;
                 int x = pos.getX();
                 int y = pos.getY();
                 int z = pos.getZ();
-                if (world.getBlockState(new BlockPos(x, y + 1, z)).getBlock() == RivalRebels.nukeCrateBottom) {
+
+                if (world.getBlockState(new BlockPos(x, y + 1, z)).getBlock() == RRBlocks.nuke_crate_bottom) {
                     world.setBlockState(new BlockPos(x, y + 1, z), Blocks.AIR.getDefaultState());
                     orientation = 0;
-                } else if (world.getBlockState(new BlockPos(x, y - 1, z)).getBlock() == RivalRebels.nukeCrateBottom) {
+                } else if (world.getBlockState(new BlockPos(x, y - 1, z)).getBlock() == RRBlocks.nuke_crate_bottom) {
                     world.setBlockState(new BlockPos(x, y - 1, z), Blocks.AIR.getDefaultState());
                     orientation = 1;
-                } else if (world.getBlockState(new BlockPos(x, y, z + 1)).getBlock() == RivalRebels.nukeCrateBottom) {
+                } else if (world.getBlockState(new BlockPos(x, y, z + 1)).getBlock() == RRBlocks.nuke_crate_bottom) {
                     world.setBlockState(new BlockPos(x, y, z + 1), Blocks.AIR.getDefaultState());
                     orientation = 2;
-                } else if (world.getBlockState(new BlockPos(x, y, z - 1)).getBlock() == RivalRebels.nukeCrateBottom) {
+                } else if (world.getBlockState(new BlockPos(x, y, z - 1)).getBlock() == RRBlocks.nuke_crate_bottom) {
                     world.setBlockState(new BlockPos(x, y, z - 1), Blocks.AIR.getDefaultState());
                     orientation = 3;
-                } else if (world.getBlockState(new BlockPos(x + 1, y, z)).getBlock() == RivalRebels.nukeCrateBottom) {
+                } else if (world.getBlockState(new BlockPos(x + 1, y, z)).getBlock() == RRBlocks.nuke_crate_bottom) {
                     world.setBlockState(new BlockPos(x + 1, y, z), Blocks.AIR.getDefaultState());
                     orientation = 4;
-                } else if (world.getBlockState(new BlockPos(x - 1, y, z)).getBlock() == RivalRebels.nukeCrateBottom) {
+                } else if (world.getBlockState(new BlockPos(x - 1, y, z)).getBlock() == RRBlocks.nuke_crate_bottom) {
                     world.setBlockState(new BlockPos(x - 1, y, z), Blocks.AIR.getDefaultState());
                     orientation = 5;
                 } else {
                     return false;
                 }
-                world.setBlockState(pos, RivalRebels.nuke.getDefaultState().withProperty(NukeBlock.meta, orientation));
+                world.setBlockState(pos, RRBlocks.nuke.getDefaultState().withProperty(NukeBlock.meta, orientation));
                 return true;
-            } else if(!world.isRemote) {
-                PacketDispatcher.wrapper.sendTo(new TextPacket(TextFormatting.RED, "RivalRebels.Orders RivalRebels.message.use " + RivalRebels.pliers.getUnlocalizedName() + ".name"), (EntityPlayerMP) playerIn);
+            } else if (!world.isRemote) {
+                PacketDispatcher.wrapper.sendTo(new TextPacket(TextFormatting.RED, "RivalRebels.Orders RivalRebels.message.use " + RRItems.pliers.getUnlocalizedName() + ".name"), (EntityPlayerMP) playerIn);
             }
         }
         return false;
     }
+
     @Override
     protected BlockStateContainer createBlockState() {
         return new BlockStateContainer(this, new IProperty[]{meta});

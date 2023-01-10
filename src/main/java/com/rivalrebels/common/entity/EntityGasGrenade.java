@@ -1,6 +1,6 @@
 package com.rivalrebels.common.entity;
 
-import com.rivalrebels.RivalRebels;
+import com.rivalrebels.common.init.RRBlocks;
 import com.rivalrebels.common.init.RRSounds;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
@@ -188,7 +188,7 @@ public class EntityGasGrenade extends Entity {
         }
 
         Entity var5 = null;
-        List var6 = world.getEntitiesWithinAABBExcludingEntity(this, getEntityBoundingBox().contract(motionX, motionY, motionZ).expand(1.0D, 1.0D, 1.0D));
+        List<Entity> var6 = world.getEntitiesWithinAABBExcludingEntity(this, getEntityBoundingBox().contract(motionX, motionY, motionZ).expand(1.0D, 1.0D, 1.0D));
         double var7 = 0.0D;
         Iterator var9 = var6.iterator();
 
@@ -238,7 +238,6 @@ public class EntityGasGrenade extends Entity {
 
         for (rotationPitch = (float) (Math.atan2(motionY, var20) * 180.0D / Math.PI); rotationPitch - prevRotationPitch < -180.0F; prevRotationPitch -= 360.0F)
         {
-            ;
         }
 
         while (rotationPitch - prevRotationPitch >= 180.0F)
@@ -322,7 +321,7 @@ public class EntityGasGrenade extends Entity {
                 {
                     if (world.getBlockState(new BlockPos((int) posX + x, (int) posY + y, (int) posZ + z)) == Blocks.AIR.getDefaultState())
                     {
-                        world.setBlockState(new BlockPos((int) posX + x, (int) posY + y, (int) posZ + z), RivalRebels.toxic_gas.getDefaultState());
+                        world.setBlockState(new BlockPos((int) posX + x, (int) posY + y, (int) posZ + z), RRBlocks.toxic_gas.getDefaultState());
                     }
                 }
             }

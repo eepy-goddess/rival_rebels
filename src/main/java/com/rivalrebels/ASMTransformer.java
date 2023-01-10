@@ -8,8 +8,7 @@ public class ASMTransformer implements IClassTransformer {
         if(transformedName.equals("net.minecraft.network.NetHandlerPlayServer"))
         {
             int d = 3;
-            for (int i = 0; i < bytes.length - 8 && d != 0; i++)
-            {
+            for (int i = 0; i < bytes.length - 8 && d != 0; i++) {
                 if(bytes[i+2] == 0x00
                         && bytes[i+3] == 0x00
                         && bytes[i+4] == 0x00
@@ -58,6 +57,7 @@ public class ASMTransformer implements IClassTransformer {
 					bytes[i]   = (byte) 0x3F;
 					d--;
 				}
+
 			}
 		}*/
         return bytes;

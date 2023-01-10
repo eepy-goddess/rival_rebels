@@ -9,7 +9,6 @@ import net.minecraft.init.Blocks;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ITickable;
 import net.minecraft.util.SoundCategory;
-import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.MathHelper;
 
@@ -42,20 +41,18 @@ public class TileEntityPlasmaExplosion extends TileEntity implements ITickable {
 
         double fsize = Math.sin(size) * 5.9 * 2;
         double fsqr = fsize * fsize;
-        List l = this.world.getEntitiesWithinAABBExcludingEntity(null, new AxisAlignedBB(pos.getX() - fsize + 0.5, pos.getY() - fsize + 0.5, pos.getZ() - fsize + 0.5, pos.getX() + fsize + 0.5, pos.getY() + fsize + 0.5, pos.getZ() + fsize + 0.5));
-        for (int i = 0; i < l.size(); i++)
-        {
-            Entity e = (Entity) l.get(i);
+        List<Entity> l = this.world.getEntitiesWithinAABBExcludingEntity(null, new AxisAlignedBB(pos.getX() - fsize + 0.5, pos.getY() - fsize + 0.5, pos.getZ() - fsize + 0.5, pos.getX() + fsize + 0.5, pos.getY() + fsize + 0.5, pos.getZ() + fsize + 0.5));
+        for (Entity o : l) {
+            Entity e = o;
             double var15 = e.posX - pos.getX();
             double var17 = e.posY + e.getEyeHeight() - pos.getY() + 1.5f;
             double var19 = e.posZ - pos.getZ();
-            double dist = 0.5f/(MathHelper.sqrt(var15*var15+var17*var17+var19*var19)+0.01f);
-            if (/*dist <= 0.5f && !(e instanceof EntityNuclearBlast) && */!(e instanceof EntityPlasmoid) /*&& !(e instanceof EntityTsarBlast) && !(e instanceof EntityRhodes)*/)
-            {
+            double dist = 0.5f / (MathHelper.sqrt(var15 * var15 + var17 * var17 + var19 * var19) + 0.01f);
+            if (/*dist <= 0.5f && !(e instanceof EntityNuclearBlast) && */!(e instanceof EntityPlasmoid) /*&& !(e instanceof EntityTsarBlast) && !(e instanceof EntityRhodes)*/) {
                 e.attackEntityFrom(RivalRebelsDamageSource.plasmaexplosion, 2);
-                e.motionX += var15*dist;
-                e.motionY += var17*dist;
-                e.motionZ += var19*dist;
+                e.motionX += var15 * dist;
+                e.motionY += var17 * dist;
+                e.motionZ += var19 * dist;
             }
         }
     }

@@ -1,10 +1,9 @@
 package com.rivalrebels.client.render;
 
+import com.rivalrebels.ModInfo;
 import com.rivalrebels.client.oldstuff.AdvancedModelLoader;
 import com.rivalrebels.client.oldstuff.IModelCustom;
 import com.rivalrebels.client.renderhelper.ItemRenderBase;
-import com.rivalrebels.RivalRebels;
-import com.rivalrebels.common.blocks.Mine;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.block.model.ItemCameraTransforms;
 import net.minecraft.item.ItemStack;
@@ -12,8 +11,8 @@ import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 
 public class RenderFlamethrower extends ItemRenderBase {
-    public static ResourceLocation texture = new ResourceLocation(RivalRebels.modid, "textures/models/flamethrower.png");
-    public static ResourceLocation modelLoc = new ResourceLocation(RivalRebels.modid, "models/obj/flamethrower.obj");
+    public static ResourceLocation texture = new ResourceLocation(ModInfo.modid, "textures/models/flamethrower.png");
+    public static ResourceLocation modelLoc = new ResourceLocation(ModInfo.modid, "models/obj/flamethrower.obj");
     public IModelCustom modell = AdvancedModelLoader.loadModel(modelLoc);
     @Override
     public void renderByItem(ItemStack itemStackIn) {
@@ -35,7 +34,7 @@ public class RenderFlamethrower extends ItemRenderBase {
         } else{
             GL11.glPushMatrix();
             GL11.glTranslatef(0.5f, 0.5f, 0.5f);
-            Minecraft.getMinecraft().getRenderItem().renderItem(itemStackIn, model);
+            Minecraft.getMinecraft().getRenderItem().renderItem(itemStackIn, baked_model);
             GL11.glPopMatrix();
         }
     }

@@ -1,6 +1,5 @@
 package com.rivalrebels.common.init;
 
-import net.minecraft.entity.item.EntityFallingBlock;
 import org.apache.commons.compress.utils.IOUtils;
 
 import java.io.*;
@@ -10,28 +9,13 @@ public class FileRW {
     public static String read(File file)
     {
         StringBuilder text = new StringBuilder();
-        BufferedReader reader = null;
-        try
-        {
-            reader = new BufferedReader(new FileReader(file));
+        try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
             String line = null;
-            while ((line = reader.readLine()) != null)
-            {
+            while ((line = reader.readLine()) != null) {
                 text.append(line);
                 text.append("\n");
             }
-        }
-        catch (Exception e) {}
-        finally
-        {
-            try
-            {
-                if (reader != null)
-                {
-                    reader.close();
-                }
-            }
-            catch (IOException e) {}
+        } catch (Exception e) {
         }
         return text.toString();
     }
@@ -59,20 +43,9 @@ public class FileRW {
 
     public static void write(File file, String text)
     {
-        Writer output = null;
-        try
-        {
-            output = new BufferedWriter(new FileWriter(file));
+        try (Writer output = new BufferedWriter(new FileWriter(file))) {
             output.write(text);
-        }
-        catch (IOException e) {}
-        finally
-        {
-            try
-            {
-                if (output != null) output.close();
-            }
-            catch (IOException e) {}
+        } catch (IOException e) {
         }
     }
 
@@ -101,7 +74,7 @@ public class FileRW {
     {
         try
         {
-            Class oclass = Class.forName("java.awt.Desktop");
+            Class<?> oclass = Class.forName("java.awt.Desktop");
             Object object = oclass.getMethod("getDesktop", new Class[0]).invoke((Object) null, new Object[0]);
             oclass.getMethod("browse", new Class[] { URI.class }).invoke(object, new Object[] { new URI(string) });
             return true;
