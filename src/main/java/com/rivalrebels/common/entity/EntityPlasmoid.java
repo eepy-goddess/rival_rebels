@@ -1,11 +1,14 @@
 package com.rivalrebels.common.entity;
 
+import com.rivalrebels.common.core.BlackList;
 import com.rivalrebels.common.init.RRBlocks;
 import com.rivalrebels.common.init.RRConfigOptions;
 
+import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
@@ -43,20 +46,20 @@ public class EntityPlasmoid extends Entity {
         this.thrower = thrower;
 
         posY = thrower.posY + thrower.getEyeHeight() - 0.10000000149011612D;
-        double var6 = par3EntityLiving.posX - thrower.posX;
-        double var8 = par3EntityLiving.posY + par3EntityLiving.getEyeHeight() - 0.699999988079071D - posY;
-        double var10 = par3EntityLiving.posZ - thrower.posZ;
-        double var12 = MathHelper.sqrt(var6 * var6 + var10 * var10);
+        double deltaX = par3EntityLiving.posX - thrower.posX;
+        double deltaY = par3EntityLiving.posY + par3EntityLiving.getEyeHeight() - 0.699999988079071D - posY;
+        double deltaZ = par3EntityLiving.posZ - thrower.posZ;
+        double horizontalDistance = MathHelper.sqrt(deltaX * deltaX + deltaZ * deltaZ);
 
-        if (var12 >= 1.0E-7D) {
-            float var14 = (float) (Math.atan2(var10, var6) * 180.0D / Math.PI) - 90.0F;
-            float var15 = (float) (-(Math.atan2(var8, var12) * 180.0D / Math.PI));
-            double var16 = var6 / var12;
-            double var18 = var10 / var12;
-            setLocationAndAngles(thrower.posX + var16, posY, thrower.posZ + var18, var14, var15);
+        if (horizontalDistance >= 1.0E-7D) {
+            float targetYaw = (float) (Math.atan2(deltaZ, deltaX) * 180.0D / Math.PI) - 90.0F;
+            float targetPitch = (float) (-(Math.atan2(deltaY, horizontalDistance) * 180.0D / Math.PI));
+            double normalizedX = deltaX / horizontalDistance;
+            double normalizedZ = deltaZ / horizontalDistance;
+            setLocationAndAngles(thrower.posX + normalizedX, posY, thrower.posZ + normalizedZ, targetYaw, targetPitch);
             setRenderYawOffset(0.0F);
-            float var20 = (float) var12 * 0.2F;
-            setAccurateHeading(var6, var8 + var20, var10, par4, par5);
+            float var20 = (float) horizontalDistance * 0.2F;
+            setAccurateHeading(deltaX, deltaY + var20, deltaZ, par4, par5);
         }
         size = 3;
     }
@@ -76,7 +79,7 @@ public class EntityPlasmoid extends Entity {
         motionX = (-MathHelper.sin(rotationYaw / 180.0F * (float) Math.PI) * MathHelper.cos(rotationPitch / 180.0F * (float) Math.PI));
         motionZ = (MathHelper.cos(rotationYaw / 180.0F * (float) Math.PI) * MathHelper.cos(rotationPitch / 180.0F * (float) Math.PI));
         motionY = (-MathHelper.sin(rotationPitch / 180.0F * (float) Math.PI));
-        setAccurateHeading(motionX, motionY, motionZ, par3 * 1.5F, 1.0F);
+        setAccurateHeading(motionX, motionY, motionZ, 55+par3 * 1.5F, 1.0F);
     }
 
     public EntityPlasmoid(World world, double px, double py, double pz, double x, double y, double z, float d) {
@@ -213,6 +216,38 @@ public class EntityPlasmoid extends Entity {
             int i = -1;
 
             world.setBlockState(new BlockPos(posX, posY, posZ), RRBlocks.plasma_explosion.getDefaultState());
+        }
+    }
+
+    protected void explodex() {
+        if (!world.isRemote) {
+            setDead();
+
+            Block block = Blocks.AIR;
+            int distance = -1;
+
+            for (; (block.getMaterial(null).blocksMovement()
+                    || BlackList.plasmaExplosion(block)) && distance < 4; distance++) {
+
+                BlockPos blockPos = new BlockPos(
+                        posX - motionX * distance,
+                        posY - motionY * distance,
+                        posZ - motionZ * distance
+                );
+
+                block = world.getBlockState(blockPos).getBlock();
+            }
+
+            BlockPos explosionPos = new BlockPos(
+                    posX - motionX * distance,
+                    posY - motionY * distance,
+                    posZ - motionZ * distance
+            );
+
+            world.setBlockState(
+                    explosionPos,
+                    RRBlocks.plasma_explosion.getDefaultState()
+            );
         }
     }
 
