@@ -1,9 +1,9 @@
 package com.rivalrebels.common.items;
 
 import com.rivalrebels.RivalRebels;
-import com.rivalrebels.common.entity.EntityFlameBallHighTemperature;
-import com.rivalrebels.common.entity.EntityFlameBallLowTemperature;
-import com.rivalrebels.common.entity.EntityFlameBallMediumTemperature;
+import com.rivalrebels.common.entity.EntityFlameBallHighTemp;
+import com.rivalrebels.common.entity.EntityFlameBallLowTemp;
+import com.rivalrebels.common.entity.EntityFlameBallMediumTemp;
 
 import com.rivalrebels.common.init.RRConfigOptions;
 import com.rivalrebels.common.init.RRItems;
@@ -92,13 +92,13 @@ public class FlameThrower extends RRItem {
                         switch (getMode(item))
                         {
                             case 0:
-                                for (int i = 0; i < 4; i++) world.spawnEntity(new EntityFlameBallHighTemperature(world, (EntityPlayer) entity, (float) (Math.random() + 0.5f)));
+                                for (int i = 0; i < 4; i++) world.spawnEntity(new EntityFlameBallHighTemp(world, (EntityPlayer) entity, (float) (Math.random() + 0.5f)));
                                 break;
                             case 1:
-                                world.spawnEntity(new EntityFlameBallMediumTemperature(entity.world, (EntityPlayer) entity, 1));
+                                world.spawnEntity(new EntityFlameBallMediumTemp(entity.world, (EntityPlayer) entity, 1));
                                 break;
                             case 2:
-                                world.spawnEntity(new EntityFlameBallLowTemperature(world, (EntityPlayer) entity, 1));
+                                world.spawnEntity(new EntityFlameBallLowTemp(world, (EntityPlayer) entity, 1));
                                 break;
                         }
                     }

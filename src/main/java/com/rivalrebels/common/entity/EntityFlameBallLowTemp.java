@@ -12,28 +12,28 @@ import net.minecraft.world.World;
 import java.util.Iterator;
 import java.util.List;
 
-public class EntityFlameBallLowTemperature extends EntityFlameBal {
-    public EntityFlameBallLowTemperature(World world)
+public class EntityFlameBallLowTemp extends EntityFlameBall {
+    public EntityFlameBallLowTemp(World world)
     {
         super(world);
     }
 
-    public EntityFlameBallLowTemperature(World world, double x, double y, double z)
+    public EntityFlameBallLowTemp(World world, double x, double y, double z)
     {
         super(world, x, y, z);
     }
 
-    public EntityFlameBallLowTemperature(World world, EntityPlayer player, float speed)
+    public EntityFlameBallLowTemp(World world, EntityPlayer player, float speed)
     {
         super(world, player, speed);
     }
 
-    public EntityFlameBallLowTemperature(World world, double x, double y, double z, double motionX, double motionY, double motionZ)
+    public EntityFlameBallLowTemp(World world, double x, double y, double z, double motionX, double motionY, double motionZ)
     {
         super(world, x, y, z, motionX, motionY, motionZ);
     }
 
-    public EntityFlameBallLowTemperature(World world, double x, double y, double z, double motionX, double motionY, double motionZ, double distance, double spread)
+    public EntityFlameBallLowTemp(World world, double x, double y, double z, double motionX, double motionY, double motionZ, double distance, double spread)
     {
         super(world);
         setPosition(x + motionX * distance + rand.nextGaussian() * spread,

@@ -2,7 +2,7 @@ package com.rivalrebels.client.render;
 
 import com.rivalrebels.ModInfo;
 import com.rivalrebels.client.oldstuff.Tessellator;
-import com.rivalrebels.common.entity.EntityFlameBallHighTemperature;
+import com.rivalrebels.common.entity.EntityFlameBallLowTemp;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderManager;
@@ -13,14 +13,14 @@ import org.lwjgl.opengl.GL14;
 
 import javax.annotation.Nullable;
 
-public class RenderFlameBall2 extends Render<EntityFlameBallHighTemperature> {
-    public static ResourceLocation texture = new ResourceLocation(ModInfo.modid, "textures/entity/flame_blue.png");
-    public RenderFlameBall2(RenderManager renderManager) {
+public class RenderFlameBallLowTemp extends Render<EntityFlameBallLowTemp> {
+    public static ResourceLocation texture = new ResourceLocation(ModInfo.modid, "textures/entity/flame_ball.png");
+    public RenderFlameBallLowTemp(RenderManager renderManager) {
         super(renderManager);
     }
 
     @Override
-    public void doRender(EntityFlameBallHighTemperature ell, double x, double y, double z, float entityYaw, float partialTicks) {
+    public void doRender(EntityFlameBallLowTemp ell, double x, double y, double z, float entityYaw, float partialTicks) {
         if (ell.ticksExisted < 3) return;
         GL11.glPushMatrix();
         GL11.glDepthMask(false);
@@ -38,9 +38,8 @@ public class RenderFlameBall2 extends Render<EntityFlameBallHighTemperature> {
         GL11.glPushMatrix();
         float X = (ell.sequence % 4) / 4f;
         float Y = (ell.sequence - (ell.sequence % 4)) / 16f;
-        float size = 0.070f * ell.ticksExisted;
+        float size = 0.0500f * ell.ticksExisted;
         size *= size;
-        if (size >= 0.3) size = 0.3f;
         Tessellator t = Tessellator.instance;
         GL11.glTranslated(x, y, z);
         GL11.glRotatef(180 - Minecraft.getMinecraft().player.rotationYaw, 0.0F, 1.0F, 0.0F);
@@ -66,7 +65,7 @@ public class RenderFlameBall2 extends Render<EntityFlameBallHighTemperature> {
 
     @Nullable
     @Override
-    protected ResourceLocation getEntityTexture(EntityFlameBallHighTemperature entity) {
+    protected ResourceLocation getEntityTexture(EntityFlameBallLowTemp entity) {
         return null;
     }
 }

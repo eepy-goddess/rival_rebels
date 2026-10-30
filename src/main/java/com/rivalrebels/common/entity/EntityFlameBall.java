@@ -6,25 +6,25 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
-public abstract class EntityFlameBal extends Entity {
+public abstract class EntityFlameBall extends Entity {
 	public int sequence;
 	public float rotation;
 	public float motionr;
 
-	public EntityFlameBal(World world)
+	public EntityFlameBall(World world)
 	{
 		super(world);
 		setSize(0.5F, 0.5F);
 		initializeRotation();
 	}
 
-	public EntityFlameBal(World world, double x, double y, double z)
+	public EntityFlameBall(World world, double x, double y, double z)
 	{
 		this(world);
 		setPosition(x, y, z);
 	}
 
-	public EntityFlameBal(World world, EntityPlayer player, float speed)
+	public EntityFlameBall(World world, EntityPlayer player, float speed)
 	{
 		this(world);
 		setPosition(player.posX, player.posY + player.getEyeHeight(), player.posZ);
@@ -41,7 +41,7 @@ public abstract class EntityFlameBal extends Entity {
 		motionZ *= speed;
 	}
 
-	public EntityFlameBal(World world, double x, double y, double z, double motionX, double motionY, double motionZ)
+	public EntityFlameBall(World world, double x, double y, double z, double motionX, double motionY, double motionZ)
 	{
 		this(world, x, y, z);
 		this.motionX = motionX;

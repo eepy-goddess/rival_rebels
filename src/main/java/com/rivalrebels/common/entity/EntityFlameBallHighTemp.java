@@ -13,25 +13,25 @@ import net.minecraft.world.World;
 import java.util.Iterator;
 import java.util.List;
 
-public class EntityFlameBallHighTemperature extends EntityFlameBal {
+public class EntityFlameBallHighTemp extends EntityFlameBall {
     public boolean	gonnadie;
 
-    public EntityFlameBallHighTemperature(World world)
+    public EntityFlameBallHighTemp(World world)
     {
         super(world);
     }
 
-    public EntityFlameBallHighTemperature(World world, double x, double y, double z)
+    public EntityFlameBallHighTemp(World world, double x, double y, double z)
     {
         super(world, x, y, z);
     }
 
-    public EntityFlameBallHighTemperature(World world, EntityPlayer player, float speed)
+    public EntityFlameBallHighTemp(World world, EntityPlayer player, float speed)
     {
         super(world, player, speed);
     }
 
-    public EntityFlameBallHighTemperature(World world, double x, double y, double z, double motionX, double motionY, double motionZ)
+    public EntityFlameBallHighTemp(World world, double x, double y, double z, double motionX, double motionY, double motionZ)
     {
         super(world, x, y, z, motionX, motionY, motionZ);
     }

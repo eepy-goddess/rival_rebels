@@ -13,23 +13,23 @@ import net.minecraft.world.World;
 import java.util.Iterator;
 import java.util.List;
 
-public class EntityFlameBallMediumTemperature extends EntityFlameBal {
-    public EntityFlameBallMediumTemperature(World world)
+public class EntityFlameBallMediumTemp extends EntityFlameBall {
+    public EntityFlameBallMediumTemp(World world)
     {
         super(world);
     }
 
-    public EntityFlameBallMediumTemperature(World world, double x, double y, double z)
+    public EntityFlameBallMediumTemp(World world, double x, double y, double z)
     {
         super(world, x, y, z);
     }
 
-    public EntityFlameBallMediumTemperature(World world, EntityPlayer player, float speed)
+    public EntityFlameBallMediumTemp(World world, EntityPlayer player, float speed)
     {
         super(world, player, speed);
     }
 
-    public EntityFlameBallMediumTemperature(World world, double x, double y, double z, double motionX, double motionY, double motionZ)
+    public EntityFlameBallMediumTemp(World world, double x, double y, double z, double motionX, double motionY, double motionZ)
     {
         super(world, x, y, z, motionX, motionY, motionZ);
     }
