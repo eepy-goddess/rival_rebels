@@ -97,8 +97,7 @@ public class RivalRebelsExplosion {
                         if (dist <= delete && block == RRBlocks.green_camo && block == RRBlocks.brown_camo && block == RRBlocks.grey_camo)
                         {
                             world.setBlockToAir(new BlockPos(xx, yy, zz));
-                        }
-                        if (dist < radius)
+                        } else if (dist < radius)
                         {
                             int varrand = 1 + dist - halfradius;
                             if (dist < halfradius)
@@ -129,7 +128,7 @@ public class RivalRebelsExplosion {
     private void breakBlock(World world, int xx, int yy, int zz, int strength, double x, double y, double z)
     {
         Block block = world.getBlockState(new BlockPos(xx, yy, zz)).getBlock();
-        EntityDebris e = new EntityDebris(world, xx, yy, zz);
+        EntityDebris e = new EntityDebris(world, xx, yy, zz); // air debris
         double xmo = x - xx;
         double ymo = y - yy;
         double zmo = z - zz;
@@ -159,40 +158,39 @@ public class RivalRebelsExplosion {
         }*/
     }
 
-    private void pushAndHurtEntities(World world, double x, double y, double z, int radius, DamageSource dmgsrc)
-    {
-        int var3 = MathHelper.floor(x - radius - 1.0D);
-        int var4 = MathHelper.floor(x + radius + 1.0D);
-        int var5 = MathHelper.floor(y - radius - 1.0D);
-        int var28 = MathHelper.floor(y + radius + 1.0D);
-        int var7 = MathHelper.floor(z - radius - 1.0D);
-        int var29 = MathHelper.floor(z + radius + 1.0D);
-        List<Entity> var9 = world.getEntitiesWithinAABBExcludingEntity(null, new AxisAlignedBB(var3, var5, var7, var4, var28, var29));
+    private void pushAndHurtEntities(World world, double x, double y, double z, int radius, DamageSource dmgsrc) {
+        int box_minX = MathHelper.floor(x - radius - 1.0D);
+        int box_maxX = MathHelper.floor(x + radius + 1.0D);
+        int box_minY = MathHelper.floor(y - radius - 1.0D);
+        int box_maxY = MathHelper.floor(y + radius + 1.0D);
+        int box_minZ = MathHelper.floor(z - radius - 1.0D);
+        int box_maxZ = MathHelper.floor(z + radius + 1.0D);
+        List<Entity> nearbyEntities = world.getEntitiesWithinAABBExcludingEntity(null, new AxisAlignedBB(box_minX, box_minY, box_minZ, box_maxX, box_maxY, box_maxZ));
         Vec3d var30 = new Vec3d(x, y, z);
 
         radius *= 4;
 
-        for (Entity o : var9) {
-            Entity var31 = o;
-            if (!(var31 instanceof EntityDebris)/*&&!(var31 instanceof EntityFlameBall)&&!(var31 instanceof EntityRhodes)*/) {
-                double var13 = var31.getDistance(x, y, z) / radius;
+        for (Entity ent : nearbyEntities) {
+            Entity candidate_entity = ent;
+            if (!(candidate_entity instanceof EntityDebris)/*&&!(var31 instanceof EntityFlameBall)&&!(var31 instanceof EntityRhodes)*/) {
+                double normalizedDistance = candidate_entity.getDistance(x, y, z) / radius;
 
-                if (var13 <= 1.0D) {
-                    double var15 = var31.posX - x;
-                    double var17 = var31.posY + var31.getEyeHeight() - y;
-                    double var19 = var31.posZ - z;
-                    double var33 = MathHelper.sqrt(var15 * var15 + var17 * var17 + var19 * var19);
+                if (normalizedDistance <= 1.0D) {
+                    double var15 = candidate_entity.posX - x;
+                    double var17 = candidate_entity.posY + candidate_entity.getEyeHeight() - y;
+                    double var19 = candidate_entity.posZ - z;
+                    double magnitude = MathHelper.sqrt(var15 * var15 + var17 * var17 + var19 * var19);
 
-                    if (var33 != 0.0D) {
-                        var15 /= var33;
-                        var17 /= var33;
-                        var19 /= var33;
-                        double var32 = world.getBlockDensity(var30, var31.getEntityBoundingBox());
-                        double var34 = (1.0D - var13) * var32;
-                        var31.attackEntityFrom(dmgsrc, (int) ((var34 * var34 + var34) / 2.0D * radius + 1.0D));
-                        var31.motionX += var15 * var34;
-                        var31.motionY += var17 * var34;
-                        var31.motionZ += var19 * var34;
+                    if (magnitude != 0.0D) {
+                        var15 /= magnitude;
+                        var17 /= magnitude;
+                        var19 /= magnitude;
+                        double var32 = world.getBlockDensity(var30, candidate_entity.getEntityBoundingBox());
+                        double var34 = (1.0D - normalizedDistance) * var32;
+                        candidate_entity.attackEntityFrom(dmgsrc, (int) ((var34 * var34 + var34) / 2.0D * radius + 1.0D));
+                        candidate_entity.motionX += var15 * var34;
+                        candidate_entity.motionY += var17 * var34;
+                        candidate_entity.motionZ += var19 * var34;
                     }
                 }
             }
