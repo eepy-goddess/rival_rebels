@@ -159,8 +159,7 @@ public class EntityFlameBallHighTemperature extends EntityFlameBal {
         setPosition(posX, posY, posZ);
     }
 
-    private void fire()
-    {
+    private void fire() {
         if (!world.isRemote)
         {
             Block id = world.getBlockState(new BlockPos((int) posX, (int) posY, (int) posZ)).getBlock();
