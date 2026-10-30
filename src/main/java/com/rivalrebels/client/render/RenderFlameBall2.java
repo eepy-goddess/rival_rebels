@@ -2,7 +2,7 @@ package com.rivalrebels.client.render;
 
 import com.rivalrebels.ModInfo;
 import com.rivalrebels.client.oldstuff.Tessellator;
-import com.rivalrebels.common.entity.EntityFlameBall2;
+import com.rivalrebels.common.entity.EntityFlameBallHighTemperature;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderManager;
@@ -13,14 +13,14 @@ import org.lwjgl.opengl.GL14;
 
 import javax.annotation.Nullable;
 
-public class RenderFlameBall2 extends Render<EntityFlameBall2> {
+public class RenderFlameBall2 extends Render<EntityFlameBallHighTemperature> {
     public static ResourceLocation texture = new ResourceLocation(ModInfo.modid, "textures/entity/flame_blue.png");
     public RenderFlameBall2(RenderManager renderManager) {
         super(renderManager);
     }
 
     @Override
-    public void doRender(EntityFlameBall2 ell, double x, double y, double z, float entityYaw, float partialTicks) {
+    public void doRender(EntityFlameBallHighTemperature ell, double x, double y, double z, float entityYaw, float partialTicks) {
         if (ell.ticksExisted < 3) return;
         GL11.glPushMatrix();
         GL11.glDepthMask(false);
@@ -66,7 +66,7 @@ public class RenderFlameBall2 extends Render<EntityFlameBall2> {
 
     @Nullable
     @Override
-    protected ResourceLocation getEntityTexture(EntityFlameBall2 entity) {
+    protected ResourceLocation getEntityTexture(EntityFlameBallHighTemperature entity) {
         return null;
     }
 }

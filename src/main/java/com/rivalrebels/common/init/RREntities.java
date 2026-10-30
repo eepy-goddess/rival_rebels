@@ -11,9 +11,9 @@ public class RREntities {
         EntityRegistry.registerModEntity(new ResourceLocation(ModInfo.modid, "plasmoid"), EntityPlasmoid.class, "plasmoid", 0, RivalRebels.instance, 100000, 100, true);
         EntityRegistry.registerModEntity(new ResourceLocation(ModInfo.modid, "debris"), EntityDebris.class, "debris", 1, RivalRebels.instance, 100000, 1000, true);
         EntityRegistry.registerModEntity(new ResourceLocation(ModInfo.modid, "cuchillo"), EntityCuchillo.class, "cuchillo", 2, RivalRebels.instance, 100000, 1000, true);
-        EntityRegistry.registerModEntity(new ResourceLocation(ModInfo.modid, "flame_ball"), EntityFlameBall.class, "flameball", 3, RivalRebels.instance, 1000000, 1000, true);
-        EntityRegistry.registerModEntity(new ResourceLocation(ModInfo.modid, "flame_ball_reblu"), EntityFlameBall1.class, "flameball_reblu", 4, RivalRebels.instance, 1000000, 1000, true);
-        EntityRegistry.registerModEntity(new ResourceLocation(ModInfo.modid, "flame_ball_blue"), EntityFlameBall2.class, "flameball_blue", 5, RivalRebels.instance, 1000000, 1000, true);
+        EntityRegistry.registerModEntity(new ResourceLocation(ModInfo.modid, "flame_ball"), EntityFlameBallLowTemperature.class, "flameball", 3, RivalRebels.instance, 1000000, 1000, true);
+        EntityRegistry.registerModEntity(new ResourceLocation(ModInfo.modid, "flame_ball_reblu"), EntityFlameBallMediumTemperature.class, "flameball_reblu", 4, RivalRebels.instance, 1000000, 1000, true);
+        EntityRegistry.registerModEntity(new ResourceLocation(ModInfo.modid, "flame_ball_blue"), EntityFlameBallHighTemperature.class, "flameball_blue", 5, RivalRebels.instance, 1000000, 1000, true);
         EntityRegistry.registerModEntity(new ResourceLocation(ModInfo.modid, "gas_grenade"), EntityGasGrenade.class, "gas_granade", 6, RivalRebels.instance, 1000000, 1000, true);
 
     }

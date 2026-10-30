@@ -172,7 +172,7 @@ public class RivalRebelsExplosion {
 
         for (Entity ent : nearbyEntities) {
             Entity candidate_entity = ent;
-            if (!(candidate_entity instanceof EntityDebris)/*&&!(var31 instanceof EntityFlameBall)&&!(var31 instanceof EntityRhodes)*/) {
+            if (!(candidate_entity instanceof EntityDebris)/*&&!(var31 instanceof EntityFlameBallLowTemperature)&&!(var31 instanceof EntityRhodes)*/) {
                 double normalizedDistance = candidate_entity.getDistance(x, y, z) / radius;
 
                 if (normalizedDistance <= 1.0D) {
