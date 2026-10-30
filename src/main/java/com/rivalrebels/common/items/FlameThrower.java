@@ -110,12 +110,15 @@ public class FlameThrower extends RRItem {
     @Override
     public void onUpdate(ItemStack item, World world, Entity entity, int par4, boolean par5)
     {
+        // Setup the tag if it doesn't exist
         if (!item.hasTagCompound()) item.setTagCompound(new NBTTagCompound());
-        if (!item.getTagCompound().getBoolean("isReady"))
-        {
+
+        if (!item.getTagCompound().getBoolean("isReady")) {
             item.getTagCompound().setBoolean("isReady", true);
             item.getTagCompound().setInteger("mode", 2);
         }
+
+
         if (entity instanceof EntityPlayer)
         {
             EntityPlayer player = (EntityPlayer) entity;
@@ -143,8 +146,8 @@ public class FlameThrower extends RRItem {
             }
     }
 
-    public int getMode(ItemStack item)
-    {
+    // [mode 0 is melting tool uses 5 fuel], [mode 1 is Armor piercing tool uses 3 fuel], [mode 2 is Full spread mode uses 1 fuel]
+    private int getMode(ItemStack item) {
         if (!item.hasTagCompound()) return 0;
         else return item.getTagCompound().getInteger("mode");
     }
