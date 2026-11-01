@@ -9,4 +9,5 @@ public class RivalRebelsDamageSource {
     public static DamageSource cooked = new DamageSource("cooked").setFireDamage();
     public static DamageSource flare = new DamageSource("flare");
     public static DamageSource gas = new DamageSource("gas");
+    public static DamageSource radiation = new DamageSource("radiation");
 }
