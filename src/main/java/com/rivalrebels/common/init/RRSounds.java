@@ -18,6 +18,7 @@ public class RRSounds {
     public static SoundEvent glass_break;
     public static SoundEvent knife_throw;
     public static SoundEvent gas_fizz;
+    public static SoundEvent flamethrower_fire;
 
     public static void init() {
         gulp = new SoundEvent(new ResourceLocation(ModInfo.modid, "gulp")).setRegistryName("gulp");
@@ -32,5 +33,6 @@ public class RRSounds {
         glass_break = new SoundEvent(new ResourceLocation(ModInfo.modid, "glass_break")).setRegistryName("glass_break");
         knife_throw = new SoundEvent(new ResourceLocation(ModInfo.modid, "knife_throw")).setRegistryName("knife_throw");
         gas_fizz = new SoundEvent(new ResourceLocation(ModInfo.modid, "gas_fizz")).setRegistryName("gas_fizz");
+        flamethrower_fire = new SoundEvent(new ResourceLocation(ModInfo.modid, "flamethrower_fire")).setRegistryName("flamethrower_fire");
     }
 }

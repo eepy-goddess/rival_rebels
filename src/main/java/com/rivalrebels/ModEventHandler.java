@@ -9,6 +9,7 @@ import com.rivalrebels.common.init.RRBlocks;
 import com.rivalrebels.common.init.RRItems;
 import com.rivalrebels.common.init.RRSounds;
 import com.rivalrebels.common.items.IHasModel;
+import com.rivalrebels.common.items.IRRItem;
 import com.rivalrebels.common.items.RRItem;
 import com.rivalrebels.common.items.RRItemBlock;
 import net.minecraft.block.Block;
@@ -40,7 +41,7 @@ public class ModEventHandler {
     @SuppressWarnings(value = "unused")
     @SubscribeEvent
     public static void itemRegisterStuff(RegistryEvent.Register<Item> event) {
-        for(Item item : RRItem.itemList){
+        for(Item item : RRItems.itemListx){
             if(item != null){
                 event.getRegistry().register(item);
             }
@@ -80,13 +81,14 @@ public class ModEventHandler {
         }
     }
 
+
     @SuppressWarnings(value = "unused")
     @SubscribeEvent
     public static void modelStuff(ModelRegistryEvent event) {
-        for(Item item : RRItem.itemList){
-            RRItem rrItem = (RRItem) item;
+        for(Item item : RRItems.itemListx){
+            Item rrItem = (Item) item;
             if(rrItem != null){
-                RivalRebels.proxy.registerCustomModelName(rrItem, rrItem.getModelName(), 0, "inventory");
+                RivalRebels.proxy.registerCustomModelName(rrItem, ((IRRItem)rrItem).getModelName(), 0, "inventory");
             }
         }
         for(Item item : RRItemBlock.items){

@@ -1,5 +1,8 @@
 package com.rivalrebels.common.init;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.rivalrebels.ModInfo;
 import com.rivalrebels.common.creativetabs.HydroRR;
 import com.rivalrebels.common.creativetabs.NuclearRR;
@@ -10,6 +13,8 @@ import net.minecraft.item.Item;
 public class RRItems {
     public static CreativeTabs nuclear_rr = new NuclearRR("rival_rebels");
     public static CreativeTabs hydro_rr = new HydroRR("rival_rebels2");
+
+    public static List<Item> itemListx = new ArrayList<>();
 
     public static Item rod;
     public static Item nuclear_rod;
@@ -33,9 +38,13 @@ public class RRItems {
     public static Item i_mine;
 
 
+    // Armour
+    public static Item troll_helmet;
+
+
     public static void initItems() {
         rod = new RRItem("rod").setModelName(ModInfo.modid + ":rod").setCreativeTab(nuclear_rr);
-        nuclear_rod = new NukeRod("nuke_rod").setModelName(ModInfo.modid + ":nuke_rod").setCreativeTab(nuclear_rr).setContainerItem(rod).setMaxStackSize(1);
+        nuclear_rod = new ItemRodNuclear("nuke_rod").setModelName(ModInfo.modid + ":nuke_rod").setCreativeTab(nuclear_rr).setContainerItem(rod).setMaxStackSize(1);
         hydro_rod = new RRItem("hydrogen_rod").setModelName(ModInfo.modid + ":hydrogen_rod").setContainerItem(rod).setCreativeTab(nuclear_rr).setMaxStackSize(1);
         redstone_rod = new RRItem("redstone_rod").setModelName(ModInfo.modid + ":redstone_rod").setContainerItem(rod).setCreativeTab(nuclear_rr).setMaxStackSize(1);
         battery = new BatteryItem("battery").setModelName(ModInfo.modid + ":" + "battery").setCreativeTab(nuclear_rr);
@@ -56,5 +65,9 @@ public class RRItems {
 
         i_loader = new RRItemBlock(RRBlocks.loader, "loader").setModelName(ModInfo.modid + ":loader").setCreativeTab(nuclear_rr);
         i_mine = new RRItemBlock(RRBlocks.mine, "mine").setModelName(ModInfo.modid + ":mine").setCreativeTab(nuclear_rr);
+
+        /* --------------------------------------- Armour ------------------------------------------------- */
+
+        troll_helmet = new ItemTrollHelmet("troll_helmet").setModelName(ModInfo.modid + ":troll").setCreativeTab(hydro_rr);
     }
 }
