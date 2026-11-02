@@ -70,8 +70,8 @@ public class FlameThrower extends RRItem {
     boolean message = true;
     int shrink;
     @Override
-    public void onUsingTick(ItemStack item, EntityLivingBase entity, int par4) {
-        shrink = par4;
+    public void onUsingTick(ItemStack item, EntityLivingBase entity, int ticks_remaining) {
+        shrink = ticks_remaining;
         World world = entity.world;
         if (!world.isRemote)
         {
