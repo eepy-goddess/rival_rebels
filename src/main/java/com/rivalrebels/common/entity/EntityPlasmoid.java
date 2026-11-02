@@ -79,7 +79,7 @@ public class EntityPlasmoid extends Entity {
         motionX = (-MathHelper.sin(rotationYaw / 180.0F * (float) Math.PI) * MathHelper.cos(rotationPitch / 180.0F * (float) Math.PI));
         motionZ = (MathHelper.cos(rotationYaw / 180.0F * (float) Math.PI) * MathHelper.cos(rotationPitch / 180.0F * (float) Math.PI));
         motionY = (-MathHelper.sin(rotationPitch / 180.0F * (float) Math.PI));
-        setAccurateHeading(motionX, motionY, motionZ, 55+par3 * 1.5F, 1.0F);
+        setAccurateHeading(motionX, motionY, motionZ, par3 * 1.5F, 1.0F);
     }
 
     public EntityPlasmoid(World world, double px, double py, double pz, double x, double y, double z, float d) {

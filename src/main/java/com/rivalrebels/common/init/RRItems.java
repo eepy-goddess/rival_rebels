@@ -1,5 +1,8 @@
 package com.rivalrebels.common.init;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.rivalrebels.ModInfo;
 import com.rivalrebels.common.creativetabs.HydroRR;
 import com.rivalrebels.common.creativetabs.NuclearRR;
@@ -10,6 +13,8 @@ import net.minecraft.item.Item;
 public class RRItems {
     public static CreativeTabs nuclear_rr = new NuclearRR("rival_rebels");
     public static CreativeTabs hydro_rr = new HydroRR("rival_rebels2");
+
+    public static List<Item> itemListx = new ArrayList<>();
 
     public static Item rod;
     public static Item nuclear_rod;
@@ -31,6 +36,10 @@ public class RRItems {
     //Item blocks go below here
     public static Item i_loader;
     public static Item i_mine;
+
+
+    // Armour
+    public static Item troll_helmet;
 
 
     public static void initItems() {
@@ -56,5 +65,9 @@ public class RRItems {
 
         i_loader = new RRItemBlock(RRBlocks.loader, "loader").setModelName(ModInfo.modid + ":loader").setCreativeTab(nuclear_rr);
         i_mine = new RRItemBlock(RRBlocks.mine, "mine").setModelName(ModInfo.modid + ":mine").setCreativeTab(nuclear_rr);
+
+        /* --------------------------------------- Armour ------------------------------------------------- */
+
+        troll_helmet = new ItemTrollHelmet("troll_helmet").setModelName(ModInfo.modid + ":troll").setCreativeTab(hydro_rr);
     }
 }

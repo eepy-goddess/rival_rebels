@@ -7,6 +7,8 @@ import com.rivalrebels.common.entity.EntityFlameBallMediumTemp;
 
 import com.rivalrebels.common.init.RRConfigOptions;
 import com.rivalrebels.common.init.RRItems;
+import com.rivalrebels.common.init.RRSounds;
+
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -17,6 +19,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumHand;
+import net.minecraft.util.SoundCategory;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.translation.I18n;
 import net.minecraft.world.World;
@@ -36,7 +39,7 @@ public class FlameThrower extends RRItem {
     }
     @Override
     public int getMaxItemUseDuration(ItemStack stack) {
-        return 64;
+        return 72000;
     }
     @Override
     public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand) {
@@ -44,14 +47,7 @@ public class FlameThrower extends RRItem {
         if (player.capabilities.isCreativeMode || player.inventory.hasItemStack(new ItemStack(RRItems.fuel)) || RRConfigOptions.infinite_ammo)
         {
             player.setActiveHand(hand);
-            if (!player.capabilities.isCreativeMode && !RRConfigOptions.infinite_ammo)
-            {
-                player.inventory.getStackInSlot(player.inventory.findSlotMatchingUnusedItem(new ItemStack(RRItems.fuel))).shrink(1);
-                if (getMode(stack) != 2) player.inventory.getStackInSlot(player.inventory.findSlotMatchingUnusedItem(new ItemStack(RRItems.fuel))).shrink(1);
-                if (getMode(stack) != 2) player.inventory.getStackInSlot(player.inventory.findSlotMatchingUnusedItem(new ItemStack(RRItems.fuel))).shrink(1);
-                if (getMode(stack) == 0) player.inventory.getStackInSlot(player.inventory.findSlotMatchingUnusedItem(new ItemStack(RRItems.fuel))).shrink(1);
-                if (getMode(stack) == 0) player.inventory.getStackInSlot(player.inventory.findSlotMatchingUnusedItem(new ItemStack(RRItems.fuel))).shrink(1);
-            }
+
             /*if (stack.isItemEnchanted() && !world.isRemote)
             {
                 par2World.spawnEntityInWorld(new EntityFlameBallGreen(par2World, par3EntityPlayer, (float) (Math.random() + 1.0f)));
@@ -67,24 +63,47 @@ public class FlameThrower extends RRItem {
         }
         return ActionResult.newResult(EnumActionResult.SUCCESS, stack);
     }
+
     boolean message = true;
     int shrink;
     @Override
     public void onUsingTick(ItemStack item, EntityLivingBase entity, int ticks_remaining) {
         shrink = ticks_remaining;
         World world = entity.world;
+
+
+        if (!world.isRemote && entity instanceof EntityPlayer) {
+            EntityPlayer player = (EntityPlayer) entity;
+
+            if (!player.capabilities.isCreativeMode
+                    && !RRConfigOptions.infinite_ammo) {
+
+                int mode = getMode(item);
+
+                int interval = mode == 0 ? 13 : mode == 1 ? 21 : 64;
+
+                if ((72000 - ticks_remaining) % interval == 0) {
+                    if (!consumeFuel(player, 1)) {
+                        player.stopActiveHand();
+                        return;
+                    }
+                }
+            }
+        }
+
+        
         if (!world.isRemote)
         {
             if (((EntityPlayer)entity).inventory.getCurrentItem() != ItemStack.EMPTY)
             {
                 if (((EntityPlayer)entity).inventory.getCurrentItem().getItem() == this)
                 {
-                    if (world.rand.nextInt(10) == 0 && !entity.isInWater())
+                    if (world.rand.nextInt(10) == 0 && !entity.isInWater()) /*if (world.getTotalWorldTime() % 10 == 0 && !entity.isInWater()) */
                     {
-                        //RivalRebelsSoundPlayer.playSound(entity, 8, 0, 0.03f);
+                        world.playSound(null, entity.posX, entity.posY, entity.posZ, RRSounds.flamethrower_fire, SoundCategory.AMBIENT, 0.03f, 1);
                         if (world.rand.nextInt(3) == 0 && !entity.isInWater())
                         {
-                            //RivalRebelsSoundPlayer.playSound(entity, 8, 1, 0.1f);
+                            world.playSound(null, entity.posX, entity.posY, entity.posZ, RRSounds.flamethrower_fire, SoundCategory.AMBIENT, 0.1f, 1);
                         }
                     }
                     if (!item.isItemEnchanted())
@@ -105,6 +124,22 @@ public class FlameThrower extends RRItem {
                 }
             }
         }
+    }
+
+    private boolean consumeFuel(EntityPlayer player, int amount) {
+        for (ItemStack stack : player.inventory.mainInventory) {
+            if (!stack.isEmpty() && stack.getItem() == RRItems.fuel) {
+                int consumed = Math.min(amount, stack.getCount());
+                stack.shrink(consumed);
+                amount -= consumed;
+
+                if (amount <= 0) {
+                    return true;
+                }
+            }
+        }
+
+        return false;
     }
 
     @Override

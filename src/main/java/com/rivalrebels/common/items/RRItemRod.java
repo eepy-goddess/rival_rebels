@@ -5,17 +5,17 @@ import com.rivalrebels.common.init.RRItems;
 
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.ItemTool;
 
-public class RRItemRod extends ItemTool {
-    public int power;
+public class RRItemRod extends RRToolItem {
+   public int power;
 
-    public RRItemRod() {
-        super(ToolMaterial.DIAMOND, new HashSet<Block>());
-        this.maxStackSize = 1;
-        //this.setMaxDurability(32); This should be handled
-        this.setCreativeTab(RRItems.nuclear_rr);
-    }
+   public RRItemRod(String name) {
+      super(name, ToolMaterial.DIAMOND, new HashSet<Block>());
+      this.maxStackSize = 1;
+      this.setMaxDamage(32);
+      
+      this.setCreativeTab(RRItems.nuclear_rr);
+   }
 
    public boolean isItemTool(ItemStack is) {
       return true;
