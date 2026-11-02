@@ -11,6 +11,9 @@ public abstract class EntityFlameBall extends Entity {
 	public float rotation;
 	public float motionr;
 
+    protected boolean hasLeftOwner = false; // this to make it better
+    protected Entity owner;
+
 	public EntityFlameBall(World world)
 	{
 		super(world);

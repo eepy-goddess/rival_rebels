@@ -51,6 +51,13 @@ public class EntityFlameBallLowTemp extends EntityFlameBall {
         lastTickPosY = posY;
         lastTickPosZ = posZ;
         super.onUpdate();
+
+        if (!hasLeftOwner && owner != null) {
+            if (!getEntityBoundingBox().intersects(owner.getEntityBoundingBox())) {
+                hasLeftOwner = true;
+            }
+        }
+
         ticksExisted++;
         if (ticksExisted % 3 == 0) sequence++;
         if (sequence > 15/* > RivalRebels.flamethrowerDecay */) setDead();
@@ -63,47 +70,47 @@ public class EntityFlameBallLowTemp extends EntityFlameBall {
 
         if (mop != null) end = new Vec3d(mop.hitVec.x, mop.hitVec.y, mop.hitVec.z);
 
-        Entity e = null;
-        List<Entity> var5 = world.getEntitiesWithinAABBExcludingEntity(this, getEntityBoundingBox().contract(motionX, motionY, motionZ).expand(1.0D, 1.0D, 1.0D));
-        double var6 = 0.0D;
-        Iterator<Entity> var8 = var5.iterator();
+        Entity hitEntity = null;
+        List<Entity> nearby_entities = world.getEntitiesWithinAABBExcludingEntity(this, getEntityBoundingBox().contract(motionX, motionY, motionZ).expand(1.0D, 1.0D, 1.0D));
+        double closest_hit_distance = 0.0D;
+        Iterator<Entity> entity_iterator = nearby_entities.iterator();
 
         if (!world.isRemote)
         {
-            while (var8.hasNext())
+            while (entity_iterator.hasNext())
             {
-                Entity var9 = (Entity) var8.next();
+                Entity current_entity = (Entity) entity_iterator.next();
 
-                if (var9.canBeCollidedWith())
+                if (current_entity.canBeCollidedWith())
                 {
-                    float var10 = 0.3F;
-                    AxisAlignedBB var11 = var9.getEntityBoundingBox().expand(var10, var10, var10);
-                    RayTraceResult var12 = var11.calculateIntercept(start, end);
+                    float collision_border_size = 0.3F;
+                    AxisAlignedBB expanded_bounding_box = current_entity.getEntityBoundingBox().expand(collision_border_size, collision_border_size, collision_border_size);
+                    RayTraceResult entity_intercept = expanded_bounding_box.calculateIntercept(start, end);
 
-                    if (var12 != null)
+                    if (entity_intercept != null)
                     {
-                        double var13 = start.distanceTo(var12.hitVec);
+                        double var13 = start.distanceTo(entity_intercept.hitVec);
 
-                        if (var13 < var6 || var6 == 0.0D)
+                        if (var13 < closest_hit_distance || closest_hit_distance == 0.0D)
                         {
-                            e = var9;
-                            var6 = var13;
+                            hitEntity = current_entity;
+                            closest_hit_distance = var13;
                         }
                     }
                 }
             }
         }
 
-        if (e != null)
+        if (hitEntity != null)
         {
-            mop = new RayTraceResult(e);
+            mop = new RayTraceResult(hitEntity);
         }
 
         if (mop != null && ticksExisted >= 5)
         {
             fire();
             setDead();
-            if (mop.entityHit != null)
+            if (mop.entityHit != null && (hasLeftOwner || mop.entityHit != owner))
             {
                 mop.entityHit.setFire(3);
                 mop.entityHit.attackEntityFrom(RivalRebelsDamageSource.cooked, 12);

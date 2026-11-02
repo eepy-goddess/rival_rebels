@@ -43,6 +43,13 @@ public class EntityFlameBallHighTemp extends EntityFlameBall {
         lastTickPosY = posY;
         lastTickPosZ = posZ;
         super.onUpdate();
+
+        if (!hasLeftOwner && owner != null) {
+            if (!getEntityBoundingBox().intersects(owner.getEntityBoundingBox())) {
+                hasLeftOwner = true;
+            }
+        }
+
         ticksExisted++;
         sequence++;
         if (sequence > 15/* > RivalRebels.flamethrowerDecay */) setDead();
@@ -122,7 +129,7 @@ public class EntityFlameBallHighTemp extends EntityFlameBall {
             posY += 0.5f;
             posZ += 0.5f;
             setDead();
-            if (mop.entityHit != null)
+            if (mop.entityHit != null && (hasLeftOwner || mop.entityHit != owner))
             {
                 mop.entityHit.setFire(3);
                 mop.entityHit.attackEntityFrom(RivalRebelsDamageSource.cooked, 12);
