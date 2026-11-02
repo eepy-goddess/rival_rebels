@@ -41,6 +41,13 @@ public class EntityFlameBallMediumTemp extends EntityFlameBall {
         lastTickPosY = posY;
         lastTickPosZ = posZ;
         super.onUpdate();
+
+        if (!hasLeftOwner && owner != null) {
+            if (!getEntityBoundingBox().intersects(owner.getEntityBoundingBox())) {
+                hasLeftOwner = true;
+            }
+        }
+
         ticksExisted++;
         if (ticksExisted > 5) sequence++;
         if (sequence > 15/* > RivalRebels.flamethrowerDecay */) setDead();
@@ -93,7 +100,7 @@ public class EntityFlameBallMediumTemp extends EntityFlameBall {
         {
             fire();
             setDead();
-            if (mop.entityHit != null)
+            if (mop.entityHit != null && (hasLeftOwner || mop.entityHit != owner))
             {
                 mop.entityHit.setFire(3);
                 mop.entityHit.attackEntityFrom(RivalRebelsDamageSource.cooked, 12);
