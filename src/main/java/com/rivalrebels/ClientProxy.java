@@ -1,7 +1,9 @@
 package com.rivalrebels;
 
 import com.rivalrebels.client.guiLoader.GuiFlamethrower;
+import com.rivalrebels.client.guiLoader.GuiTesla;
 import com.rivalrebels.client.render.*;
+import com.rivalrebels.client.render.items.RenderTesla;
 import com.rivalrebels.common.entity.*;
 import com.rivalrebels.common.init.RRItems;
 import com.rivalrebels.common.tileentity.*;
@@ -30,6 +32,7 @@ public class ClientProxy extends CommonProxy{
         RRItems.rocket.setTileEntityItemStackRenderer(new RenderRocketItem());
         RRItems.fuel.setTileEntityItemStackRenderer(new RenderFuel());
         RRItems.flamethrower.setTileEntityItemStackRenderer(new RenderFlamethrower());
+        RRItems.tesla.setTileEntityItemStackRenderer(new RenderTesla());
         GameRegistry.registerTileEntity(TileNuke.class, new ResourceLocation(ModInfo.modid, "tile_nuke"));
         ClientRegistry.bindTileEntitySpecialRenderer(TileNuke.class, new RenderNuke());
         GameRegistry.registerTileEntity(TileLoader.class, new ResourceLocation(ModInfo.modid, "tile_loader"));
@@ -53,6 +56,10 @@ public class ClientProxy extends CommonProxy{
         RenderingRegistry.registerEntityRenderingHandler(EntityFlameBallMediumTemp.class, RenderFlameBallMediumTemp::new);
         RenderingRegistry.registerEntityRenderingHandler(EntityFlameBallHighTemp.class, RenderFlameBallHighTemp::new);
         RenderingRegistry.registerEntityRenderingHandler(EntityGasGrenade.class, RenderGasGrenade::new);
+
+        RenderingRegistry.registerEntityRenderingHandler(EntityElectricityLink.class, RenderElectricityLink::new);
+        RenderingRegistry.registerEntityRenderingHandler(EntityElectricityRaytrace.class, RenderElectricityRaytrace::new);
+
     }
     public void registerModel(Item item, int meta, String variant){
         ModelLoader.setCustomModelResourceLocation(item, meta, new ModelResourceLocation(item.getRegistryName(), variant));
@@ -71,5 +78,10 @@ public class ClientProxy extends CommonProxy{
     @Override
     public void flamethrowerGui(int i) {
         Minecraft.getMinecraft().displayGuiScreen(new GuiFlamethrower(i));
+    }
+
+    @Override
+    public void teslaGui(int i) {
+        Minecraft.getMinecraft().displayGuiScreen(new GuiTesla(i));
     }
 }

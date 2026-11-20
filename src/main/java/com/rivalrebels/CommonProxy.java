@@ -9,4 +9,5 @@ public class CommonProxy {
     public void registerCustomModelName(Item item, String name, int meta, String variant){}
     public void closeGui(){}
     public void flamethrowerGui(int i){}
+    public void teslaGui(int degree) {}
 }

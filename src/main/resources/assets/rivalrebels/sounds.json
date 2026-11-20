@@ -50,5 +50,62 @@
   "flamethrower_fire": {
     "category": "ambient",
     "sounds": [{"name": "rivalrebels:flamethrower/b"}]
+  },
+  "tesla_fire": {
+    "category": "ambient",
+    "sounds": [{"name": "rivalrebels:tesla/fire"}, "rivalrebels:tesla/fire1", "rivalrebels:tesla/fire2", "rivalrebels:tesla/fire3", "rivalrebels:tesla/fire4"]
+  },
+  "m202_fire": {
+    "category": "ambient",
+    "sounds": [{"name": "rivalrebels:m202/fire"}, "rivalrebels:m202/fire_1", "rivalrebels:m202/fire_2"]
+  },
+  "m202_rocket_explosion": {
+    "category": "ambient",
+    "sounds": [{"name": "rivalrebels:m202/explode"}, "rivalrebels:m202/explode_1", "rivalrebels:m202/explode_2"]
+  },
+  "m202_rocket_water_splash": {
+    "category": "ambient",
+    "sounds": [{"name": "rivalrebels:m202/water_splash"}, "rivalrebels:m202/rocket_water"]
+  },
+  "m202_rocket_water_explode": {
+    "category": "ambient",
+    "sounds": [{"name": "rivalrebels:m202/water_explode"}, "rivalrebels:m202/explode_underwater"]
+  },
+  "einsten_warmup": {
+    "category": "ambient",
+    "sounds": [{"name": "rivalrebels:einsten/einsten_warmup"}, "rivalrebels:einsten/warmup"]
+  },
+  "einsten_fire_a": {
+    "category": "ambient",
+    "sounds": [{"name": "rivalrebels:einsten/einsten_fire_a"}, "rivalrebels:einsten/laser_fire_a"]
+  },
+  "einsten_fire_b": {
+    "category": "ambient",
+    "sounds": [{"name": "rivalrebels:einsten/einsten_fire_b"}, "rivalrebels:einsten/laser_fire_b"]
+  },
+  "einsten_pop": {
+    "category": "ambient",
+    "sounds": [{"name": "rivalrebels:einsten/einsten_pop"}, "rivalrebels:einsten/pop_1", "rivalrebels:einsten/pop_2", "rivalrebels:einsten/pop_3"]
+  },
+
+  "autobuild_deploy": {
+    "category": "ambient",
+    "sounds": [{"name": "rivalrebels:autobuild/deploy"}, "rivalrebels:autobuild/deploy_1", "rivalrebels:autobuild/deploy_2"]
+  },
+
+  "reactor_startup": {
+    "category": "ambient",
+    "sounds": [{"name": "rivalrebels:reactor/startup"}, "rivalrebels:reactor/startup"]
+  },
+
+  "reactor_hum": {
+    "category": "ambient",
+    "sounds": [{"name": "rivalrebels:reactor/hum"}, "rivalrebels:reactor/hum"]
+  },
+
+  "reactor_warning": {
+    "category": "ambient",
+    "sounds": [{"name": "rivalrebels:reactor/warning"}, "rivalrebels:reactor/warning"]
   }
+  
 }
