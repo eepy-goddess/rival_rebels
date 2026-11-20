@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ss"
+  ],
+  "key": {
+    "s": {
+      "item": "minecraft:sand",
+      "data": 32767
+    }
+  },
+  "result": {
+    "item": "rivalrebels:troll_helmet",
+    "count": 8
+  }
+}

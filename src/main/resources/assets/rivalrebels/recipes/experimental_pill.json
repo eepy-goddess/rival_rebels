@@ -1,0 +1,35 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "stg",
+    " mr",
+    "f w"
+  ],
+  "key": {
+    "s": {
+      "item": "minecraft:wheat_seeds"
+    },
+    "t": {
+      "item": "rivalrebels:troll_helmet"
+    },
+    "g": {
+      "item": "rivalrebels:gas_grenade"
+    },
+    "r": {
+      "item": "rivalrebels:rocket"
+    },
+    "m": {
+      "item": "minecraft:milk_bucket"
+    },
+    "f": {
+      "item": "rivalrebels:fuel"
+    },
+    "w": {
+      "item": "minecraft:water_bucket"
+    }
+  },
+  "result": {
+    "item": "rivalrebels:experimental_pill",
+    "count": 4
+  }
+}

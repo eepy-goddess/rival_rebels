@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "bbb",
+    " pb",
+    "sss"
+  ],
+  "key": {
+    "b": {
+      "item": "rivalrebels:battery"
+    },
+    "p": {
+      "item": "rivalrebels:pliers"
+    },
+    "s": {
+      "item": "rivalrebels:steel"
+    }
+  },
+  "result": {
+    "item": "rivalrebels:tesla"
+  }
+}

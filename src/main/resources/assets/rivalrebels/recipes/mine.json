@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "db",
+    "rp"
+  ],
+  "key": {
+    "d": {
+      "item": "minecraft:dirt",
+      "data": 32767
+    },
+    "b": {
+      "item": "rivalrebels:battery"
+    },
+    "r": {
+      "item": "rivalrebels:rocket"
+    },
+    "p": {
+      "item": "rivalrebels:pliers"
+    }
+  },
+  "result": {
+    "item": "rivalrebels:mine",
+    "count": 16
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ses",
+    "ere",
+    "ses"
+  ],
+  "key": {
+    "s": {
+      "item": "rivalrebels:steel"
+    },
+    "e": {
+      "item": "rivalrebels:rod"
+    },
+    "r": {
+      "item": "rivalrebels:redstone_rod"
+    }
+  },
+  "result": {
+    "item": "rivalrebels:conduit",
+    "count": 4
+  }
+}

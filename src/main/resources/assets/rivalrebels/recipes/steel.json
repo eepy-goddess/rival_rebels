@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "cc",
+    "cc"
+  ],
+  "key": {
+    "c": {
+      "item": "minecraft:cobblestone"
+    }
+  },
+  "result": {
+    "item": "rivalrebels:steel",
+    "count": 16
+  }
+}

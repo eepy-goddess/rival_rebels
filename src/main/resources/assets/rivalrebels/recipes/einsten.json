@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "rrr",
+    " pb",
+    "sss"
+  ],
+  "key": {
+    "r": {
+      "item": "rivalrebels:redstone_rod"
+    },
+    "b": {
+      "item": "rivalrebels:battery"
+    },
+    "p": {
+      "item": "rivalrebels:pliers"
+    },
+    "s": {
+      "item": "rivalrebels:steel"
+    }
+  },
+  "result": {
+    "item": "rivalrebels:einsten"
+  }
+}

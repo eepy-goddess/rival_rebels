@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " cs",
+    "epc",
+    " cs"
+  ],
+  "key": {
+    "c": {
+      "item": "rivalrebels:conduit"
+    },
+    "s": {
+      "item": "rivalrebels:steel"
+    },
+    "e": {
+      "item": "rivalrebels:chip"
+    },
+    "p": {
+      "item": "rivalrebels:pliers"
+    }
+  },
+  "result": {
+    "item": "rivalrebels:copper_core"
+  }
+}

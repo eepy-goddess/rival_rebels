@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "rrr",
+    "cpc",
+    "rrr"
+  ],
+  "key": {
+    "r": {
+      "item": "rivalrebels:reactive"
+    },
+    "c": {
+      "item": "rivalrebels:conduit"
+    },
+    "p": {
+      "item": "rivalrebels:pliers"
+    }
+  },
+  "result": {
+    "item": "rivalrebels:bastion_crate"
+  }
+}

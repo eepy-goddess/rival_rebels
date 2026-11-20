@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "r",
+    "s"
+  ],
+  "key": {
+    "w": {
+      "item": "minecraft:water_bucket"
+    },
+    "s": {
+      "item": "rivalrebels:rod"
+    }
+  },
+  "result": {
+    "item": "rivalrebels:hydrogen_rod"
+  }
+}

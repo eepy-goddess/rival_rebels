@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " cs",
+    "epr",
+    " cs"
+  ],
+  "key": {
+    "r": {
+      "item": "rivalrebels:tungsten_core"
+    },
+    "c": {
+      "item": "rivalrebels:conduit"
+    },
+    "s": {
+      "item": "rivalrebels:steel"
+    },
+    "e": {
+      "item": "rivalrebels:chip"
+    },
+    "p": {
+      "item": "rivalrebels:pliers"
+    }
+  },
+  "result": {
+    "item": "rivalrebels:titanium_core"
+  }
+}

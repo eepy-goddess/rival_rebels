@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "scs",
+    "cpc",
+    "scs"
+  ],
+  "key": {
+    "s": {
+      "item": "rivalrebels:smart_camo"
+    },
+    "c": {
+      "item": "rivalrebels:conduit"
+    },
+    "p": {
+      "item": "rivalrebels:pliers"
+    }
+  },
+  "result": {
+    "item": "rivalrebels:bunker_crate"
+  }
+}

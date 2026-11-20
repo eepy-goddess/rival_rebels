@@ -1,0 +1,118 @@
+
+{
+  "pools": [
+    {
+      "name": "rockets",
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "rivalrebels:rocket",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": 32
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "batteries",
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "rivalrebels:battery",
+          "functions": [
+            {
+              "function": "set_count",
+              "count": 16
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "hydrogen_rods",
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "rivalrebels:hydrogen_rod",
+          "functions": [
+            {
+              "function": "set_count",
+              "count": 4
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "fuel",
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "rivalrebels:fuel",
+          "functions": [
+            {
+              "function": "set_count",
+              "count": 64
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "gas_grenades",
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "rivalrebels:gas_grenade",
+          "functions": [
+            {
+              "function": "set_count",
+              "count": 6
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "redstone_rods",
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "rivalrebels:redstone_rod",
+          "functions": [
+            {
+              "function": "set_count",
+              "count": 4
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "nuclear_rod",
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "rivalrebels:nuke_rod"
+        }
+      ],
+      "conditions": [
+        {
+          "condition": "random_chance",
+          "chance": 0.33333334
+        }
+      ]
+    }
+  ]
+}
