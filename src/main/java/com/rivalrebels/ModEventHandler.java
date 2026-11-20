@@ -1,6 +1,7 @@
 package com.rivalrebels;
 
 import com.rivalrebels.client.render.*;
+import com.rivalrebels.client.render.items.RenderTesla;
 import com.rivalrebels.client.renderhelper.BakedModelNoGui;
 import com.rivalrebels.client.renderhelper.ItemRenderBase;
 import com.rivalrebels.common.blocks.RRBlock;
@@ -168,6 +169,12 @@ public class ModEventHandler {
             flamethrower_renderer.renderByItem(new ItemStack(RRItems.flamethrower));
             swapModelsNoGui(RRItems.flamethrower, event.getModelRegistry());
         }
+
+        TileEntityItemStackRenderer tesla_renderer = RRItems.tesla.getTileEntityItemStackRenderer();
+        if (tesla_renderer instanceof RenderTesla) {
+            tesla_renderer.renderByItem(new ItemStack(RRItems.tesla));
+            swapModelsNoGui(RRItems.tesla, event.getModelRegistry());
+        }
     }
 
     public static void swapModelsNoGui(Item item, IRegistry<ModelResourceLocation, IBakedModel> reg) {
@@ -215,8 +222,38 @@ public class ModEventHandler {
         }
     }
     @SubscribeEvent
-    public static void soundStuff(RegistryEvent.Register<SoundEvent> event){
-        event.getRegistry().registerAll(RRSounds.gulp, RRSounds.generic_explosion, RRSounds.plasma_explosion, RRSounds.plasma_fire, RRSounds.plasma_prime,
-                RRSounds.toyguy, RRSounds.explosives_place, RRSounds.quicksand, RRSounds.glass_break, RRSounds.knife_throw, RRSounds.gas_fizz);
+    public static void soundStuff(RegistryEvent.Register<SoundEvent> event) {
+        event.getRegistry().registerAll(
+            RRSounds.gulp,
+            RRSounds.toyguy,
+            RRSounds.plasma_explosion,
+            RRSounds.plasma_prime,
+            RRSounds.plasma_fire,
+            RRSounds.generic_explosion,
+            RRSounds.explosives_place,
+            RRSounds.weird_noise,
+            RRSounds.quicksand,
+            RRSounds.glass_break,
+            RRSounds.knife_throw,
+            RRSounds.gas_fizz,
+            RRSounds.flamethrower_fire,
+            RRSounds.tesla_fire,
+
+            RRSounds.m202_fire,
+            RRSounds.m202_rocket_explosion,
+            RRSounds.m202_rocket_water_splash,
+            RRSounds.m202_rocket_water_explode,
+
+            RRSounds.einsten_warmup,
+            RRSounds.einsten_fire_A,
+            RRSounds.einsten_fire_B,
+            RRSounds.einsten_pop,
+
+            RRSounds.autobuild_deploy,
+
+            RRSounds.reactor_startup,
+            RRSounds.reactor_hum,
+            RRSounds.reactor_warning
+        );
     }
 }

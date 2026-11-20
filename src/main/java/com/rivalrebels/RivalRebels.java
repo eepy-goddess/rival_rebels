@@ -2,6 +2,7 @@ package com.rivalrebels;
 
 import com.rivalrebels.common.command.RRConfig;
 import com.rivalrebels.common.command.RRModelMoveDebug;
+import com.rivalrebels.common.config.RRConfigx;
 import com.rivalrebels.common.init.*;
 import com.rivalrebels.common.packet.PacketDispatcher;
 
@@ -31,10 +32,14 @@ public class RivalRebels {
     public static List<Item> other_items = new ArrayList<>();
     public static List<Block> other_blocks = new ArrayList<>();
 
+    // temp TODO: make this to config:
+    public static int teslaDecay = 250;
+
     @SuppressWarnings(value = "unused")
     @Mod.EventHandler
     public void preLoad(FMLPreInitializationEvent event) {
-        RRConfigOptions.makeConfig(event);
+        RRConfigOptions.makeConfig(event); // My goal is to replace this
+        //RRConfigx.init(event.getSuggestedConfigurationFile());
         instance = this;
         RRSounds.init();
         RRBlocks.initBlocks();

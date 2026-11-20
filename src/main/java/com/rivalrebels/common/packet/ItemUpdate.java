@@ -1,6 +1,7 @@
 package com.rivalrebels.common.packet;
 
 import com.rivalrebels.common.items.FlameThrower;
+import com.rivalrebels.common.items.weapons.Tesla;
 
 import io.netty.buffer.ByteBuf;
 
@@ -43,11 +44,11 @@ public class ItemUpdate implements IMessage {
         public IMessage onMessage(ItemUpdate message, MessageContext ctx)
         {
             ItemStack itemstack = ctx.getServerHandler().player.inventory.getStackInSlot(message.item);
-            /*if (itemstack.getItem() instanceof ItemTesla)
+            if (itemstack.getItem() instanceof Tesla)
             {
                 if (!itemstack.hasTagCompound()) itemstack.setTagCompound(new NBTTagCompound());
-                itemstack.stackTagCompound.setInteger("dial", message.value);
-            }*/
+                itemstack.getTagCompound().setInteger("dial", message.value);
+            }
             if (itemstack.getItem() instanceof FlameThrower)
             {
                 if (!itemstack.hasTagCompound()) itemstack.setTagCompound(new NBTTagCompound());

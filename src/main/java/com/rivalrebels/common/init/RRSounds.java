@@ -19,6 +19,19 @@ public class RRSounds {
     public static SoundEvent knife_throw;
     public static SoundEvent gas_fizz;
     public static SoundEvent flamethrower_fire;
+    public static SoundEvent tesla_fire;
+    public static SoundEvent m202_fire;
+    public static SoundEvent m202_rocket_explosion;
+    public static SoundEvent m202_rocket_water_splash;
+    public static SoundEvent m202_rocket_water_explode;
+    public static SoundEvent einsten_warmup;
+    public static SoundEvent einsten_fire_A;
+    public static SoundEvent einsten_fire_B;
+    public static SoundEvent einsten_pop;
+    public static SoundEvent autobuild_deploy;
+    public static SoundEvent reactor_startup;
+    public static SoundEvent reactor_hum;
+    public static SoundEvent reactor_warning;
 
     public static void init() {
         gulp = new SoundEvent(new ResourceLocation(ModInfo.modid, "gulp")).setRegistryName("gulp");
@@ -34,5 +47,22 @@ public class RRSounds {
         knife_throw = new SoundEvent(new ResourceLocation(ModInfo.modid, "knife_throw")).setRegistryName("knife_throw");
         gas_fizz = new SoundEvent(new ResourceLocation(ModInfo.modid, "gas_fizz")).setRegistryName("gas_fizz");
         flamethrower_fire = new SoundEvent(new ResourceLocation(ModInfo.modid, "flamethrower_fire")).setRegistryName("flamethrower_fire");
+        tesla_fire = new SoundEvent(new ResourceLocation(ModInfo.modid, "tesla_fire")).setRegistryName("tesla_fire");
+
+        m202_fire = new SoundEvent(new ResourceLocation(ModInfo.modid, "m202_fire")).setRegistryName("m202_fire");
+        m202_rocket_explosion = new SoundEvent(new ResourceLocation(ModInfo.modid, "m202_rocket_explosion")).setRegistryName("m202_rocket_explosion");
+        m202_rocket_water_splash = new SoundEvent(new ResourceLocation(ModInfo.modid, "m202_rocket_water_splash")).setRegistryName("m202_rocket_water_splash");
+        m202_rocket_water_explode = new SoundEvent(new ResourceLocation(ModInfo.modid, "m202_rocket_water_explode")).setRegistryName("m202_rocket_water_explode");
+
+        einsten_warmup = new SoundEvent(new ResourceLocation(ModInfo.modid, "einsten_warmup")).setRegistryName("einsten_warmup");
+        einsten_fire_A = new SoundEvent(new ResourceLocation(ModInfo.modid, "einsten_fire_a")).setRegistryName("einsten_fire_a");
+        einsten_fire_B = new SoundEvent(new ResourceLocation(ModInfo.modid, "einsten_fire_b")).setRegistryName("einsten_fire_b");
+        einsten_pop = new SoundEvent(new ResourceLocation(ModInfo.modid, "einsten_pop")).setRegistryName("einsten_pop");
+
+        autobuild_deploy = new SoundEvent(new ResourceLocation(ModInfo.modid, "autobuild_deploy")).setRegistryName("autobuild_deploy");
+
+        reactor_startup = new SoundEvent(new ResourceLocation(ModInfo.modid, "reactor_startup")).setRegistryName("reactor_startup");
+        reactor_hum = new SoundEvent(new ResourceLocation(ModInfo.modid, "reactor_hum")).setRegistryName("reactor_hum");
+        reactor_warning = new SoundEvent(new ResourceLocation(ModInfo.modid, "reactor_warning")).setRegistryName("reactor_warning");
     }
 }
