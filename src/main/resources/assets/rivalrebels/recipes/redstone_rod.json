@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "r",
+    "s"
+  ],
+  "key": {
+    "r": {
+      "item": "minecraft:redstone"
+    },
+    "s": {
+      "item": "rivalrebels:rod"
+    }
+  },
+  "result": {
+    "item": "rivalrebels:redstone_rod"
+  }
+}

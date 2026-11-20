@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "mcm",
+    "cpc",
+    "mcm"
+  ],
+  "key": {
+    "m": {
+      "item": "rivalrebels:mine"
+    },
+    "c": {
+      "item": "rivalrebels:conduit"
+    },
+    "p": {
+      "item": "rivalrebels:pliers"
+    }
+  },
+  "result": {
+    "item": "rivalrebels:mine_trap"
+  }
+}

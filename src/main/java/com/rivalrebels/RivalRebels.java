@@ -48,7 +48,6 @@ public class RivalRebels {
     @SuppressWarnings(value = "unused")
     @Mod.EventHandler
     public void load(FMLInitializationEvent event) {
-        RivalRebelsRecipes.init();
 
     }
 

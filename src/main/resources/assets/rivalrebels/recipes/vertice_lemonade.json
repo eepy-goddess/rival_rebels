@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "s  ",
+    " m ",
+    "f w"
+  ],
+  "key": {
+    "s": {
+      "item": "minecraft:wheat_seeds"
+    },
+    "m": {
+      "item": "minecraft:milk_bucket"
+    },
+    "f": {
+      "item": "rivalrebels:fuel"
+    },
+    "w": {
+      "item": "minecraft:water_bucket"
+    }
+  },
+  "result": {
+    "item": "rivalrebels:vertice_lemonade",
+    "count": 4
+  }
+}

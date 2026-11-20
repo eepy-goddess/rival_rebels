@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "cd",
+    "sg"
+  ],
+  "key": {
+    "d": {
+      "item": "minecraft:dirt",
+      "data": 32767
+    },
+    "s": {
+      "item": "minecraft:sand",
+      "data": 32767
+    },
+    "g": {
+      "item": "minecraft:gravel"
+    },
+    "c": {
+      "item": "minecraft:cobblestone"
+    }
+  },
+  "result": {
+    "item": "rivalrebels:sapper_shovel"
+  }
+}

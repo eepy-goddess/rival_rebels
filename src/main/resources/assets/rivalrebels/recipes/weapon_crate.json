@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "sbs",
+    "apa",
+    "sbs"
+  ],
+  "key": {
+    "s": {
+      "item": "rivalrebels:steel"
+    },
+    "b": {
+      "item": "rivalrebels:battery"
+    },
+    "a": {
+      "item": "rivalrebels:ammo_crate"
+    },
+    "p": {
+      "item": "rivalrebels:pliers"
+    }
+  },
+  "result": {
+    "item": "rivalrebels:weapon_crate"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "fb",
+    "rp"
+  ],
+  "key": {
+    "f": {
+      "item": "rivalrebels:fuel"
+    },
+    "b": {
+      "item": "rivalrebels:battery",
+      "data": 32767
+    },
+    "r": {
+      "item": "rivalrebels:rocket"
+    },
+    "p": {
+      "item": "rivalrebels:pliers"
+    }
+  },
+  "result": {
+    "item": "rivalrebels:timed_bomb"
+  }
+}

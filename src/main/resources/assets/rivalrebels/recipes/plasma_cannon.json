@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "hhh",
+    " pb",
+    "sss"
+  ],
+  "key": {
+    "j": {
+      "item": "rivalrebels:hydrogen_rod"
+    },
+    "b": {
+      "item": "rivalrebels:battery"
+    },
+    "p": {
+      "item": "rivalrebels:pliers"
+    },
+    "s": {
+      "item": "rivalrebels:steel"
+    }
+  },
+  "result": {
+    "item": "rivalrebels:plasma_cannon"
+  }
+}

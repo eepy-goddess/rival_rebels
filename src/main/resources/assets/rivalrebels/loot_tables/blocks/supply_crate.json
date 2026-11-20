@@ -1,0 +1,164 @@
+{
+  "pools": [
+    {
+      "name": "toaster",
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "rivalrebels:toaster",
+          "functions": [
+            {
+              "function": "set_count",
+              "count": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "sapper_shovel",
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "rivalrebels:sapper_shovel",
+          "functions": [
+            {
+              "function": "set_count",
+              "count": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "jumper",
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "rivalrebels:jumper",
+          "functions": [
+            {
+              "function": "set_count",
+              "count": 4
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "quicksand_trap",
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "rivalrebels:quicksand_trap",
+          "functions": [
+            {
+              "function": "set_count",
+              "count": 4
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "steel",
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "rivalrebels:steel",
+          "functions": [
+            {
+              "function": "set_count",
+              "count": 32
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "loader",
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "rivalrebels:loader",
+          "functions": [
+            {
+              "function": "set_count",
+              "count": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "bucket",
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "minecraft:bucket",
+          "functions": [
+            {
+              "function": "set_count",
+              "count": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "mario_trap",
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "rivalrebels:mario_trap",
+          "functions": [
+            {
+              "function": "set_count",
+              "count": 4
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "experimental_pill",
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "rivalrebels:experimental_pill",
+          "functions": [
+            {
+              "function": "set_count",
+              "count": 6
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "safe_pill",
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "rivalrebels:safe_pill",
+          "functions": [
+            {
+              "function": "set_count",
+              "count": 3
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

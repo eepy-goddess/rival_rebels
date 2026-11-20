@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "scs",
+    "c c",
+    "scs"
+  ],
+  "key": {
+    "s": {
+      "item": "rivalrebels:smart_camo"
+    },
+    "c": {
+      "item": "rivalrebels:conduit"
+    }
+  },
+  "result": {
+    "item": "rivalrebels:reactive",
+    "count": 4
+  }
+}
