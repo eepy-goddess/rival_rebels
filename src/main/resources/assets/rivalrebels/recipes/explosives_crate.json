@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "sfs",
+    "gpg",
+    "sfs"
+  ],
+  "key": {
+    "s": {
+      "item": "rivalrebels:steel"
+    },
+    "f": {
+      "item": "rivalrebels:flare"
+    },
+    "g": {
+      "item": "rivalrebels:gas_grenade"
+    },
+    "p": {
+      "item": "rivalrebels:pliers"
+    }
+  },
+  "result": {
+    "item": "rivalrebels:explosives_crate"
+  }
+}

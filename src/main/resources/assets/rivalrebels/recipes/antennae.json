@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "db",
+    "sp"
+  ],
+  "key": {
+    "d": {
+      "item": "rivalrebels:detonator"
+    },
+    "b": {
+      "item": "rivalrebels:battery"
+    },
+    "s": {
+      "item": "rivalrebels:steel"
+    },
+    "p": {
+      "item": "rivalrebels:pliers"
+    }
+  },
+  "result": {
+    "item": "rivalrebels:antennae"
+  }
+}

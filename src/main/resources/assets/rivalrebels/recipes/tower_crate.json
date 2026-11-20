@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ss",
+    "sj"
+  ],
+  "key": {
+    "s": {
+      "item": "rivalrebels:steel"
+    },
+    "j": {
+      "item": "rivalrebels:jumper"
+    }
+  },
+  "result": {
+    "item": "rivalrebels:tower_crate"
+  }
+}

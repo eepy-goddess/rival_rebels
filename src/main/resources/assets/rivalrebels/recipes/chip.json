@@ -1,0 +1,31 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " da",
+    "tpb",
+    "tlb"
+  ],
+  "key": {
+    "d": {
+      "item": "rivalrebels:detonator"
+    },
+    "a": {
+      "item": "rivalrebels:antennae"
+    },
+    "t": {
+      "item": "rivalrebels:toaster"
+    },
+    "b": {
+      "item": "rivalrebels:battery"
+    },
+    "l": {
+      "item": "rivalrebels:loader"
+    },
+    "p": {
+      "item": "rivalrebels:pliers"
+    }
+  },
+  "result": {
+    "item": "rivalrebels:chip"
+  }
+}

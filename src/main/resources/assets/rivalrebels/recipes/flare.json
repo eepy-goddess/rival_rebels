@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "fd",
+    "rd"
+  ],
+  "key": {
+    "d": {
+      "item": "minecraft:dirt",
+      "data": 32767
+    },
+    "f": {
+      "item": "rivalrebels:fuel"
+    },
+    "r": {
+      "item": "rivalrebels:rocket"
+    }
+  },
+  "result": {
+    "item": "rivalrebels:flare"
+  }
+}

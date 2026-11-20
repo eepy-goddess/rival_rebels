@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " s",
+    "dp",
+    " w"
+  ],
+  "key": {
+    "s": {
+      "item": "rivalrebels:steel"
+    },
+    "d": {
+      "item": "minecraft:wheat_seeds"
+    },
+    "p": {
+      "item": "rivalrebels:pliers"
+    },
+    "w": {
+      "item": "minecraft:water_bucket"
+    }
+  },
+  "result": {
+    "item": "rivalrebels:toaster"
+  }
+}

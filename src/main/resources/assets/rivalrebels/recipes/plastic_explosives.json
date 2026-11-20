@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "bg",
+    "fr"
+  ],
+  "key": {
+    "b": {
+      "item": "rivalrebels:battery"
+    },
+    "g": {
+      "item": "rivalrebels:gas_grenade"
+    },
+    "f": {
+      "item": "rivalrebels:fuel"
+    },
+    "r": {
+      "item": "rivalrebels:rocket"
+    }
+  },
+  "result": {
+    "item": "rivalrebels:plastic_explosives",
+    "count": 4
+  }
+}

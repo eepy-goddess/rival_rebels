@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "gc",
+    "cg"
+  ],
+  "key": {
+    "g": {
+      "item": "minecraft:gravel"
+    },
+    "c": {
+      "item": "minecraft:cobblestone"
+    }
+  },
+  "result": {
+    "item": "rivalrebels:knife",
+    "count": 5
+  }
+}

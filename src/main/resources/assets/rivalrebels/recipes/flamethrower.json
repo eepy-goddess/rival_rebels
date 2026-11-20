@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "fff",
+    " pb",
+    "sss"
+  ],
+  "key": {
+    "f": {
+      "item": "rivalrebels:fuel"
+    },
+    "b": {
+      "item": "rivalrebels:battery"
+    },
+    "p": {
+      "item": "rivalrebels:pliers"
+    },
+    "s": {
+      "item": "rivalrebels:steel"
+    }
+  },
+  "result": {
+    "item": "rivalrebels:flamethrower"
+  }
+}

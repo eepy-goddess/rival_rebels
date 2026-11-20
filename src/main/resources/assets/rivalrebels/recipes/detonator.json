@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "bf",
+    "rp"
+  ],
+  "key": {
+    "b": {
+      "item": "rivalrebels:battery"
+    },
+    "f": {
+      "item": "rivalrebels:fuel"
+    },
+    "r": {
+      "item": "rivalrebels:rocket"
+    },
+    "p": {
+      "item": "rivalrebels:pliers"
+    }
+  },
+  "result": {
+    "item": "rivalrebels:detonator"
+  }
+}

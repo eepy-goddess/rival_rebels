@@ -1,0 +1,31 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "sds",
+    "apb",
+    "sls"
+  ],
+  "key": {
+    "s": {
+      "item": "rivalrebels:steel"
+    },
+    "d": {
+      "item": "rivalrebels:detonator"
+    },
+    "a": {
+      "item": "rivalrebels:antennae"
+    },
+    "p": {
+      "item": "rivalrebels:pliers"
+    },
+    "b": {
+      "item": "rivalrebels:battery"
+    },
+    "l": {
+      "item": "rivalrebels:loader"
+    }
+  },
+  "result": {
+    "item": "rivalrebels:supply_crate"
+  }
+}
