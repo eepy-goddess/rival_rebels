@@ -11,6 +11,7 @@ tile.nuke.name=Nuke
 tile.steel.name=Steel
 tile.toaster.name=Toaster
 item.plasma_cannon.name=Plasma Cannon
+item.flamethrower.name=Flamethrower
 itemGroup.rival_rebels=Rival Rebels
 itemGroup.rival_rebels2=Rival Rebels Armor and Flags
 item.lol.name=LOL

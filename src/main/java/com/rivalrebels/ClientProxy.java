@@ -49,9 +49,9 @@ public class ClientProxy extends CommonProxy{
         RenderingRegistry.registerEntityRenderingHandler(EntityCuchillo.class, RenderCuchillo::new);
         GameRegistry.registerTileEntity(TileQuickSand.class, new ResourceLocation(ModInfo.modid, "quicksand"));
         ClientRegistry.bindTileEntitySpecialRenderer(TileQuickSand.class, new RenderQuicksand());
-        RenderingRegistry.registerEntityRenderingHandler(EntityFlameBall.class, RenderFlameball::new);
-        RenderingRegistry.registerEntityRenderingHandler(EntityFlameBall1.class, RenderFlameBall1::new);
-        RenderingRegistry.registerEntityRenderingHandler(EntityFlameBall2.class, RenderFlameBall2::new);
+        RenderingRegistry.registerEntityRenderingHandler(EntityFlameBallLowTemp.class, RenderFlameBallLowTemp::new);
+        RenderingRegistry.registerEntityRenderingHandler(EntityFlameBallMediumTemp.class, RenderFlameBallMediumTemp::new);
+        RenderingRegistry.registerEntityRenderingHandler(EntityFlameBallHighTemp.class, RenderFlameBallHighTemp::new);
         RenderingRegistry.registerEntityRenderingHandler(EntityGasGrenade.class, RenderGasGrenade::new);
     }
     public void registerModel(Item item, int meta, String variant){

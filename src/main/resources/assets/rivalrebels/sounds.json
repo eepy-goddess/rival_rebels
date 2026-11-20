@@ -46,5 +46,9 @@
   "gas_fizz": {
     "category": "ambient",
     "sounds": [{"name": "rivalrebels:explosion/gas_fizz"}]
+  },
+  "flamethrower_fire": {
+    "category": "ambient",
+    "sounds": [{"name": "rivalrebels:flamethrower/b"}]
   }
 }

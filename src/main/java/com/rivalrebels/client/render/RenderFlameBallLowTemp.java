@@ -2,7 +2,7 @@ package com.rivalrebels.client.render;
 
 import com.rivalrebels.ModInfo;
 import com.rivalrebels.client.oldstuff.Tessellator;
-import com.rivalrebels.common.entity.EntityFlameBall;
+import com.rivalrebels.common.entity.EntityFlameBallLowTemp;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderManager;
@@ -13,14 +13,14 @@ import org.lwjgl.opengl.GL14;
 
 import javax.annotation.Nullable;
 
-public class RenderFlameball extends Render<EntityFlameBall> {
+public class RenderFlameBallLowTemp extends Render<EntityFlameBallLowTemp> {
     public static ResourceLocation texture = new ResourceLocation(ModInfo.modid, "textures/entity/flame_ball.png");
-    public RenderFlameball(RenderManager renderManager) {
+    public RenderFlameBallLowTemp(RenderManager renderManager) {
         super(renderManager);
     }
 
     @Override
-    public void doRender(EntityFlameBall ell, double x, double y, double z, float entityYaw, float partialTicks) {
+    public void doRender(EntityFlameBallLowTemp ell, double x, double y, double z, float entityYaw, float partialTicks) {
         if (ell.ticksExisted < 3) return;
         GL11.glPushMatrix();
         GL11.glDepthMask(false);
@@ -65,7 +65,7 @@ public class RenderFlameball extends Render<EntityFlameBall> {
 
     @Nullable
     @Override
-    protected ResourceLocation getEntityTexture(EntityFlameBall entity) {
+    protected ResourceLocation getEntityTexture(EntityFlameBallLowTemp entity) {
         return null;
     }
 }

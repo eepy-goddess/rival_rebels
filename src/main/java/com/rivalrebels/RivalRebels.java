@@ -1,6 +1,7 @@
 package com.rivalrebels;
 
 import com.rivalrebels.common.command.RRConfig;
+import com.rivalrebels.common.command.RRModelMoveDebug;
 import com.rivalrebels.common.init.*;
 import com.rivalrebels.common.packet.PacketDispatcher;
 
@@ -55,5 +56,6 @@ public class RivalRebels {
     @Mod.EventHandler
     public void serverStart(FMLServerStartingEvent event) {
         event.registerServerCommand(new RRConfig());
+        event.registerServerCommand(new RRModelMoveDebug());
     }
 }
